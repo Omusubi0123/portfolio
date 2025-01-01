@@ -5,8 +5,8 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-gray-100 text-gray-800">
       <header className="bg-blue-600 text-white py-4">
         <div className="container mx-auto text-center">
-          <h1 className="text-3xl font-bold">My Portfolio</h1>
-          <p className="text-sm">Welcome to my personal space!</p>
+          <h1 className="text-3xl font-bold">Portfolio</h1>
+          <p className="text-sm">いざわのポートフォリオだよん</p>
         </div>
       </header>
       <main className="container mx-auto mt-8">
