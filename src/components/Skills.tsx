@@ -1,4 +1,4 @@
-import React from 'react';
+import Section from './Section';
 
 const Skills: React.FC = () => {
   const skills = [
@@ -11,8 +11,13 @@ const Skills: React.FC = () => {
   ];
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center bg-white text-gray-800">
-      <h2 className="text-4xl font-bold mb-8">Skills</h2>
+    <Section 
+      id="skills" 
+      title="Skills" 
+      className="bg-green-300"
+      width="100%" 
+      height="auto"
+    >
       <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
         {skills.map((skill, index) => (
           <div
@@ -24,7 +29,7 @@ const Skills: React.FC = () => {
           </div>
         ))}
       </div>
-    </section>
+    </Section>
   );
 };
 

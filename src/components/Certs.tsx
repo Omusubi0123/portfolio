@@ -1,4 +1,4 @@
-import React from 'react';
+import Section from './Section';
 
 const Certs: React.FC = () => {
   const certifications = [
@@ -9,8 +9,13 @@ const Certs: React.FC = () => {
   ];
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center bg-gray-100 text-gray-800">
-      <h2 className="text-4xl font-bold mb-8">Certifications</h2>
+    <Section 
+      id="certs" 
+      title="Certifications" 
+      className="bg-yellow-100"
+      width="100%" 
+      height="auto"
+    >
       <ul className="list-disc text-lg">
         {certifications.map((cert, index) => (
           <li key={index} className="mb-2">
@@ -18,7 +23,7 @@ const Certs: React.FC = () => {
           </li>
         ))}
       </ul>
-    </section>
+    </Section>
   );
 };
 

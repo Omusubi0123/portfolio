@@ -1,8 +1,21 @@
 import React from 'react';
 
-const Section: React.FC<{ id: string; title: string; children: React.ReactNode }> = ({ id, title, children }) => {
+interface SectionProps {
+  id: string;
+  title: string;
+  className?: string;
+  width?: string;
+  height?: string;
+  children: React.ReactNode;
+}
+
+const Section: React.FC<SectionProps> = ({ id, title, className, width, height, children }) => {
   return (
-    <section id={id} className="min-h-screen flex flex-col justify-center items-center bg-gray-100 text-gray-900">
+    <section
+      id={id}
+      className={`flex flex-col justify-center items-center text-gray-900 ${className || ''}`}
+      style={{ width: width || '100`%', height: height || 'auto', minHeight: '100vh' }}
+    >
       <h2 className="text-4xl font-bold text-center mb-6">{title}</h2>
       <div className="w-full max-w-4xl">{children}</div>
     </section>

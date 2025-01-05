@@ -7,7 +7,12 @@ const Works: React.FC = () => {
   ];
 
   return (
-    <Section id="works" title="My Works">
+    <Section 
+      id="works" 
+      title="My Works"
+      width="100%" 
+      height="auto"
+    >
       <div className="grid grid-cols-2 gap-4">
         {works.map((work) => (
           <div key={work.id} className="relative group">
