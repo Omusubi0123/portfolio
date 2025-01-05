@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: [
     "./index.html",
@@ -9,9 +10,6 @@ export default {
       colors: {
         primary: '#4CAF50',
         secondary: '#FFC107',
-      },
-      backgroundColor: {
-        'custom-bg': '#f3f4f6',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'Avenir', 'Helvetica', 'Arial', 'sans-serif'],
