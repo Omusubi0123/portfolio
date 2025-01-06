@@ -2,8 +2,8 @@ import Section from './Section';
 
 export default function Works() {
   const works = [
-    { id: 1, title: 'アプリA', image: '/images/work1.png' },
-    { id: 2, title: 'アプリB', image: '/images/work2.png' },
+    { id: 1, title: 'にほんGO UP APP', image: '../src/assets/nihon_go_up_app.png', link: 'https://example.com/nihon_go_up_app' },
+    { id: 2, title: 'ネットレンド', image: '../src/assets/netrend.png', link: 'https://netrend.vercel.app/' },
   ];
 
   return (
@@ -15,12 +15,12 @@ export default function Works() {
     >
       <div className="grid grid-cols-2 gap-4">
         {works.map((work) => (
-          <div key={work.id} className="relative group">
+          <a key={work.id} href={work.link} target="_blank" rel="noopener noreferrer" className="relative group flex justify-center items-center">
             <img src={work.image} alt={work.title} className="w-full h-auto rounded-lg shadow-lg" />
             <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center opacity-0 group-hover:opacity-100 transition">
               <span className="text-white text-lg">{work.title}</span>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </Section>
