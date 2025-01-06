@@ -12,9 +12,9 @@ export default function Works() {
     <Section 
       id="works" 
       title="My Works"
-      className='bg-gray-100 py-8'
+      className='bg-gray-100 flex justify-center py-8'
     >
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-3 gap-4">
         {works.map((work) => (
           <a key={work.id} href={work.link} target="_blank" rel="noopener noreferrer" className="relative group flex justify-center items-center">
             <img src={work.image} alt={work.title} className="w-full h-auto rounded-lg shadow-lg" />

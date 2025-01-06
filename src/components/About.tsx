@@ -22,7 +22,7 @@ export default function About() {
         </div>
 
         {/* 右側の列 */}
-        <div className="overflow-y-auto h-[45rem] p-6 bg-gradient-to-br from-gray-100 to-gray-200 shadow-xl rounded-lg">
+        <div className="overflow-y-auto h-[44rem] p-6 bg-gradient-to-br from-gray-100 to-gray-200 shadow-xl rounded-lg">
           <h2 className="text-3xl font-bold mb-4 text-center">これまでの経歴</h2>
           <ul className="list-disc list-inside text-xl leading-loose text-left">
             <li className="border-b border-gray-300 pb-2">2020年: 大学卒業 (コンピュータサイエンス専攻)</li>

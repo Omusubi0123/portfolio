@@ -1,14 +1,15 @@
 import React from 'react';
-import Header from './Header'; // Header.tsxをインポート
 
-const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const Layout: React.FC<{ header: React.ReactNode; children: React.ReactNode }> = ({ header, children }) => {
   return (
-    <div>
-      {/* HeaderコンポーネントをNavigation部分に使用 */}
-      <Header />
+    <div className="flex flex-col min-h-screen">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50">
+        {header}
+      </nav>
 
       {/* Content */}
-      <main className="pt-16">{children}</main>
+      <main className="flex-grow pt-16">{children}</main>
     </div>
   );
 };
