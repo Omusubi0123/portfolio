@@ -1,4 +1,6 @@
-export default function  Header() {
+import { Link } from 'react-scroll';
+
+export default function Header() {
   const sections = ['About', 'Works', 'Certifications', 'Skills'];
 
   return (
@@ -8,12 +10,14 @@ export default function  Header() {
         <ul className="flex space-x-6">
           {sections.map((section, index) => (
             <li key={index}>
-              <a
-                href={`#${section.toLowerCase()}`}
-                className="hover:text-gray-300 transition"
+              <Link
+                to={section.toLowerCase()}
+                smooth={true}
+                duration={500}
+                className="hover:text-gray-300 transition cursor-pointer"
               >
                 {section}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
