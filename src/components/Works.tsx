@@ -2,8 +2,8 @@ import Section from './Section';
 
 export default function Works() {
   const works = [
-    { id: 1, title: 'にほんGO UP APP', image: '../src/assets/nihon_go_up_app.png', link: 'https://example.com/nihon_go_up_app' },
-    { id: 2, title: 'ネットレンド', image: '../src/assets/netrend.png', link: 'https://netrend.vercel.app/' },
+    { id: 1, title: 'にほんGO UP APP', image: '/nihon_go_up_app.png', link: 'https://example.com/nihon_go_up_app' },
+    { id: 2, title: 'ネットレンド', image: '/netrend.png', link: 'https://netrend.vercel.app/' },
   ];
 
   return (
