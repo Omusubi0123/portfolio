@@ -10,11 +10,13 @@ export default function About() {
       <div className="container max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         {/* 左側の列 */}
         <div className="flex flex-col items-center text-center">
-          <img 
-            src="/icon.png" 
-            alt="Icon" 
-            className="w-60 h-60 rounded-full mb-8"
-          />
+          <a href="https://github.com/Omusubi0123" target="_blank" rel="noopener noreferrer">
+            <img 
+              src="/icon.png" 
+              alt="Icon" 
+              className="w-60 h-60 rounded-full mb-8"
+            />
+          </a>
           <p className="text-lg font-medium">
             いざわ
             <br />東京大学工学部 電子情報工学科3年

@@ -5,7 +5,7 @@ export default function Certifications() {
     'Certified Kubernetes Administrator (CKA)',
     'AWS Certified Solutions Architect – Associate',
     'Google Cloud Professional Data Engineer',
-    'TOEIC 900+',
+    'TOEIC 800+',
   ];
 
   return (
