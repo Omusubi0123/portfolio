@@ -9,7 +9,7 @@ const Layout: React.FC<{ header: React.ReactNode; children: React.ReactNode }> =
       </nav>
 
       {/* Content */}
-      <main className="flex-grow pt-16">{children}</main>
+      <main className="flex-grow pt-10">{children}</main>
     </div>
   );
 };
