@@ -14,7 +14,7 @@ export default function Skills() {
     <Section 
       id="skills" 
       title="Skills" 
-      className="bg-gray-200 flex justify-center py-8"
+      className="bg-transparent flex justify-center py-8"
     >
       <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
         {skills.map((skill, index) => (

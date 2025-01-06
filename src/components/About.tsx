@@ -5,7 +5,7 @@ export default function About() {
     <Section 
       id="about" 
       title="About Me" 
-      className="bg-gray-300 flex justify-center py-8"
+      className="bg-transparent flex justify-center py-8"
     >
       <div className="container max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         {/* 左側の列 */}

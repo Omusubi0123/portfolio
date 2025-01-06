@@ -12,7 +12,7 @@ export default function Works() {
     <Section 
       id="works" 
       title="My Works"
-      className='bg-gray-100 flex justify-center py-8'
+      className="bg-transparent flex justify-center py-8"
     >
       <div className="grid grid-cols-3 gap-4">
         {works.map((work) => (
