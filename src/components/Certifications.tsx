@@ -1,6 +1,6 @@
 import Section from './Section';
 
-export default function Certs() {
+export default function Certifications() {
   const certifications = [
     'Certified Kubernetes Administrator (CKA)',
     'AWS Certified Solutions Architect – Associate',
@@ -10,7 +10,7 @@ export default function Certs() {
 
   return (
     <Section 
-      id="certs" 
+      id="certifications" 
       title="Certifications" 
       className="bg-yellow-100"
       width="100%" 
