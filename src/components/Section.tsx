@@ -14,10 +14,10 @@ export default function Section({ id, title, className, width, height, children 
     <section
       id={id}
       className={`flex flex-col justify-center items-center text-gray-900 ${className || ''}`}
-      style={{ width: width || '100`%', height: height || 'auto', minHeight: '100vh' }}
+      style={{ width: width || '100%', height: height || 'auto', minHeight: '100vh' }}
     >
-      <h2 className="text-4xl font-bold text-center mb-6">{title}</h2>
-      <div className="w-full max-w-4xl">{children}</div>
+      <h2 className="text-4xl font-bold text-center mb-8">{title}</h2>
+      <div className="w-full max-w-7xl">{children}</div>
     </section>
   );
 };

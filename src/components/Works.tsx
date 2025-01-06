@@ -4,6 +4,8 @@ export default function Works() {
   const works = [
     { id: 1, title: 'にほんGO UP APP', image: '/nihon_go_up_app.png', link: 'https://example.com/nihon_go_up_app' },
     { id: 2, title: 'ネットレンド', image: '/netrend.png', link: 'https://netrend.vercel.app/' },
+    { id: 3, title: 'Life DiaLog', image: '/life_dialog.png', link: 'https://life-dialog.vercel.app/' },
+    { id: 4, title: 'プロジェクトB', image: '/project_b.png', link: 'https://example.com/project_b' },
   ];
 
   return (
