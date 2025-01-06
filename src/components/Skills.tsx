@@ -14,9 +14,7 @@ export default function Skills() {
     <Section 
       id="skills" 
       title="Skills" 
-      className="bg-green-300"
-      width="100%" 
-      height="auto"
+      className="bg-gray-200 py-8"
     >
       <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
         {skills.map((skill, index) => (

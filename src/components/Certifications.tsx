@@ -12,9 +12,7 @@ export default function Certifications() {
     <Section 
       id="certifications" 
       title="Certifications" 
-      className="bg-yellow-100"
-      width="100%" 
-      height="auto"
+      className="bg-gray-100 py-8"
     >
       <ul className="list-disc text-lg">
         {certifications.map((cert, index) => (

@@ -12,8 +12,7 @@ export default function Works() {
     <Section 
       id="works" 
       title="My Works"
-      width="100%" 
-      height="auto"
+      className='bg-gray-100 py-8'
     >
       <div className="grid grid-cols-2 gap-4">
         {works.map((work) => (
