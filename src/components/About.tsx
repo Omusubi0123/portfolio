@@ -1,6 +1,6 @@
 import Section from './Section';
 
-const About: React.FC = () => {
+export default function About() {
   return (
     <Section 
       id="about" 
@@ -14,5 +14,3 @@ const About: React.FC = () => {
     </Section>
   );
 };
-
-export default About;

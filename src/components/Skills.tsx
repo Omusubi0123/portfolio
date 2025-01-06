@@ -1,6 +1,6 @@
 import Section from './Section';
 
-const Skills: React.FC = () => {
+export default function Skills() {
   const skills = [
     { name: 'Python', icon: '🐍' },
     { name: 'C', icon: '💻' },
@@ -32,5 +32,3 @@ const Skills: React.FC = () => {
     </Section>
   );
 };
-
-export default Skills;

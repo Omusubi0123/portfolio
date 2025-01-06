@@ -9,7 +9,7 @@ interface SectionProps {
   children: React.ReactNode;
 }
 
-const Section: React.FC<SectionProps> = ({ id, title, className, width, height, children }) => {
+export default function Section({ id, title, className, width, height, children }: SectionProps) {
   return (
     <section
       id={id}
@@ -21,5 +21,3 @@ const Section: React.FC<SectionProps> = ({ id, title, className, width, height, 
     </section>
   );
 };
-
-export default Section;

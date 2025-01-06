@@ -1,6 +1,6 @@
 import Section from './Section';
 
-const Works: React.FC = () => {
+export default function Works() {
   const works = [
     { id: 1, title: 'アプリA', image: '/images/work1.png' },
     { id: 2, title: 'アプリB', image: '/images/work2.png' },
@@ -26,5 +26,3 @@ const Works: React.FC = () => {
     </Section>
   );
 };
-
-export default Works;

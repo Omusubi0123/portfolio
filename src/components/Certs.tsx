@@ -1,6 +1,6 @@
 import Section from './Section';
 
-const Certs: React.FC = () => {
+export default function Certs() {
   const certifications = [
     'Certified Kubernetes Administrator (CKA)',
     'AWS Certified Solutions Architect – Associate',
@@ -26,5 +26,3 @@ const Certs: React.FC = () => {
     </Section>
   );
 };
-
-export default Certs;
