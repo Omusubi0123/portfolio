@@ -3,7 +3,10 @@ import BackgroundImage from './BackgroundImage';
 
 const Layout: React.FC<{ header: React.ReactNode; children: React.ReactNode }> = ({ header, children }) => {
   return (
-    <BackgroundImage imageUrl="/background1.png">
+    <BackgroundImage 
+      pcImageUrl="/background1.png"
+      mobileImageUrl="/background2.png"
+    >
       <div className="flex flex-col min-h-screen">
         <nav className="sticky top-0 z-50">
           {header}
