@@ -1,21 +1,31 @@
+import { useState } from 'react';
 import { Link } from 'react-scroll';
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const sections = ['About', 'Works', 'Skills', 'Certifications'];
 
   return (
-    <header className="fixed top-0 left-0 w-full text-white shadow-md z-10 h-10 backdrop-blur-sm bg-black/60 rounded-lg">
-      <nav className="max-w-screen-lg mx-auto flex justify-between items-center px-20 py-4 h-full">
-        <h1 className="text-2xl font-bold">My Portfolio</h1>
-        <ul className="flex space-x-8">
+    <header className="fixed top-0 left-0 w-full text-white shadow-md z-10 h-16 md:h-20 backdrop-blur-sm bg-black/60 rounded-lg">
+      <nav className="max-w-screen-lg mx-auto flex justify-between items-center px-4 md:px-20 py-4 h-full">
+        <h1 className="text-xl md:text-2xl font-bold">My Portfolio</h1>
+        
+        {/* Hamburger menu for mobile */}
+        <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+        
+        {/* Desktop menu */}
+        <ul className="hidden md:flex md:space-x-8">
           {sections.map((section, index) => (
             <li key={index}>
               <Link
                 to={section.toLowerCase()}
                 smooth={true}
                 duration={500}
-                // offset={-10}
-                className="text-xl hover:text-gray-300 transition cursor-pointer"
+                className="text-lg md:text-xl hover:text-gray-300 transition cursor-pointer"
               >
                 {section}
               </Link>
@@ -23,6 +33,25 @@ export default function Header() {
           ))}
         </ul>
       </nav>
+      
+      {/* Mobile menu */}
+      {isMenuOpen && (
+        <ul className="md:hidden bg-black/90 py-4">
+          {sections.map((section, index) => (
+            <li key={index} className="px-4 py-2">
+              <Link
+                to={section.toLowerCase()}
+                smooth={true}
+                duration={500}
+                className="text-lg hover:text-gray-300 transition cursor-pointer"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {section}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </header>
   );
-};
+}
