@@ -13,7 +13,7 @@ interface PopupProps {
         onClick={onClose}
       >
         <div
-          className="bg-white rounded-lg shadow-lg p-6 max-w-3xl w-full flex"
+          className="bg-white rounded-lg shadow-lg p-6 max-w-6xl w-full flex"
           onClick={(e) => e.stopPropagation()} // ポップアップ内クリックで閉じないようにする
         >
           {/* 左側: 説明文 */}
