@@ -11,10 +11,11 @@ export default function WorkItem({ work, onClick }: WorkItemProps) {
       className="relative group flex justify-center items-center cursor-pointer"
       onClick={onClick}
     >
-      <img src={work.media} alt={work.title} className="w-full h-auto rounded-lg shadow-lg" />
+      <img src={work.media} alt={work.title} className="w-full h-full object-cover rounded-lg shadow-lg" />
       <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center opacity-0 group-hover:opacity-100 transition rounded-lg">
         <span className="text-white text-2xl text-center px-2">{work.title}</span>
       </div>
+      <span className="absolute top-2 left-2 bg-black bg-opacity-50 text-white px-2 py-1 rounded-lg">{work.title}</span>
     </div>
   );
 }
