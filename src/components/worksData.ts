@@ -9,6 +9,7 @@ export const works: Work[] = [
     継続開発を行いデプロイしたいと考えています．`,
     media: '/nihon_go_up_app.png',
     isVideo: false,
+    link: 'https://example.com',
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ export const works: Work[] = [
     description: 'ネット上のトレンド情報を簡単に確認できるウェブアプリ。',
     media: '/netrend.png',
     isVideo: false,
+    link: 'https://netrend.vercel.app/',
   },
   {
     id: 3,
@@ -23,6 +25,7 @@ export const works: Work[] = [
     description: 'ライフログを記録し、振り返りができるアプリです。',
     media: '/life_dialog.png',
     isVideo: false,
+    link: 'https://life-dialog.vercel.app/',
   },
   {
     id: 4,
@@ -30,5 +33,6 @@ export const works: Work[] = [
     description: '革新的なプロジェクト管理ツール。',
     media: '/project_b_demo.mp4',
     isVideo: true,
+    link: '',
   },
 ];

@@ -35,6 +35,7 @@ export default function Works() {
           media={selectedWork.media}
           isVideo={selectedWork.isVideo}
           onClose={handleClosePopup}
+          link={selectedWork.link}
         />
       )}
     </Section>

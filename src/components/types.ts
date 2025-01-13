@@ -4,5 +4,6 @@ export interface Work {
     description: string;
     media: string;
     isVideo: boolean;
+    link: string;
   }
   
