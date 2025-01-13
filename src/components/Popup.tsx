@@ -44,10 +44,16 @@ export default function Popup({ title, description, media, isVideo = false, onCl
               {skill}{index < my_skills.length - 1 && ', '}
               </span>
               ))}
-              {my_skills && other_skills && <br />}
+              {my_skills && other_skills && ', '}
               {other_skills && other_skills.map((skill, index) => (
               <span key={index} className="text-gray-500">
               {skill}{index < other_skills.length - 1 && ', '}
+              </span>
+              ))}
+              {my_skills && cd_skills && ', '}
+              {cd_skills && cd_skills.map((skill, index) => (
+              <span key={index} className="text-green-500">
+              {skill}{index < cd_skills.length - 1 && ', '}
               </span>
               ))}
             </p>
@@ -55,21 +61,21 @@ export default function Popup({ title, description, media, isVideo = false, onCl
         </div>
 
         <div className="flex-1">
-          <a href={link} target="_blank" rel="noopener noreferrer">
+            <a href={link} target="_blank" rel="noopener noreferrer">
             {isVideo ? (
               <video
-                src={media}
-                controls
-                className="w-full h-auto rounded-lg cursor-pointer"
+              src={media}
+              controls
+              className="w-full h-auto rounded-lg cursor-pointer border-4 border-gray-300"
               />
             ) : (
               <img
-                src={media}
-                alt={title}
-                className="w-full h-auto rounded-lg cursor-pointer"
+              src={media}
+              alt={title}
+              className="w-full h-auto rounded-lg cursor-pointer border-4 border-gray-300"
               />
             )}
-          </a>
+            </a>
         </div>
       </div>
     </div>
