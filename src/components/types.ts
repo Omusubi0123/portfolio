@@ -4,6 +4,10 @@ export interface Work {
     description: string;
     media: string;
     isVideo: boolean;
-    link: string;
+    link?: string;
+    github?: string;
+    my_skills?: string[];
+    other_skills?: string[];
+    cd_skills?: string[];
   }
   
