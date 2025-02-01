@@ -7,7 +7,7 @@ export const works: Work[] = [
     description: `UMP-JUSTが主催する生成AIハッカソンでの作品です．外国人労働者の日本語学習を支援するためのサービスを作成しました．
     backendの開発を担当しました．
     ハッカソンへの参加は初めてでしたが，非常に優秀なメンバーのおかげで技術賞とcotomi賞を受賞することができました．
-    継続開発を行いデプロイしたいと考えています．`,
+    2日間のハッカソンでは実装が間に合わなかった部分もあり，今後も継続開発したいと考えています．`,
     media: '/nihon_go_up_app.png',
     isVideo: false,
     link: 'https://nihon-go-up-app.vercel.app/',
@@ -44,4 +44,24 @@ export const works: Work[] = [
     other_skills: ['TypeScript', 'React', 'Vite', 'Docker', 'Google Cloud Platform','Vercel'],
     cd_skills: ['PostgreSQL', 'pgvector', 'docker-compose', 'Cloudflare tunnel', '(自宅サーバー)'],
   },
+  {
+    id: 4,
+    title: 'ポートフォリオサイト',
+    description: `このサイトです．
+    ポートフォリオサイトを作成することで，自分のスキルや作品をアピールすることができます．
+    また，Next.jsを使用することで，SEO対策やパフォーマンスの向上を図りました．
+    このサイトを作成することで，自分のスキルを向上させることができました．`,
+    media: '/background1_nashi.png',
+    isVideo: false,
+    link: 'https://omusubi0123.vercel.app/',
+    github: 'https://github.com/Omusubi0123/portfolio',
+  },
+  {
+    id: 5,
+    title: '自宅サーバー',
+    description: `ミニPCにUbuntu-Serverをインストールし，自宅サーバーを構築しました．
+    「Works」のbackendはこのサーバーで運用しています．`,
+    media: '/background2_nashi.png',
+    isVideo: false,
+  }
 ];
