@@ -1,29 +1,36 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from "react"
 
 interface BackgroundImageProps {
-  pcImageUrl: string;
-  mobileImageUrl: string;
-  children: React.ReactNode;
+  pcImageUrl: string
+  mobileImageUrl: string
+  children: React.ReactNode
 }
 
 export default function BackgroundImage({ pcImageUrl, mobileImageUrl, children }: BackgroundImageProps) {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(false)
+
+  const handleResize = useCallback(() => {
+    setIsMobile(window.innerWidth <= 768)
+  }, [])
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [handleResize])
 
   return (
-    <div 
-      className="bg-cover bg-center bg-fixed"
-      style={{ backgroundImage: `url(${isMobile ? mobileImageUrl : pcImageUrl})` }}
-    >
-      {children}
-    </div>
-  );
+    <>
+      <div
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat z-[-1]"
+        style={{
+          backgroundImage: `url(${isMobile ? mobileImageUrl : pcImageUrl})`,
+          backgroundSize: isMobile ? "cover" : "100% 100%",
+        }}
+      />
+      <div className="relative min-h-screen">
+        {children}
+      </div>
+    </>
+  )
 }
