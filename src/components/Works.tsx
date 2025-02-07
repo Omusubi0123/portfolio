@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { motion } from "framer-motion"
 import Section from "./Section"
 import Popup from "./Popup"
 import WorkItem from "./WorkItem"
@@ -16,13 +17,43 @@ export default function Works() {
     setSelectedWork(null)
   }
 
+  // Define the animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1, // Adjust this value to control the delay between each item
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+      },
+    },
+  }
+
   return (
     <Section id="works" title="My Works" className="bg-transparent flex justify-center py-8">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-6xl px-4">
-        {works.map((work) => (
-          <WorkItem key={work.id} work={work} onClick={() => handleWorkClick(work)} />
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-6xl px-4"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {works.map((work, index) => (
+          <motion.div key={work.id} variants={itemVariants}>
+            <WorkItem work={work} onClick={() => handleWorkClick(work)} />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {selectedWork && (
         <Popup
