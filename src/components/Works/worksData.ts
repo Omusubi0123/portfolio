@@ -46,11 +46,11 @@ export const works: Work[] = [
   },
   {
     id: 4,
-    title: 'ポートフォリオサイト',
+    title: 'My Portfolio',
     description: `このサイトです．
-    ポートフォリオサイトを作成することで，自分のスキルや作品をアピールすることができます．
-    また，Next.jsを使用することで，SEO対策やパフォーマンスの向上を図りました．
-    このサイトを作成することで，自分のスキルを向上させることができました．`,
+    Typescript, Reactは使用経験がなかったので，勉強を兼ねてPortfolio的なサイトを作成しました．
+    開発の流れは掴めましたが，コードの大部分をAIに書いてもらっており，Reactの勉強になったかと聞かれるとかなり怪しいです・・・．
+    せめてサイトのコードは理解します．`,
     media: '/background1_nashi.png',
     isVideo: false,
     link: 'https://omusubi0123.vercel.app/',

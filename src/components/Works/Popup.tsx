@@ -41,7 +41,7 @@ export default function Popup({ title, description, media, isVideo = false, onCl
       >
         <div className="flex flex-col md:flex-row">
           <div className="md:flex-1 md:pr-4 mb-4 md:mb-0">
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">{title}</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-black">{title}</h2>
             <p className="text-gray-700 text-base md:text-lg mb-4">{description}</p>
             {link && (
               <p className="mt-2">

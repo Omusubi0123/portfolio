@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react"
 import { motion, useInView, useAnimation } from "framer-motion"
-import Section from "./Section"
+import Section from "../Section"
 import Popup from "./Popup"
 import WorkItem from "./WorkItem"
 import { works } from "./worksData"

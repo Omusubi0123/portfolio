@@ -4,7 +4,7 @@ import { Link } from "react-scroll"
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
-  const sections = ["About", "Works", "Carriers", "Skills", "Certifications"]
+  const sections = ["About", "Works", "Carriers", "Certifications", "Skills"]
   const headerRef = useRef<HTMLDivElement>(null)
   const menuRef = useRef<HTMLDivElement>(null)
 
