@@ -1,6 +1,6 @@
 import Layout from '../components/Layout';
 import Header from '../components/Header';
-import About from '../components/About';
+import About from '../components/About/About';
 import Works from '../components/Works';
 import Carriers from '../components/Carriers';
 import Skills from '../components/Skills';
