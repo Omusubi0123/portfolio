@@ -1,6 +1,6 @@
 import type React from "react"
 import { Briefcase, Calendar, ChevronRight } from "lucide-react"
-import Section from "./Section"
+import Section from "../Section"
 
 interface CareerItem {
   title: string

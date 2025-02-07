@@ -1,5 +1,5 @@
 import type React from "react"
-import AnimatedBackground from "./AnimatedBackground";
+import AnimatedBackground from "./Background/AnimatedBackground";
 
 const Layout: React.FC<{ header: React.ReactNode; children: React.ReactNode }> = ({ header, children }) => {
   return (

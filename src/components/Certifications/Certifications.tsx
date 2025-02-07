@@ -1,7 +1,7 @@
 import type React from "react"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import Section from "./Section"
+import Section from "../Section"
 import { FaGraduationCap, FaLanguage, FaLaptopCode } from "react-icons/fa"
 
 interface Certification {
@@ -19,7 +19,7 @@ const certifications: Certification[] = [
     color: "bg-green-500",
   },
   {
-    title: "応用情報技術者試験",
+    title: "応用情報技術者",
     date: "2023年4月取得",
     icon: <FaLaptopCode />,
     color: "bg-blue-500",

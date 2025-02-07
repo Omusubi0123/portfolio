@@ -1,4 +1,4 @@
-import Section from './Section';
+import Section from '../Section';
 
 export default function Skills() {
   const mainSkills = [
@@ -40,14 +40,14 @@ export default function Skills() {
           { title: 'Frontend', skills: frontendSkills },
         ].map((category, index) => (
           <div key={index} className="mb-8">
-            <h2 className="text-xl sm:text-2xl font-semibold text-gray-700 mb-4 border-b-2 border-gray-300 pb-2">
+            <h2 className="text-xl sm:text-2xl font-semibold text-gray-100 mb-4 border-b-2 border-gray-300 pb-2">
               {category.title}
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
               {category.skills.map((skill, i) => (
                 <div
                   key={i}
-                  className="flex flex-col items-center justify-center space-y-2 p-4 bg-gray-100 rounded-lg shadow-md transition-transform hover:scale-105"
+                  className="flex flex-col items-center justify-center space-y-2 p-4 bg-gray-1000 rounded-lg shadow-md transition-transform hover:scale-105"
                 >
                   <img src={skill.icon} alt={skill.name} className="w-12 h-12 sm:w-16 sm:h-16 object-contain" />
                   <span className="text-sm sm:text-base md:text-lg font-medium text-center">{skill.name}</span>
