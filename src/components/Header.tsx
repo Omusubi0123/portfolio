@@ -52,7 +52,7 @@ export default function Header() {
       }`}
     >
       <nav className="max-w-screen-lg mx-auto flex justify-between items-center px-4 md:px-20 py-4 h-16 md:h-12 backdrop-blur-sm bg-black/60 rounded-lg">
-        <h1 className="text-xl md:text-2xl font-bold">Izawa Official</h1>
+        <h1 className="text-xl md:text-2xl font-bold">izawa Official Site</h1>
 
         {/* Hamburger menu for mobile */}
         <button className="md:hidden" onClick={toggleMenu}>

@@ -1,6 +1,6 @@
 import type React from "react"
 import { motion } from "framer-motion"
-import { FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa"
+import { FaGithub, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa"
 
 const SocialLinks: React.FC = () => (
   <motion.div
@@ -13,14 +13,17 @@ const SocialLinks: React.FC = () => (
       href="https://github.com/Omusubi0123"
       target="_blank"
       rel="noopener noreferrer"
-      className="text-white hover:text-pink-500 transition-colors"
+      className="text-white hover:text-green-500 transition-colors"
     >
       <FaGithub size={24} />
     </a>
-    <a href="#" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-400 transition-colors">
+    <a href="." target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-600 transition-colors">
       <FaTwitter size={24} />
     </a>
-    <a href="#" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-600 transition-colors">
+    <a href="." target="_blank" rel="noopener noreferrer" className="text-white hover:text-pink-700 transition-colors">
+      <FaInstagram size={24} />
+    </a>
+    <a href="https://www.linkedin.com/in/yoshihiro-izawa-104262343/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-700 transition-colors">
       <FaLinkedin size={24} />
     </a>
   </motion.div>
