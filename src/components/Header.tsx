@@ -3,7 +3,7 @@ import { Link } from "react-scroll"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const sections = ["About", "Works", "Skills", "Certifications"]
+  const sections = ["About", "Works", "Carriers", "Skills", "Certifications"]
   const menuRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 w-full text-white shadow-md z-10 h-16 md:h-12 backdrop-blur-sm bg-black/60 rounded-lg">
       <nav className="max-w-screen-lg mx-auto flex justify-between items-center px-4 md:px-20 py-4 h-full">
-        <h1 className="text-xl md:text-2xl font-bold">My Portfolio</h1>
+        <h1 className="text-xl md:text-2xl font-bold">Izawa Official</h1>
 
         {/* Hamburger menu for mobile */}
         <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
