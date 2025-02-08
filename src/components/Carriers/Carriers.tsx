@@ -25,8 +25,8 @@ const careerData: CareerItem[] = [
     achievements: [
       "Embeddingモデル開発",
       "SLM（Small Language Model）開発",
-      "Tokenizer開発",
       "検索Agent開発",
+      "LLMを用いたアルゴリズム開発"
     ],
   },
 ]
