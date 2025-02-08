@@ -56,6 +56,7 @@ export const works: Work[] = [
     isVideo: false,
     link: 'https://www.omusubiy.com/',
     github: 'https://github.com/Omusubi0123/portfolio',
+    my_skills: ['TypeScript', 'React', 'Tailwind CSS', 'Vite', 'GIthub Pages'],
   },
   {
     id: 5,

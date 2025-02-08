@@ -17,7 +17,7 @@ const ProfileImage: React.FC = () => (
         className="relative block"
       >
         <img
-          src="/icon.png"
+          src="/profile_icon.png"
           alt="Icon"
           className="w-40 h-40 md:w-60 md:h-60 rounded-full bg-white"
         />
