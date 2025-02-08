@@ -7,11 +7,12 @@ interface InterestItemProps {
   icon: React.ReactNode
   name: string
   description: string
+  isActive: boolean
+  onClick: () => void
 }
 
-const InterestItem: React.FC<InterestItemProps> = ({ icon, name, description }) => {
+const InterestItem: React.FC<InterestItemProps> = ({ icon, name, description, isActive, onClick }) => {
   const [isHovered, setIsHovered] = useState(false)
-  const [isClicked, setIsClicked] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
@@ -23,32 +24,12 @@ const InterestItem: React.FC<InterestItemProps> = ({ icon, name, description }) 
     return () => window.removeEventListener("resize", checkMobile)
   }, [])
 
-  const handleInteraction = () => {
-    if (isMobile) {
-      setIsClicked(!isClicked)
-    }
-  }
-
-  const handleClickOutside = (e: MouseEvent) => {
-    if (isMobile && isClicked) {
-      const target = e.target as HTMLElement
-      if (!target.closest(".interest-item")) {
-        setIsClicked(false)
-      }
-    }
-  }
-
-  useEffect(() => {
-    document.addEventListener("click", handleClickOutside)
-    return () => document.removeEventListener("click", handleClickOutside)
-  }, [isMobile, isClicked])
-
   return (
     <div
       className="relative interest-item"
       onMouseEnter={() => !isMobile && setIsHovered(true)}
       onMouseLeave={() => !isMobile && setIsHovered(false)}
-      onClick={handleInteraction}
+      onClick={onClick}
     >
       <motion.div
         className="flex items-center space-x-2 bg-white/10 rounded-full px-4 py-2 cursor-pointer"
@@ -59,13 +40,13 @@ const InterestItem: React.FC<InterestItemProps> = ({ icon, name, description }) 
         <span>{name}</span>
       </motion.div>
       <AnimatePresence>
-        {((isMobile && isClicked) || (!isMobile && isHovered)) && (
+        {((isMobile && isActive) || (!isMobile && isHovered)) && (
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.2 }}
-            className="absolute z-10 mt-2 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-xl w-64"
+            className="absolute z-10 bottom-full mb-2 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-xl w-64 max-w-full"
           >
             <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">{name}</h3>
             <p className="text-sm text-gray-700 dark:text-gray-300">{description}</p>
@@ -78,34 +59,71 @@ const InterestItem: React.FC<InterestItemProps> = ({ icon, name, description }) 
 
 const interestsData = [
   {
-    icon: <SiHuggingface className="text-2xl text-red-500" />,
+    icon: <SiHuggingface className="text-2xl text-pink-500" />,
     name: "AI Engineer",
     description: "Specializing in developing and implementing cutting-edge AI models and algorithms.",
   },
   {
-    icon: <SiFastapi className="text-2xl text-blue-500" />,
+    icon: <SiFastapi className="text-2xl text-blue-600" />,
     name: "Backend Engineer",
     description: "Building robust and scalable server-side applications and APIs.",
   },
   {
-    icon: <SiRobotframework className="text-2xl text-purple-500" />,
+    icon: <SiRobotframework className="text-2xl text-green-600" />,
     name: "Research & Development",
     description: "Exploring new technologies and methodologies to drive innovation in software development.",
   },
 ]
 
-const Interests: React.FC = () => (
-  <motion.div
-    className="flex flex-wrap gap-4"
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5, delay: 0.5 }}
-  >
-    {interestsData.map((interest, index) => (
-      <InterestItem key={index} {...interest} />
-    ))}
-  </motion.div>
-)
+const Interests: React.FC = () => {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
+
+  const handleInterestClick = (index: number) => {
+    if (isMobile) {
+      setActiveIndex((prevIndex) => (prevIndex === index ? null : index))
+    }
+  }
+
+  const handleClickOutside = (e: MouseEvent) => {
+    const target = e.target as HTMLElement
+    if (isMobile && !target.closest(".interest-item")) {
+      setActiveIndex(null)
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside)
+    return () => document.removeEventListener("click", handleClickOutside)
+  }, [isMobile, handleClickOutside]) // Added handleClickOutside to dependencies
+
+  return (
+    <motion.div
+      className="flex flex-wrap gap-4"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.5 }}
+    >
+      {interestsData.map((interest, index) => (
+        <InterestItem
+          key={index}
+          {...interest}
+          isActive={activeIndex === index}
+          onClick={() => handleInterestClick(index)}
+        />
+      ))}
+    </motion.div>
+  )
+}
 
 export default Interests
 
