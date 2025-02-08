@@ -22,22 +22,22 @@ const skillCategories: SkillCategory[] = [
       {
         name: "Python",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-        comment: "My go-to language for AI and data science projects",
+        comment: "たぶん一番書きました",
       },
       {
         name: "C",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
-        comment: "Proficient in low-level programming and system optimization",
+        comment: "高専５年間はこれがメインです",
       },
       {
         name: "Transformers",
         icon: "https://huggingface.co/front/assets/huggingface_logo-noborder.svg",
-        comment: "Experienced in building and fine-tuning state-of-the-art NLP models",
+        comment: "モデルいじるのに使ってます インターンや個人開発で使ってます",
       },
       {
         name: "PyTorch",
         icon: "https://www.vectorlogo.zone/logos/pytorch/pytorch-icon.svg",
-        comment: "Skilled in deep learning model development and deployment",
+        comment: "Deep Learning基礎講座や大学の実験，インターンで使いました",
       },
     ],
   },
@@ -47,17 +47,17 @@ const skillCategories: SkillCategory[] = [
       {
         name: "FastAPI",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
-        comment: "Building high-performance APIs with ease",
+        comment: "ハッカソンでbackendを担当したときに使いました",
       },
       {
         name: "PostgreSQL",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original-wordmark.svg",
-        comment: "Proficient in complex database design and optimization",
+        comment: "Life Dialogをの継続開発でFirestoreからPostgresに移行しました",
       },
       {
         name: "Firestore",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain-wordmark.svg",
-        comment: "Experienced in real-time database management",
+        comment: "ハッカソン期間のLife Dialogの開発に使いました",
       },
     ],
   },
@@ -67,27 +67,27 @@ const skillCategories: SkillCategory[] = [
       {
         name: "Cloudflare",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cloudflare/cloudflare-original.svg",
-        comment: "Implementing robust security and performance solutions",
+        comment: "自宅サーバーでデプロイする時にお世話になってます",
       },
       {
         name: "Docker",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain-wordmark.svg",
-        comment: "Containerizing applications for consistent deployment",
+        comment: "ハッカソンやインターンで結構使ってます かなり好きです",
       },
       {
         name: "GCP",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
-        comment: "Leveraging cloud services for scalable solutions",
+        comment: "backendサービスをGCPでデプロイしました",
       },
       {
         name: "AWS",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
-        comment: "Architecting and deploying cloud-native applications",
+        comment: "S3やSagemakerを少し触りました 人に教えられるほどは使えません",
       },
       {
         name: "Vercel",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original-wordmark.svg",
-        comment: "Rapid deployment and hosting for web projects",
+        comment: "Worksのデプロイは基本的にvercelでやってます",
       },
     ],
   },
@@ -97,32 +97,32 @@ const skillCategories: SkillCategory[] = [
       {
         name: "HTML",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg",
-        comment: "Crafting semantic and accessible web structures",
+        comment: "ネットレンドの開発とこのサイトで使いました",
       },
       {
         name: "CSS",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg",
-        comment: "Styling with modern CSS techniques and frameworks",
+        comment: "ネットレンドの開発とこのサイトで使いました",
       },
       {
         name: "JavaScript",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-        comment: "Building interactive and dynamic web applications",
+        comment: "ネットレンドの開発で使いました 結構頑張りました",
       },
       {
         name: "TypeScript",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-        comment: "Enhancing code quality with static typing",
+        comment: "このサイトで使いました まだまだ勉強中です",
       },
       {
         name: "React",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg",
-        comment: "Creating efficient and reusable UI components",
+        comment: "このサイトで使いました まだまだ勉強中です",
       },
       {
         name: "Vite",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vite/vite-original.svg",
-        comment: "Lightning-fast build tool for modern web development",
+        comment: "このサイトで使いました まだまだ勉強中です",
       },
     ],
   },
@@ -149,15 +149,15 @@ const SkillItem: React.FC<{ skill: Skill; index: number; isMobile: boolean }> = 
       <span className="text-sm sm:text-base shine-gold-text md:text-lg font-medium text-center">{skill.name}</span>
       <AnimatePresence>
         {isHovered && (
-            <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
-            transition={{ duration: 0.2 }}
-            className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 p-2 bg-black shine-gold-text text-sm rounded-md shadow-lg z-10 w-48 text-center"
-            >
-            <p className="text-xs sm:text-sm">{skill.comment}</p>
-            </motion.div>
+          <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 10 }}
+          transition={{ duration: 0.2 }}
+          className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 p-2 bg-black text-sm rounded-md shadow-lg z-10 w-48 text-center"
+        >
+          <p className="text-xs sm:text-sm shine-silver-text">{skill.comment}</p>
+        </motion.div>         
         )}
       </AnimatePresence>
     </motion.div>
