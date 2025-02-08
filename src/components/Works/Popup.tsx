@@ -36,7 +36,7 @@ export default function Popup({ title, description, media, isVideo = false, onCl
     >
       <div
         ref={popupRef}
-        className="bg-white rounded-lg shadow-lg p-4 md:p-6 w-full max-w-4xl max-h-[90vh] overflow-y-auto"
+        className="bg-white rounded-lg shadow-lg p-4 md:p-6 w-full max-w-5xl max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex flex-col md:flex-row">
@@ -45,37 +45,50 @@ export default function Popup({ title, description, media, isVideo = false, onCl
             <p className="text-gray-700 text-base md:text-lg mb-4">{description}</p>
             {link && (
               <p className="mt-2">
-                <span className="text-black">Link: </span>
+                <span className="text-black font-bold">Link: </span>
                 <a href={link} target="_blank" rel="noopener noreferrer" className="text-blue-500 break-all">{link}</a>
               </p>
             )}
             {github && (
               <p className="mt-2">
-                <span className="text-black">Github: </span>
+                <span className="text-black font-bold">Github: </span>
                 <a href={github} target="_blank" rel="noopener noreferrer" className="text-blue-500 break-all">{github}</a>
               </p>
             )}
             {(my_skills || other_skills || cd_skills) && (
-              <p className="mt-4">
-                <span className="text-black">使用技術: </span>
-                {my_skills && my_skills.map((skill, index) => (
-                  <span key={index} className="text-black">
-                    {skill}{index < my_skills.length - 1 && ', '}
-                  </span>
-                ))}
-                {my_skills && other_skills && ', '}
-                {other_skills && other_skills.map((skill, index) => (
-                  <span key={index} className="text-gray-500">
-                    {skill}{index < other_skills.length - 1 && ', '}
-                  </span>
-                ))}
-                {(my_skills || other_skills) && cd_skills && ', '}
-                {cd_skills && cd_skills.map((skill, index) => (
-                  <span key={index} className="text-green-500">
-                    {skill}{index < cd_skills.length - 1 && ', '}
-                  </span>
-                ))}
-              </p>
+              <div className="mt-4">
+                <p className="font-bold text-black">使用技術</p>
+                {my_skills && my_skills.length > 0 && (
+                  <p>
+                    <span className="text-black font-bold">自分：</span>
+                    {my_skills.map((skill, index) => (
+                      <span key={index} className="text-black">
+                        {skill}{index < my_skills.length - 1 && ', '}
+                      </span>
+                    ))}
+                  </p>
+                )}
+                {other_skills && other_skills.length > 0 && (
+                  <p>
+                    <span className="text-black font-bold">他：</span>
+                    {other_skills.map((skill, index) => (
+                      <span key={index} className="text-gray-500">
+                        {skill}{index < other_skills.length - 1 && ', '}
+                      </span>
+                    ))}
+                  </p>
+                )}
+                {cd_skills && cd_skills.length > 0 && (
+                  <p>
+                    <span className="text-black font-bold">継続開発：</span>
+                    {cd_skills.map((skill, index) => (
+                      <span key={index} className="text-black">
+                        {skill}{index < cd_skills.length - 1 && ', '}
+                      </span>
+                    ))}
+                  </p>
+                )}
+              </div>
             )}
           </div>
 

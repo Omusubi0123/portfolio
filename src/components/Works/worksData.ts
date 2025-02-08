@@ -54,7 +54,7 @@ export const works: Work[] = [
     せめてサイトのコードは理解します．`,
     media: '/background1_nashi.png',
     isVideo: false,
-    link: 'https://omusubi0123.vercel.app/',
+    link: 'https://www.omusubiy.com/',
     github: 'https://github.com/Omusubi0123/portfolio',
   },
   {

@@ -62,7 +62,7 @@ const CertificationItem: React.FC<{ cert: Certification; index: number }> = ({ c
         }`}
       >
         <div className={`text-2xl ${cert.color.replace("bg-", "text-")} mb-2`}>{cert.icon}</div>
-        <h3 className="text-lg font-semibold shine-gold-text mb-1">{cert.title}</h3>
+        <h3 className="text-lg font-semibold shine-silver-text mb-1">{cert.title}</h3>
         <p className="text-sm shine-silver-text">{cert.date}</p>
       </div>
     </motion.div>

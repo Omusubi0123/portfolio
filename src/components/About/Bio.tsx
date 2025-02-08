@@ -46,9 +46,9 @@ const Bio: React.FC = () => {
               <div className="bg-white/10 rounded-lg p-4 transition-all duration-300 group-hover:bg-white/20">
                 <div className="flex items-center mb-2">
                   <span className="text-xl mr-3 text-pink-500">{item.icon}</span>
-                  <h2 className="text-xl font-semibold text-white">{item.label}</h2>
+                  <h2 className="text-xl font-semibold ios-white">{item.label}</h2>
                 </div>
-                <p className="text-gray-300">{item.content}</p>
+                <p className="ios-white">{item.content}</p>
               </div>
               <AnimatePresence>
                 {hoveredItem === item.label && (
