@@ -47,7 +47,7 @@ const About: React.FC = () => {
   }
 
   return (
-    <Section id="about" title="About Me" className="bg-transparent flex justify-center py-8 relative overflow-hidden">
+    <Section id="about" title="" className="bg-transparent flex justify-center py-8 relative overflow-hidden">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-white-500/10 via-pink-500/20 to-cyan-500/20"></div>
         <Particles />
@@ -60,7 +60,7 @@ const About: React.FC = () => {
         animate={controls}
         className="relative z-10 flex flex-col md:flex-row items-center md:items-start space-y-8 md:space-y-0 md:space-x-12"
       >
-        <motion.div variants={itemVariants}>
+        <motion.div variants={itemVariants} className="flex justify-center items-center w-full md:w-auto h-full">
           <ProfileImage />
         </motion.div>
 

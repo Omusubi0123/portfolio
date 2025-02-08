@@ -16,7 +16,7 @@ const Bio: React.FC = () => {
   return (
     <div className="relative">
       <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-purple-500/30 via-pink-500/30 to-red-500/30 rounded-lg filter blur-xl"
+        className="absolute inset-0  rounded-lg filter blur-xl mb-5 mt-5 mr-5 ml-5"
         animate={{
           scale: [1, 1.02, 1],
           rotate: [0, 1, -1, 0],
@@ -28,15 +28,15 @@ const Bio: React.FC = () => {
         }}
       />
       <div className="relative bg-black/50 backdrop-blur-sm rounded-lg p-8 shadow-2xl">
-        <motion.h1
-          className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"
+        {/* <motion.h1
+          className="text-4xl md:text-5xl font-bold mb-5 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"
           style={{ fontFamily: "'Caveat', cursive" }}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
           izawa
-        </motion.h1>
+        </motion.h1> */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-4"
           initial={{ opacity: 0 }}
@@ -54,7 +54,7 @@ const Bio: React.FC = () => {
             >
               <div className="bg-white/10 rounded-lg p-4 transition-all duration-300 group-hover:bg-white/20">
                 <div className="flex items-center mb-2">
-                  <span className="text-2xl mr-3 text-pink-500">{item.icon}</span>
+                  <span className="text-xl mr-3 text-pink-500">{item.icon}</span>
                   <h2 className="text-xl font-semibold text-white">{item.label}</h2>
                 </div>
                 <p className="text-gray-300">{item.content}</p>
