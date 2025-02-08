@@ -3,11 +3,12 @@
 @tailwind utilities;
 
 .gold-text {
-    background: linear-gradient(90deg, #FFD700 0%, #FFF9E6 50%, #FFD700 100%);
+    color: rgb(208, 169, 80)
+    /* background: linear-gradient(90deg, #FFD700 0%, #FFF9E6 50%, #FFD700 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: transparent;
+    color: transparent; */
 }
 
 .shine-gold-text {
@@ -38,6 +39,9 @@
     -webkit-text-fill-color: #2d3748; /* Tailwindのgray-800 */
 }
 
+.ios-white-text {
+    color: rgb(242, 242, 247);
+}
 
 @keyframes shine {
     0% { background-position: 0% 50%; }
