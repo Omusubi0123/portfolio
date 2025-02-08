@@ -17,10 +17,10 @@ const SocialLinks: React.FC = () => (
     >
       <FaGithub size={24} />
     </a>
-    <a href="." target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-600 transition-colors">
+    <a href="https://x.com/luckypanchh0123" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-600 transition-colors">
       <FaTwitter size={24} />
     </a>
-    <a href="." target="_blank" rel="noopener noreferrer" className="text-white hover:text-pink-700 transition-colors">
+    <a href="https://www.instagram.com/yoshi.i0777/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-pink-700 transition-colors">
       <FaInstagram size={24} />
     </a>
     <a href="https://www.linkedin.com/in/yoshihiro-izawa-104262343/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-700 transition-colors">
