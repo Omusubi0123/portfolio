@@ -52,7 +52,7 @@ export default function Header() {
       }`}
     >
       <nav className="max-w-screen-lg mx-auto flex justify-between items-center px-4 md:px-20 py-4 h-16 md:h-12 backdrop-blur-sm bg-black/60 rounded-lg">
-        <h1 className="text-xl md:text-2xl font-bold gold-text">izawa Official Site</h1>
+        <h1 className="text-xl md:text-2xl font-bold shine-gold-text">izawa Official Site</h1>
 
         {/* Hamburger menu for mobile */}
         <button className="md:hidden" onClick={toggleMenu}>
@@ -71,12 +71,12 @@ export default function Header() {
         <ul className="hidden md:flex md:space-x-8">
           {sections.map((section, index) => (
             <li key={index}>
-              <Link
+                <Link
                 to={section.toLowerCase()}
                 smooth={true}
                 duration={500}
-                className="text-lg md:text-xl silver-text hover:text-gray-600 transition cursor-pointer"
-              >
+                className="text-lg md:text-xl shine-silver-text transition cursor-pointer hover:text-gray-800"
+                >
                 {section}
               </Link>
             </li>

@@ -3,30 +3,50 @@
 @tailwind utilities;
 
 .gold-text {
+    background: linear-gradient(90deg, #FFD700 0%, #FFF9E6 50%, #FFD700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.shine-gold-text {
     background: linear-gradient(90deg, #B39855 0%, #FFF9E6 50%, #B39855 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
-  }
+}
   
-
-  .silver-text {
-    background: linear-gradient(90deg, #BDC3C9 0%, #FFFFFF 50%, #BDC3C9 100%);
+.silver-text {
+    background: linear-gradient(90deg, #E0E0E0 0%, #FFFFFF 50%, #E0E0E0 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
-  }
-  
-  @keyframes shine {
+}
+
+.shine-silver-text {
+    background: linear-gradient(90deg, #B0B0B0 0%, #FFFFFF 50%, #B0B0B0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.shine-silver-text:hover {
+    -webkit-text-fill-color: #2d3748; /* Tailwindのgray-800 */
+}
+
+
+@keyframes shine {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
-  }
+}
   
-  .gold-text, .silver-text {
+.shine-gold-text, .shine-silver-text {
     animation: shine 3s linear infinite;
     background-size: 200% auto;
-  }
+}
   
