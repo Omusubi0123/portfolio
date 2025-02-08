@@ -46,9 +46,9 @@ const Bio: React.FC = () => {
               <div className="bg-white/10 rounded-lg p-4 transition-all duration-300 group-hover:bg-white/20">
                 <div className="flex items-center mb-2">
                   {/* <span className="text-xl mr-3 text-[#B39855]">{item.icon}</span> */}
-                  <span className="text-xl mr-3 text-[#FFBF00]">{item.icon}</span>
+                  {/* <span className="text-xl mr-3 text-[#FFBF00]">{item.icon}</span> */}
                   {/* <span className="text-xl mr-3 text-[#E0E0E0]">{item.icon}</span> */}
-                  {/* <span className="text-xl mr-3 text-pink-500">{item.icon}</span> */}
+                  <span className="text-xl mr-3 text-pink-500">{item.icon}</span>
                   <h2 className="text-xl font-semibold ios-white">{item.label}</h2>
                 </div>
                 <p className="ios-white">{item.content}</p>

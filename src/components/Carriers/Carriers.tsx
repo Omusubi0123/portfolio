@@ -69,7 +69,7 @@ const CareerItemComponent: React.FC<{ item: CareerItem }> = ({ item }) => {
     <motion.div ref={ref} animate={controls} initial="hidden" variants={variants} className="mb-12 ml-6 relative">
       <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white"></div>
       <div className="bg-white dark:bg-black p-6 rounded-lg shadow-xl">
-        <h3 className="flex items-center mb-1 text-lg font-semibold ios-white dark:ios-black">
+        <h3 className="flex items-center mb-1 text-lg font-semibold text-black dark:text-white">
           <FaBriefcase className="mr-2" /> {item.title} at {item.company}
         </h3>
         <time className="block mt-2 mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-300">

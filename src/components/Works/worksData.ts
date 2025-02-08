@@ -52,7 +52,7 @@ export const works: Work[] = [
     PCとスマホの両方に対応（レスポンシブ対応）するよう工夫しました．デザインや細部にこだわりを持って作っています．
     開発の流れは掴めましたが，コードの大部分をAIに書いてもらっており，Reactの勉強になったかと聞かれるとかなり怪しいです・・・．
     せめてサイトのコードは理解します．`,
-    media: '/background1_nashi.png',
+    media: '/portfolio.png',
     isVideo: false,
     link: 'https://www.omusubiy.com/',
     github: 'https://github.com/Omusubi0123/portfolio',
@@ -61,8 +61,10 @@ export const works: Work[] = [
     id: 5,
     title: '自宅サーバー',
     description: `ミニPCにUbuntu-Serverをインストールし，自宅サーバーを構築しました．
-    「Works」のbackendはこのサーバーで運用しています．`,
-    media: '/background2_nashi.png',
+    「Works」のbackendはこのサーバーで運用しています．
+    自宅サーバーでのbackendサービスデプロイの方法は以下の記事にまとめています．`,
+    media: '/home_server.png',
+    link: 'https://qiita.com/Omusubi0123/items/216968e23b13f35a90a1',
     isVideo: false,
   }
 ];
