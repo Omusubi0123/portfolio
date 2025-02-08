@@ -94,7 +94,7 @@ const CareerItemComponent: React.FC<{ item: CareerItem }> = ({ item }) => {
 
 const Carriers: React.FC = () => {
   return (
-    <Section id="carriers" title="Career Journey" className="bg-transparent py-16">
+    <Section id="carriers" title="Career Journey" className="bg-transparent py-16" titleColor="shine-blue-text">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative border-l border-gray-200 dark:border-gray-700">
           {careerData.map((item, index) => (

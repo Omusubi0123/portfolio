@@ -62,8 +62,8 @@ const CertificationItem: React.FC<{ cert: Certification; index: number }> = ({ c
         }`}
       >
         <div className={`text-2xl ${cert.color.replace("bg-", "text-")} mb-2`}>{cert.icon}</div>
-        <h3 className="text-lg font-semibold text-white mb-1">{cert.title}</h3>
-        <p className="text-sm text-gray-300">{cert.date}</p>
+        <h3 className="text-lg font-semibold shine-gold-text mb-1">{cert.title}</h3>
+        <p className="text-sm shine-silver-text">{cert.date}</p>
       </div>
     </motion.div>
   )
@@ -74,7 +74,7 @@ export default function Certifications() {
     <Section
       id="certifications"
       title="Certifications"
-      className="bg-transparent flex justify-center py-16 overflow-hidden"
+      className="bg-transparent flex justify-center py-16 overflow-hidden" titleColor="shine-gold-text"
     >
       <div className="w-full max-w-4xl">
         {certifications.map((cert, index) => (

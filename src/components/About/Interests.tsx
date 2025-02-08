@@ -71,7 +71,7 @@ const InterestItem: React.FC<InterestItemProps> = ({
 
 const interestsData = [
     {
-      icon: <SiHuggingface className="text-2xl text-pink-500" />,
+      icon: <SiHuggingface className="text-2xl text-red-600" />,
       name: "AI Engineer",
       description: "モデルいじるの楽しい 進化が速すぎて仕事にするのには不安もある…でもやっぱり好きなので仕事にしたいかも…",
     },

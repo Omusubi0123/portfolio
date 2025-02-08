@@ -80,7 +80,7 @@ export default function Header() {
                 to={section.toLowerCase()}
                 smooth={true}
                 duration={500}
-                className="text-lg md:text-xl shine-silver-text transition cursor-pointer hover:text-gray-800"
+                className="text-lg md:text-xl shine-silver-text-menu transition cursor-pointer hover:text-gray-800"
                 >
                 {section}
               </Link>

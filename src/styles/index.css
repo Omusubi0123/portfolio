@@ -20,6 +20,15 @@
     background-clip: text;
     color: transparent;
 }
+
+.shine-pink-text {
+    background: linear-gradient(90deg, #FF69B4 0%, #FFC0CB 50%, #FF69B4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
   
 .silver-text {
     background: linear-gradient(90deg, #E0E0E0 0%, #FFFFFF 50%, #E0E0E0 100%);
@@ -27,6 +36,18 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
+}
+
+.shine-silver-text-menu {
+    background: linear-gradient(90deg, #B0B0B0 0%, #FFFFFF 50%, #B0B0B0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.shine-silver-text-menu:hover {
+    -webkit-text-fill-color: #2d3748; /* Tailwindのgray-800 */
 }
 
 .shine-silver-text {
@@ -37,9 +58,6 @@
     color: transparent;
 }
 
-.shine-silver-text:hover {
-    -webkit-text-fill-color: #2d3748; /* Tailwindのgray-800 */
-}
 
 .shine-red-text {
     background: linear-gradient(90deg, #FF0000 0%, #FF6666 50%, #FF0000 100%);
@@ -105,7 +123,6 @@
     color: transparent;
 }
 
-
 .ios-white {
     color: rgb(242, 242, 247);
 }
@@ -128,7 +145,7 @@
     100% { background-position: 0% 50%; }
 }
   
-.shine-gold-text, .shine-silver-text, .shine-red-text, .shine-blue-text, .shine-yellow-text, .shine-green-text, .shine-pink-text, .shine-purple-text, .shine-lightblue-text, .shine-lightgreen-text {
+.shine-gold-text, .shine-silver-text, .shine-silver-text-menu, .shine-red-text, .shine-blue-text, .shine-yellow-text, .shine-green-text, .shine-pink-text, .shine-purple-text, .shine-lightblue-text, .shine-lightgreen-text {
     animation: shine 3s linear infinite;
     background-size: 200% auto;
 }

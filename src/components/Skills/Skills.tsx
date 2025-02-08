@@ -86,10 +86,10 @@ const SkillCategory: React.FC<{ category: SkillCategory; index: number }> = ({ c
       transition={{ duration: 0.5, delay: index * 0.2 }}
       className="mb-8"
     >
-      <h2 className="text-xl sm:text-2xl font-semibold ios-white mb-4 border-b-2 border-gray-300 pb-2">
+      <h2 className="text-xl sm:text-2xl font-semibold shine-gold-text mb-4 border-b-2 border-gray-300 pb-2">
         {category.title}
       </h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 shine-gold-text font-bold">
         {category.skills.map((skill, i) => (
           <SkillItem key={i} skill={skill} index={i} />
         ))}
@@ -100,7 +100,7 @@ const SkillCategory: React.FC<{ category: SkillCategory; index: number }> = ({ c
 
 export default function Skills() {
   return (
-    <Section id="skills" title="Skills" className="bg-transparent flex justify-center py-8">
+    <Section id="skills" title="Skills" className="bg-transparent flex justify-center py-8" titleColor="shine-gold-text">
       <div className="w-full max-w-5xl px-4">
         {skillCategories.map((category, index) => (
           <SkillCategory key={index} category={category} index={index} />

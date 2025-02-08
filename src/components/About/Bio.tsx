@@ -28,15 +28,6 @@ const Bio: React.FC = () => {
         }}
       />
       <div className="relative bg-black/50 backdrop-blur-sm rounded-lg p-8 shadow-2xl">
-        {/* <motion.h1
-          className="text-4xl md:text-5xl font-bold mb-5 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"
-          style={{ fontFamily: "'Caveat', cursive" }}
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          izawa
-        </motion.h1> */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-4"
           initial={{ opacity: 0 }}
