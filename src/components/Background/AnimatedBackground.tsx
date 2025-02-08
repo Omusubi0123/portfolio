@@ -36,8 +36,8 @@ const AnimatedBackground: React.FC = () => {
         this.x = Math.random() * canvas!.width
         this.y = Math.random() * canvas!.height
         this.size = Math.random() * 5 + 1
-        this.speedX = Math.random() * 3 - 1.5
-        this.speedY = Math.random() * 3 - 1.5
+        this.speedX = window.innerWidth > 768 ? Math.random() * 3 - 1.5 : Math.random() * 2 - 1
+        this.speedY = window.innerWidth > 768 ? Math.random() * 3 - 1.5 : Math.random() * 2 - 1
         this.color = `hsl(${Math.random() * 360}, 50%, 50%)`
       }
 

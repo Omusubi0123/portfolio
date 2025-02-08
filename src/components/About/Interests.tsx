@@ -10,9 +10,18 @@ interface InterestItemProps {
   isActive: boolean;
   onClick: () => void;
   observerRef: (el: HTMLDivElement | null) => void;
+  containerRef: (el: HTMLDivElement | null) => void;
 }
 
-const InterestItem: React.FC<InterestItemProps> = ({ icon, name, description, isActive, onClick, observerRef }) => {
+const InterestItem: React.FC<InterestItemProps> = ({
+  icon,
+  name,
+  description,
+  isActive,
+  onClick,
+  observerRef,
+  containerRef,
+}) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -48,7 +57,8 @@ const InterestItem: React.FC<InterestItemProps> = ({ icon, name, description, is
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.2 }}
-            className="absolute z-10 bottom-full mb-2 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-xl w-64 max-w-full"
+            className="absolute z-10 bottom-full mb-2 p-4 bg-white dark:bg-black rounded-lg shadow-xl w-64 max-w-full"
+            ref={containerRef}
           >
             <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">{name}</h3>
             <p className="text-sm text-gray-700 dark:text-gray-300">{description}</p>
@@ -60,27 +70,28 @@ const InterestItem: React.FC<InterestItemProps> = ({ icon, name, description, is
 };
 
 const interestsData = [
-  {
-    icon: <SiHuggingface className="text-2xl text-pink-500" />,
-    name: "AI Engineer",
-    description: "Specializing in developing and implementing cutting-edge AI models and algorithms.",
-  },
-  {
-    icon: <SiFastapi className="text-2xl text-blue-600" />,
-    name: "Backend Engineer",
-    description: "Building robust and scalable server-side applications and APIs.",
-  },
-  {
-    icon: <SiRobotframework className="text-2xl text-green-600" />,
-    name: "Research & Development",
-    description: "Exploring new technologies and methodologies to drive innovation in software development.",
-  },
-];
+    {
+      icon: <SiHuggingface className="text-2xl text-pink-500" />,
+      name: "AI Engineer",
+      description: "モデルいじるの楽しい 進化が速すぎて仕事にするのには不安もある…でもやっぱり好きなので仕事にしたいかも…",
+    },
+    {
+      icon: <SiFastapi className="text-2xl text-blue-600" />,
+      name: "Backend Engineer",
+      description: "APIやDBの開発楽しい 個人開発の経験はあるが実務は未経験",
+    },
+    {
+      icon: <SiRobotframework className="text-2xl text-green-600" />,
+      name: "Research & Development",
+      description: "研究開発楽しい D進は悩み中…",
+    },
+  ];
 
 const Interests: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const observerRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const popupRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -106,7 +117,7 @@ const Interests: React.FC = () => {
           }
         });
       },
-      { threshold: 0 } // 0% が見えなくなったら発火
+      { threshold: 0 }
     );
 
     observerRefs.current.forEach((el) => {
@@ -117,6 +128,21 @@ const Interests: React.FC = () => {
       observer.disconnect();
     };
   }, [observerRefs]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (activeIndex !== null) {
+        const isClickInside = observerRefs.current[activeIndex]?.contains(event.target as Node) ||
+                              popupRefs.current[activeIndex]?.contains(event.target as Node);
+        if (!isClickInside) {
+          setActiveIndex(null);
+        }
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [activeIndex]);
 
   return (
     <motion.div
@@ -132,6 +158,7 @@ const Interests: React.FC = () => {
           isActive={activeIndex === index}
           onClick={() => handleInterestClick(index)}
           observerRef={(el: HTMLDivElement | null) => (observerRefs.current[index] = el)} // 各要素を ref に格納
+          containerRef={(el: HTMLDivElement | null) => (popupRefs.current[index] = el)} // ポップアップ部分を ref に格納
         />
       ))}
     </motion.div>
