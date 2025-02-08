@@ -178,7 +178,7 @@ const SkillItem: React.FC<{
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.2 }}
-            className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 p-2 bg-black text-sm rounded-md shadow-lg z-10 w-48 text-center"
+            className="absolute bottom-full transform -translate-x-1/2 mb-2 p-2 bg-black text-sm rounded-md shadow-lg z-10 w-48 text-center"
           >
             <p className="text-xs sm:text-sm shine-silver-text">{skill.comment}</p>
           </motion.div>
