@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.gold-text {
+    background: linear-gradient(90deg, #B39855 0%, #FFF9E6 50%, #B39855 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+  
+
+  .silver-text {
+    background: linear-gradient(90deg, #BDC3C9 0%, #FFFFFF 50%, #BDC3C9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  @keyframes shine {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .gold-text, .silver-text {
+    animation: shine 3s linear infinite;
+    background-size: 200% auto;
+  }
+  
