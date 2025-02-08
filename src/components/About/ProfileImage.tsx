@@ -9,7 +9,7 @@ const ProfileImage: React.FC = () => (
     className="relative group flex flex-col items-center mt-20"
   >
     {/* 背景色と枠線用の div */}
-    <div className="relative p-2 rounded-full bg-gradient-to-r from-pink-600 via-purple-500 to-yellow-500">
+    <div className="relative p-2 rounded-full bg-gradient-to-r from-[#B39855] via-[#E0E0E0] to-[#B39855]">
       <a
         href="https://github.com/Omusubi0123"
         target="_blank"
@@ -23,8 +23,10 @@ const ProfileImage: React.FC = () => (
         />
       </a>
     </div>
+
+    {/* 名前のグラデーション */}
     <motion.h1
-      className="text-4xl md:text-5xl font-bold mt-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-yellow-500"
+      className="text-4xl md:text-5xl font-bold mt-4 bg-clip-text text-transparent bg-gradient-to-r from-[#B39855] via-[#E0E0E0] to-[#B39855]"
       style={{ fontFamily: "Georgia, 'Caveat', cursive" }}
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
