@@ -86,7 +86,7 @@ const SkillCategory: React.FC<{ category: SkillCategory; index: number }> = ({ c
       transition={{ duration: 0.5, delay: index * 0.2 }}
       className="mb-8"
     >
-      <h2 className="text-xl sm:text-2xl font-semibold ios-white-text mb-4 border-b-2 border-gray-300 pb-2">
+      <h2 className="text-xl sm:text-2xl font-semibold ios-white mb-4 border-b-2 border-gray-300 pb-2">
         {category.title}
       </h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">

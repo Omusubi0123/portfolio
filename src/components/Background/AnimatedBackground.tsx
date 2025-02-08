@@ -22,7 +22,7 @@ const AnimatedBackground: React.FC = () => {
     resizeCanvas()
 
     const particles: Particle[] = []
-    const particleCount = 100
+    const particleCount = window.innerWidth > 768 ? 150 : 100
 
     class Particle {
       x: number

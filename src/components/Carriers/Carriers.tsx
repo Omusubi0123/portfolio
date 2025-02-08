@@ -69,16 +69,16 @@ const CareerItemComponent: React.FC<{ item: CareerItem }> = ({ item }) => {
     <motion.div ref={ref} animate={controls} initial="hidden" variants={variants} className="mb-12 ml-6 relative">
       <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white"></div>
       <div className="bg-white dark:bg-black p-6 rounded-lg shadow-xl">
-        <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
+        <h3 className="flex items-center mb-1 text-lg font-semibold ios-white dark:ios-black">
           <FaBriefcase className="mr-2" /> {item.title} at {item.company}
         </h3>
-        <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+        <time className="block mt-2 mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-300">
           <FaCalendarAlt className="inline-block mr-1" />
           {item.startDate.getFullYear()}.{item.startDate.getMonth() + 1} ~{" "}
           {item.endDate ? `${item.endDate.getFullYear()}.${item.endDate.getMonth() + 1}` : "現在"}（
           {calculateDuration(item.startDate, item.endDate)}）
         </time>
-        <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">{item.description}</p>
+        <p className="mb-4 text-base font-normal text-gray-400 dark:text-gray-300">{item.description}</p>
         <ul className="space-y-2">
           {item.achievements.map((achievement, index) => (
             <li key={index} className="flex items-start">

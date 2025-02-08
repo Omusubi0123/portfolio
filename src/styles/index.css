@@ -39,8 +39,12 @@
     -webkit-text-fill-color: #2d3748; /* Tailwindのgray-800 */
 }
 
-.ios-white-text {
+.ios-white {
     color: rgb(242, 242, 247);
+}
+
+.ios-black {
+    color: rgb(28, 28, 30);
 }
 
 @keyframes shine {
