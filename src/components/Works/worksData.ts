@@ -38,7 +38,7 @@ export const works: Work[] = [
     ハッカソン終了後にDB等のサービスを変更して自分用にデプロイしており，今でも愛用しています．`,
     media: '/life_dialog.png',
     isVideo: false,
-    link: 'https://life-dialog.vercel.app/',
+    link: 'https://page.line.me/900crthd',
     github: 'https://github.com/Omusubi0123/life-dialog',
     my_skills: ['FastAPI', 'LINE Messaging API', 'Firebase Firestore', 'Azure AI Search', 'OpenAI API'],
     other_skills: ['TypeScript', 'React', 'Vite', 'Docker', 'Google Cloud Platform','Vercel'],

@@ -22,7 +22,7 @@ const skillCategories: SkillCategory[] = [
       {
         name: "Python",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-        comment: "たぶん一番書きました",
+        comment: "たぶん一番書いてます",
       },
       {
         name: "C",
@@ -32,12 +32,12 @@ const skillCategories: SkillCategory[] = [
       {
         name: "Transformers",
         icon: "https://huggingface.co/front/assets/huggingface_logo-noborder.svg",
-        comment: "モデルいじるのに使ってます インターンや個人開発で使ってます",
+        comment: "モデルいじるのに使ってます",
       },
       {
         name: "PyTorch",
         icon: "https://www.vectorlogo.zone/logos/pytorch/pytorch-icon.svg",
-        comment: "Deep Learning基礎講座や大学の実験，インターンで使いました",
+        comment: "Deep Learning基礎講座や大学の実験などで使いました",
       },
     ],
   },
@@ -82,7 +82,7 @@ const skillCategories: SkillCategory[] = [
       {
         name: "AWS",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
-        comment: "S3やSagemakerを少し触りました 人に教えられるほどは使えません",
+        comment: "S3やSagemakerを少し触りました まだ人に教えられるレベルではないです",
       },
       {
         name: "Vercel",

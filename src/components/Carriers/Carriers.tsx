@@ -17,7 +17,7 @@ interface CareerItem {
 
 const careerData: CareerItem[] = [
   {
-    title: "Algorithm Engineer",
+    title: "Algorithm Engineer Intern",
     company: "燈株式会社",
     startDate: new Date(2023, 7), // 0-indexed month (7 = August)
     endDate: null, // null represents "present"
@@ -27,7 +27,6 @@ const careerData: CareerItem[] = [
       "SLM（Small Language Model）開発",
       "Tokenizer開発",
       "検索Agent開発",
-      "オープンソースLLMを用いたデータ生成",
     ],
   },
 ]
