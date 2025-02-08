@@ -49,6 +49,7 @@ export const works: Work[] = [
     title: 'My Portfolio',
     description: `このサイトです．
     Typescript, Reactは使用経験がなかったので，勉強を兼ねてPortfolio的なサイトを作成しました．
+    PCとスマホの両方に対応するよう工夫しました．デザインや細部にこだわりを持って作っています．
     開発の流れは掴めましたが，コードの大部分をAIに書いてもらっており，Reactの勉強になったかと聞かれるとかなり怪しいです・・・．
     せめてサイトのコードは理解します．`,
     media: '/background1_nashi.png',
