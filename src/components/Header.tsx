@@ -51,7 +51,7 @@ export default function Header() {
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <nav className="max-w-screen-lg mx-auto flex justify-between items-center px-4 md:px-20 py-4 h-16 md:h-12 backdrop-blur-sm bg-black/60 rounded-lg">
+      <nav className="max-w-screen-lg mx-auto flex justify-between items-center px-4 sm:px-10 lg:px-20 py-4 h-16 md:h-12 backdrop-blur-sm bg-black/60 rounded-lg">
         <h1
           className="text-xl md:text-2xl font-bold shine-gold-text cursor-pointer"
           onClick={() => window.location.href = "/"}
