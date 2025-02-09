@@ -47,7 +47,7 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className={`fixed top-0 left-0 w-full text-white shadow-md z-10 transition-transform duration-300 md:translate-y-0 ${
+      className={`fixed top-0 left-0 w-full ios-white shadow-md z-10 transition-transform duration-300 md:translate-y-0 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
@@ -80,7 +80,7 @@ export default function Header() {
                 to={section.toLowerCase()}
                 smooth={true}
                 duration={500}
-                className="text-lg md:text-xl shine-silver-text-menu transition cursor-pointer hover:text-gray-800"
+                className="text-lg md:text-xl shine-silver-text-menu transition cursor-pointer"
                 >
                 {section}
               </Link>
@@ -99,7 +99,7 @@ export default function Header() {
                   to={section.toLowerCase()}
                   smooth={true}
                   duration={500}
-                  className="text-lg hover:text-gray-300 transition cursor-pointer block"
+                  className="text-lg shine-silver-text transition cursor-pointer block"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {section}

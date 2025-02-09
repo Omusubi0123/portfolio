@@ -16,7 +16,7 @@ const certifications: Certification[] = [
     title: "東大松尾研 DeepLearning基礎講座修了",
     date: "2023年8月取得",
     icon: <FaGraduationCap />,
-    color: "bg-green-500",
+    color: "bg-green-600",
   },
   {
     title: "応用情報技術者",

@@ -76,7 +76,7 @@ const AnimatedBackground: React.FC = () => {
           const dy = particles[i].y - particles[j].y
           const distance = Math.sqrt(dx * dx + dy * dy)
 
-          if (distance < 100) {
+          if (distance < (window.innerWidth > 768 ? 100 : 100)) {
             ctx.beginPath()
             ctx.strokeStyle = particles[i].color
             ctx.lineWidth = 0.2
