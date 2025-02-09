@@ -57,7 +57,7 @@ Error generating stack: `+c.message+`
     LINEから日々の出来事をリアルタイムで登録し，毎日の記録を検索しながらAIと対話することで人生を振り返るサービスです．
     backendの開発を担当しました．
     開発期間は2日間でしたが，非常に優秀なメンバーのおかげで企業賞3つを受賞することができました．
-    ハッカソン終了後にDB等のサービスを変更して自分用にデプロイしており，今でも愛用しています．`,media:"/life_dialog.png",isVideo:!1,link:"https://page.line.me/900crthd",github:"https://github.com/Omusubi0123/life-dialog",my_skills:["FastAPI","LINE Messaging API","Firebase Firestore","Azure AI Search","OpenAI API"],other_skills:["TypeScript","React","Vite","Docker","Google Cloud Platform","Vercel"],cd_skills:["PostgreSQL","pgvector","docker-compose","Cloudflare tunnel","(自宅サーバー)"]},{id:4,title:"My Portfolio",description:`このサイトです．
+    ハッカソン終了後にDB等のサービスを変更して自分用にデプロイしており，毎日愛用しています．`,media:"/life_dialog.png",isVideo:!1,link:"https://page.line.me/900crthd",github:"https://github.com/Omusubi0123/life-dialog",my_skills:["FastAPI","LINE Messaging API","Firebase Firestore","Azure AI Search","OpenAI API"],other_skills:["TypeScript","React","Vite","Docker","Google Cloud Platform","Vercel"],cd_skills:["PostgreSQL","pgvector","docker-compose","Cloudflare tunnel","(自宅サーバー)"]},{id:4,title:"My Portfolio",description:`このサイトです．
     Typescript, Reactは使用経験がなかったので，勉強を兼ねてPortfolio的なサイトを作成しました．
     PCとスマホの両方に対応（レスポンシブ対応）するよう工夫しました．色使いやアニメーションなどデザインや細部にこだわりを持って作っています．
     AIに書いてもらったコードを理解しながらcomponentを繋ぎ合わせていく，という進め方で勉強しました．
