@@ -7,7 +7,8 @@ export const works: Work[] = [
     description: `UMP-JUSTが主催する生成AIハッカソンでの作品です．外国人労働者の日本語学習を支援するためのサービスを作成しました．
     backendの開発を担当しました．
     ハッカソンへの参加は初めてでしたが，非常に優秀なメンバーのおかげで技術賞とcotomi賞を受賞することができました．
-    2日間のハッカソンでは実装が間に合わなかった部分もあり，今後も継続開発したいと考えています．`,
+    2日間のハッカソンでは実装が間に合わなかった部分もあり，今後も継続開発したいと考えています．
+    サービスを少し変えて自分用にデプロイしています．`,
     media: '/nihon_go_up_app.png',
     isVideo: false,
     link: 'https://nihon-go-up-app.vercel.app/',
@@ -49,14 +50,14 @@ export const works: Work[] = [
     title: 'My Portfolio',
     description: `このサイトです．
     Typescript, Reactは使用経験がなかったので，勉強を兼ねてPortfolio的なサイトを作成しました．
-    PCとスマホの両方に対応（レスポンシブ対応）するよう工夫しました．デザインや細部にこだわりを持って作っています．
-    開発の流れは掴めましたが，コードの大部分をAIに書いてもらっており，Reactの勉強になったかと聞かれるとかなり怪しいです・・・．
-    せめてサイトのコードは理解します．`,
+    PCとスマホの両方に対応（レスポンシブ対応）するよう工夫しました．色使いやアニメーションなどデザインや細部にこだわりを持って作っています．
+    AIに書いてもらったコードを理解しながらcomponentを繋ぎ合わせていく，という進め方で勉強しました．
+    幼少期からの夢の1つ「自分のホームページを持つ」が叶いうれしいです．`,
     media: '/portfolio.png',
     isVideo: false,
     link: 'https://www.omusubiy.com/',
     github: 'https://github.com/Omusubi0123/portfolio',
-    my_skills: ['TypeScript', 'React', 'Tailwind CSS', 'Vite', 'GIthub Pages'],
+    my_skills: ['TypeScript', 'React', 'Vite', 'Tailwind CSS', 'three.js', 'GIthub Pages'],
   },
   {
     id: 5,
