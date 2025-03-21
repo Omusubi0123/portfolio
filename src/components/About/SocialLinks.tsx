@@ -13,17 +13,17 @@ const SocialLinks: React.FC = () => (
       href="https://github.com/Omusubi0123"
       target="_blank"
       rel="noopener noreferrer"
-      className="text-white hover:text-green-500 transition-colors"
+      className="text-green-400 hover:text-white transition-colors"
     >
       <FaGithub size={24} />
     </a>
-    <a href="https://x.com/luckypanchh0123" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-600 transition-colors">
+    <a href="https://x.com/luckypanchh0123" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-white transition-colors">
       <FaTwitter size={24} />
     </a>
-    <a href="https://www.instagram.com/yoshi.i0777/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-pink-700 transition-colors">
+    <a href="https://www.instagram.com/yoshi.i0777/" target="_blank" rel="noopener noreferrer" className="text-pink-700 hover:text-white transition-colors">
       <FaInstagram size={24} />
     </a>
-    <a href="https://www.linkedin.com/in/yoshihiro-izawa-104262343/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-700 transition-colors">
+    <a href="https://www.linkedin.com/in/yoshihiro-izawa-104262343/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-white transition-colors">
       <FaLinkedin size={24} />
     </a>
   </motion.div>

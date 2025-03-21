@@ -32,12 +32,12 @@ const skillCategories: SkillCategory[] = [
       {
         name: "Transformers",
         icon: "https://huggingface.co/front/assets/huggingface_logo-noborder.svg",
-        comment: "モデルいじるのに使ってます",
+        comment: "モデル作ったりいじったりするのに使ってます",
       },
       {
         name: "PyTorch",
         icon: "https://www.vectorlogo.zone/logos/pytorch/pytorch-icon.svg",
-        comment: "Deep Learning基礎講座や大学の実験などで使いました",
+        comment: "Deep Learning基礎講座や大学の実験，インターンなどで使いました",
       },
     ],
   },
@@ -47,12 +47,12 @@ const skillCategories: SkillCategory[] = [
       {
         name: "FastAPI",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
-        comment: "ハッカソンでbackendを担当したときに使いました",
+        comment: "ハッカソンでbackend開発するときは大体これ使います",
       },
       {
         name: "PostgreSQL",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original-wordmark.svg",
-        comment: "Life Dialogをの継続開発でFirestoreからPostgresに移行しました",
+        comment: "Life Dialogをの継続開発でFirestoreからPostgresに移行しました 他のハッカソンでも使いました",
       },
       {
         name: "Firestore",
