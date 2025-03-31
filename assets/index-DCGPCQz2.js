@@ -62,9 +62,9 @@ Error generating stack: `+c.message+`
     PCとスマホの両方に対応（レスポンシブ対応）するよう工夫しました．色使いやアニメーションなどデザインや細部にこだわりを持って作っています．
     AIに書いてもらったコードを理解しながらcomponentを繋ぎ合わせていく，という進め方で勉強しました．
     幼少期からの夢の1つ「自分のホームページを持つ」が叶いうれしいです．`,media:"/portfolio.png",isVideo:!1,link:"https://www.omusubiy.com/",github:"https://github.com/Omusubi0123/portfolio",my_skills:["TypeScript","React","Vite","Tailwind CSS","three.js","GIthub Pages"]},{id:5,title:"Therapystoy",description:`東京大学×SoftBank『UGIP Data Hackathon 2025』にて開発した作品です．
-    近年深刻化する子どものメンタルヘルスを課題とし，AIを搭載したぬいぐるみを使って子どもをサポートするシステムを開発しました．
-    AIぬいぐるみでは，ぬいぐるみの中にRaspberry Piを搭載し，医療文書のRAGを含めたSpeech-to-Speechの機能を実装しました．
-    また，会話記録を基に子どもの性格・メンタルヘルスを分析し，保護者にフィードバックする機能も実装しました．
+    近年深刻化する子どものメンタルヘルスを解決するため，AIを搭載したぬいぐるみを使って子どもをサポートするシステムを開発しました．
+    AIぬいぐるみでは，ぬいぐるみの中にRaspberry Piを搭載し，医療文書のRAGを含めたSpeech-to-Speechの機能を作成しました．
+    また，他メンバーが会話記録を基に子どもの性格・メンタルヘルスを分析し，保護者にフィードバックする機能を作成しました．
     AIぬいぐるみのmodel, backendの開発を担当し，強力なメンバーのおかげで3位入賞することができました．`,media:"/therapystoy.png",isVideo:!1,link:"https://www.youtube.com/watch?v=n6q0AeKy2mY",github:"https://github.com/DeepMIC-2025ugip",my_skills:["Raspberry Pi","FastAPI","PostgreSQL","Azure AI Search","OpenAI API","Speech Recognotion"],other_skills:["TypeScript","React","Next.js","AWS(ECS, ALB, RDB)","Github Actions"]},{id:6,title:"自宅サーバー",description:`ミニPCにUbuntu-Serverをインストールし，自宅サーバーを構築しました．
     「Works」のbackendはこのサーバーで運用しています．
     自宅サーバーでのbackendサービスデプロイの方法は以下の記事にまとめています．`,media:"/home_server.png",link:"https://qiita.com/Omusubi0123/items/216968e23b13f35a90a1",isVideo:!1},{id:7,title:"観劇予約フォーム",description:`所属していた演劇サークルで公演予約システムが必要となり，予約フォームシステムを作りました．
