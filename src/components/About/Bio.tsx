@@ -8,7 +8,7 @@ const Bio: React.FC = () => {
 
   const bioItems = [
     { icon: <FaMapMarkerAlt />, label: "From", content: "Saitama, Japan" },
-    { icon: <FaUniversity />, label: "Current", content: "UT EEIC 3rd grade" },
+    { icon: <FaUniversity />, label: "Current", content: "UT EEIC 4th grade" },
     { icon: <FaLaptopCode />, label: "Major", content: "Computer Science and Electronics" },
     { icon: <FaQuoteLeft />, label: "Favorite Quote", content: "The rise and fall of fortunes is inevitable." },
   ]
