@@ -61,6 +61,21 @@ export const works: Work[] = [
   },
   {
     id: 5,
+    title: 'Therapystoy',
+    description: `東京大学×SoftBank『UGIP Data Hackathon 2025』にて開発した作品です．
+    近年深刻化する子どものメンタルヘルスを課題とし，AIを搭載したぬいぐるみを使って子どもをサポートするシステムを開発しました．
+    AIぬいぐるみでは，ぬいぐるみの中にRaspberry Piを搭載し，医療文書のRAGを含めたSpeech-to-Speechの機能を実装しました．
+    また，会話記録を基に子どもの性格・メンタルヘルスを分析し，保護者にフィードバックする機能も実装しました．
+    AIぬいぐるみのmodel, backendの開発を担当し，強力なメンバーのおかげで3位入賞することができました．`,
+    media: '/therapystoy.png',
+    isVideo: false,
+    link: 'https://www.youtube.com/watch?v=n6q0AeKy2mY',
+    github: 'https://github.com/DeepMIC-2025ugip',
+    my_skills: ['Raspberry Pi', 'FastAPI', 'PostgreSQL', 'Azure AI Search', 'OpenAI API', 'Speech Recognotion'],
+    other_skills: ['TypeScript', 'React', 'Next.js', 'AWS(ECS, ALB, RDB)', 'Github Actions'],
+  },
+  {
+    id: 6,
     title: '自宅サーバー',
     description: `ミニPCにUbuntu-Serverをインストールし，自宅サーバーを構築しました．
     「Works」のbackendはこのサーバーで運用しています．
@@ -68,5 +83,18 @@ export const works: Work[] = [
     media: '/home_server.png',
     link: 'https://qiita.com/Omusubi0123/items/216968e23b13f35a90a1',
     isVideo: false,
-  }
+  },
+  {
+    id: 7,
+    title: '観劇予約フォーム',
+    description: `所属していた演劇サークルで公演予約システムが必要となり，予約フォームシステムを作りました．
+    開発当初はWebサイトやDBを扱う技術がなかったこと，開発期間が短かったことから，GASを利用して開発しました．
+    Google FormとGoogle SpreadsheetをGASで連携させました．
+    フォームが送信されるごとに返信メールの送信と予約状況の再計算を行い，フォームの説明文や選択肢を予約状況に応じて更新します．
+    GASの仕様上，数秒以内に大量にフォームが送信されるとメール送信が漏れる問題があったので，メール未送信時に再送信する機能を追加して対応しました．`,
+    media: '/musical_reservation_form.png',
+    isVideo: false,
+    github: 'https://github.com/Omusubi0123/reservation_form_spreadsheet',
+    my_skills: ['Google Apps Script', 'Google Form', 'Google Spreadsheet'],
+  },
 ];
