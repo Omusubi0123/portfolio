@@ -84,17 +84,17 @@ export const works: Work[] = [
     link: 'https://qiita.com/Omusubi0123/items/216968e23b13f35a90a1',
     isVideo: false,
   },
-  {
-    id: 7,
-    title: '観劇予約フォーム',
-    description: `所属していた演劇サークルで公演予約システムが必要となり，予約フォームシステムを作りました．
-    開発当初はWebサイトやDBを扱う技術がなかったこと，開発期間が短かったことから，GASを利用して開発しました．
-    Google FormとGoogle SpreadsheetをGASで連携させました．
-    フォームが送信されるごとに返信メールの送信と予約状況の再計算を行い，フォームの説明文や選択肢を予約状況に応じて更新します．
-    GASの仕様上，数秒以内に大量にフォームが送信されるとメール送信が漏れる問題があったので，メール未送信時に再送信する機能を追加して対応しました．`,
-    media: '/musical_reservation_form.png',
-    isVideo: false,
-    github: 'https://github.com/Omusubi0123/reservation_form_spreadsheet',
-    my_skills: ['Google Apps Script', 'Google Form', 'Google Spreadsheet'],
-  },
+  // {
+  //   id: 7,
+  //   title: '観劇予約フォーム',
+  //   description: `所属していた演劇サークルで公演予約システムが必要となり，予約フォームシステムを作りました．
+  //   開発当初はWebサイトやDBを扱う技術がなかったこと，開発期間が短かったことから，GASを利用して開発しました．
+  //   Google FormとGoogle SpreadsheetをGASで連携させました．
+  //   フォームが送信されるごとに返信メールの送信と予約状況の再計算を行い，フォームの説明文や選択肢を予約状況に応じて更新します．
+  //   GASの仕様上，数秒以内に大量にフォームが送信されるとメール送信が漏れる問題があったので，メール未送信時に再送信する機能を追加して対応しました．`,
+  //   media: '/musical_reservation_form.png',
+  //   isVideo: false,
+  //   github: 'https://github.com/Omusubi0123/reservation_form_spreadsheet',
+  //   my_skills: ['Google Apps Script', 'Google Form', 'Google Spreadsheet'],
+  // },
 ];
