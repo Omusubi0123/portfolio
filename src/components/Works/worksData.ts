@@ -79,7 +79,8 @@ export const works: Work[] = [
     title: '自宅サーバー',
     description: `ミニPCにUbuntu-Serverをインストールし，自宅サーバーを構築しました．
     「Works」のbackendはこのサーバーで運用しています．
-    自宅サーバーでのbackendサービスデプロイの方法は以下の記事にまとめています．`,
+    自宅サーバーでのbackendサービスデプロイの方法は以下の記事にまとめています．
+    また，HDを接続してNASサーバーとしても運用しています．`,
     media: '/home_server.png',
     link: 'https://qiita.com/Omusubi0123/items/216968e23b13f35a90a1',
     isVideo: false,

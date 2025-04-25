@@ -37,7 +37,7 @@ const skillCategories: SkillCategory[] = [
       {
         name: "PyTorch",
         icon: "https://www.vectorlogo.zone/logos/pytorch/pytorch-icon.svg",
-        comment: "Deep Learning基礎講座や大学の実験，インターンなどで使いました",
+        comment: "Deep Learning基礎講座や大学の実験，インターンで使いました",
       },
     ],
   },
