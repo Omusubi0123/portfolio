@@ -1,4 +1,5 @@
 import type React from "react"
+import { Box } from "@mui/material"
 import { useEffect } from "react"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
@@ -48,10 +49,15 @@ const About: React.FC = () => {
 
   return (
     <Section id="about" title="" className="bg-transparent flex justify-center py-8 relative overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-white-500/10 via-pink-500/20 to-cyan-500/20"></div>
-        <Particles />
-      </div>
+      <Box
+        sx={{
+          position: "absolute",
+          inset: 0,
+          zindex: 0,
+        }}
+        >
+          <Particles />
+      </Box>
 
       <motion.div
         ref={ref}
