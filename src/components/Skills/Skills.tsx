@@ -205,7 +205,7 @@ const SkillCategory: React.FC<{
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.5, delay: index * 0.2 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
       className="mb-8"
     >
       <h2 className="text-xl sm:text-2xl font-semibold shine-gold-text mb-4 border-b-2 border-gray-300 pb-2">
