@@ -9,7 +9,7 @@ const ProfileImage: React.FC = () => (
     className="relative group flex flex-col items-center mt-20"
   >
     {/* 背景色と枠線用の div */}
-    <div className="relative p-2 rounded-full bg-gradient-to-r from-[#B39855] via-[#E0E0E0] to-[#B39855]">
+    <div className="relative p-2 rounded-full bg-gradient-to-r from-[#B39855] via-[#E0E0E0] to-[#B39855] transform transition-transform duration-300 hover:scale-105">
       <a
         href="https://github.com/Omusubi0123"
         target="_blank"
@@ -19,7 +19,7 @@ const ProfileImage: React.FC = () => (
         <img
           src="/profile_icon.png"
           alt="Icon"
-          className="w-40 h-40 md:w-60 md:h-60 rounded-full bg-white"
+          className="w-40 h-40 md:w-60 md:h-60 rounded-full bg-white brightness-95 transition-filter duration-300 hover:brightness-100"
         />
       </a>
     </div>
