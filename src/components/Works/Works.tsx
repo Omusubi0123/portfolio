@@ -76,6 +76,7 @@ export default function Works() {
           onClose={handleClosePopup}
           link={selectedWork.link}
           github={selectedWork.github}
+          slide={selectedWork.slide}
           my_skills={selectedWork.my_skills}
           other_skills={selectedWork.other_skills}
           cd_skills={selectedWork.cd_skills}

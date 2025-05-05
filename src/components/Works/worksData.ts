@@ -13,6 +13,7 @@ export const works: Work[] = [
     isVideo: false,
     link: 'https://nihon-go-up-app.vercel.app/',
     github: 'https://github.com/Omusubi0123/nihon-go-up-app',
+    slide: 'https://drive.google.com/file/d/1P33v6AeTH96daZJ3wcWP9QqZngSPy6jZ/view?usp=drive_link',
     my_skills: ['FastAPI', 'Azure AI Search', 'Amazon Bedrock', 'cotomi API'],
     other_skills: ['TypeScript', 'React', 'Vite', 'Docker', 'Google Cloud Platform', 'Vercel'],
   },
@@ -27,6 +28,7 @@ export const works: Work[] = [
     media: '/netrend.png',
     isVideo: false,
     link: 'https://netrend.vercel.app/',
+    slide: 'https://drive.google.com/file/d/1_c_UpaC5FZLKqLnIgGXogtvzW3njUhXl/view?usp=drive_link',
     my_skills: ['HTML', 'CSS', 'JavaScript', 'D3.js', 'FastAPI', 'Docker', 'Cloudflare tunnel'],
   },
   {
@@ -71,6 +73,7 @@ export const works: Work[] = [
     isVideo: false,
     link: 'https://www.youtube.com/watch?v=n6q0AeKy2mY',
     github: 'https://github.com/DeepMIC-2025ugip',
+    slide: 'https://drive.google.com/file/d/1J0I7bYlILijSkyLgA2QXjBJBqrzJXirP/view?usp=drive_link',
     my_skills: ['Raspberry Pi', 'FastAPI', 'PostgreSQL', 'Azure AI Search', 'OpenAI API', 'Speech Recognotion'],
     other_skills: ['TypeScript', 'React', 'Next.js', 'AWS(ECS, ALB, RDB)', 'Github Actions'],
   },
