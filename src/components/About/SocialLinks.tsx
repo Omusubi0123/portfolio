@@ -1,7 +1,7 @@
 import type React from "react"
 import { motion } from "framer-motion"
 import { FaGithub, FaLinkedin } from "react-icons/fa"
-// import { FaGithub, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa"
+import { FaGithub, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa"
 
 const SocialLinks: React.FC = () => (
   <motion.div
