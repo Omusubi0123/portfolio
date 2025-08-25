@@ -26,8 +26,13 @@ const skillCategories: SkillCategory[] = [
       },
       {
         name: "C",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
+        icon: "https://img.icons8.com/?size=96&id=40669&format=png",
         comment: "高専５年間はこれがメインです",
+      },
+      {
+        name: "Rust",
+        icon: "https://img.icons8.com/?size=160&id=sh3mEpjaKHWj&format=png",
+        comment: "大学のプログラミング言語の授業にて使いました．RustでMinC言語のコンパイラを開発しました",
       },
       {
         name: "Transformers",
@@ -81,12 +86,12 @@ const skillCategories: SkillCategory[] = [
       },
       {
         name: "AWS",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg",
         comment: "S3やSagemakerを少し触りました まだ人に教えられるレベルではないです",
       },
       {
         name: "Vercel",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original-wordmark.svg",
+        icon: "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/vercel.png",
         comment: "Worksのデプロイは基本的にvercelでやってます",
       },
     ],

@@ -38,14 +38,15 @@ export const works: Work[] = [
     LINEから日々の出来事をリアルタイムで登録し，毎日の記録を検索しながらAIと対話することで人生を振り返るサービスです．
     backendの開発を担当しました．
     開発期間は2日間でしたが，非常に優秀なメンバーのおかげで企業賞3つを受賞することができました．
-    ハッカソン終了後にDB等のサービスを変更して自分用にデプロイしており，毎日愛用しています．`,
+    ハッカソン終了後にDB等のサービスを変更して自分用にデプロイしており，毎日愛用しています．
+    日記検索アルゴリズムをpgvector + elasticsearchのhybrid検索に変更したり，セキュリティを高めるためにGoogle OAuthを導入したりしました．`,
     media: '/life_dialog.png',
     isVideo: false,
     link: 'https://page.line.me/900crthd',
     github: 'https://github.com/Omusubi0123/life-dialog',
     my_skills: ['FastAPI', 'LINE Messaging API', 'Firebase Firestore', 'Azure AI Search', 'OpenAI API'],
     other_skills: ['TypeScript', 'React', 'Vite', 'Docker', 'Google Cloud Platform','Vercel'],
-    cd_skills: ['PostgreSQL', 'pgvector', 'docker-compose', 'Cloudflare tunnel', '(自宅サーバー)'],
+    cd_skills: ['PostgreSQL', 'pgvector', 'elasticsearch', 'Google OAuth', 'docker-compose', 'Cloudflare tunnel', '(自宅サーバー)'],
   },
   {
     id: 4,
@@ -68,6 +69,7 @@ export const works: Work[] = [
     近年深刻化する子どものメンタルヘルスを解決するため，AIを搭載したぬいぐるみを使って子どもをサポートするシステムを開発しました．
     AIぬいぐるみでは，ぬいぐるみの中にRaspberry Piを搭載し，医療文書のRAGを含めたSpeech-to-Speechの機能を作成しました．
     また，他メンバーが会話記録を基に子どもの性格・メンタルヘルスを分析し，保護者にフィードバックする機能を作成しました．
+    ビジネス色の強いハッカソンは初参加で，ビジネスモデル考案やピッチ用スライド作成に特に力を入れて取り組みました．
     AIぬいぐるみのmodel, backendの開発を担当し，強力なメンバーのおかげで3位入賞することができました．`,
     media: '/therapystoy.png',
     isVideo: false,
@@ -88,17 +90,4 @@ export const works: Work[] = [
     link: 'https://qiita.com/Omusubi0123/items/216968e23b13f35a90a1',
     isVideo: false,
   },
-  // {
-  //   id: 7,
-  //   title: '観劇予約フォーム',
-  //   description: `所属していた演劇サークルで公演予約システムが必要となり，予約フォームシステムを作りました．
-  //   開発当初はWebサイトやDBを扱う技術がなかったこと，開発期間が短かったことから，GASを利用して開発しました．
-  //   Google FormとGoogle SpreadsheetをGASで連携させました．
-  //   フォームが送信されるごとに返信メールの送信と予約状況の再計算を行い，フォームの説明文や選択肢を予約状況に応じて更新します．
-  //   GASの仕様上，数秒以内に大量にフォームが送信されるとメール送信が漏れる問題があったので，メール未送信時に再送信する機能を追加して対応しました．`,
-  //   media: '/musical_reservation_form.png',
-  //   isVideo: false,
-  //   github: 'https://github.com/Omusubi0123/reservation_form_spreadsheet',
-  //   my_skills: ['Google Apps Script', 'Google Form', 'Google Spreadsheet'],
-  // },
 ];
