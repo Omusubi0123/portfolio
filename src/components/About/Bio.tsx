@@ -39,7 +39,7 @@ const Bio: React.FC = () => {
         }}
       >
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-4"
+          className="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -47,18 +47,18 @@ const Bio: React.FC = () => {
           {bioItems.map((item, index) => (
             <motion.div
               key={index}
-              className="relative group"
+              className="relative group h-full"
               onMouseEnter={() => setHoveredItem(item.label)}
               onMouseLeave={() => setHoveredItem(null)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               >
-              <div className="bg-white/10 rounded-lg p-4 transition-all duration-300 group-hover:bg-white/20">
+              <div className="bg-white/10 rounded-lg p-4 transition-all duration-300 group-hover:bg-white/20 h-full flex flex-col">
                 <div className="flex items-center mb-2">
                   <span className="text-xl mr-3 text-[#FFBF00]">{item.icon}</span>
                   <h2 className="text-xl font-semibold shine-pink-text">{item.label}</h2>
                 </div>
-                <p className="ios-white">{item.content}</p>
+                <p className="ios-white whitespace-pre-line">{item.content}</p>
               </div>
               <AnimatePresence>
                 {hoveredItem === item.label && (

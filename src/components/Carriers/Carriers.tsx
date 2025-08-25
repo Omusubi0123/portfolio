@@ -21,7 +21,7 @@ const careerData: CareerItem[] = [
     endDate: null,
     description: "循環器内科",
     achievements: [
-      "GENIAC Project Support",
+      "Technical Support",
     ],
   },
   {
