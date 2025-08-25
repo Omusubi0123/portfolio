@@ -5,7 +5,7 @@ import { Link as RouterLink, useLocation } from "react-router-dom"
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
-  const sections = ["About", "Works", "Carriers", "Certifications", "Skills"]
+  const sections = ["About", "Works", "Blog", "Carriers", "Certifications", "Skills"]
   const headerRef = useRef<HTMLDivElement>(null)
   const menuRef = useRef<HTMLDivElement>(null)
   const location = useLocation()
@@ -78,24 +78,25 @@ export default function Header() {
             <>
               {sections.map((section, index) => (
                 <li key={index}>
-                  <Link
-                    to={section.toLowerCase()}
-                    smooth={true}
-                    duration={500}
-                    className="text-lg md:text-xl shine-silver-text-menu transition cursor-pointer"
-                  >
-                    {section}
-                  </Link>
+                  {section === "Blog" ? (
+                    <RouterLink
+                      to="/blog"
+                      className="text-lg md:text-xl shine-silver-text-menu transition cursor-pointer"
+                    >
+                      {section}
+                    </RouterLink>
+                  ) : (
+                    <Link
+                      to={section.toLowerCase()}
+                      smooth={true}
+                      duration={500}
+                      className="text-lg md:text-xl shine-silver-text-menu transition cursor-pointer"
+                    >
+                      {section}
+                    </Link>
+                  )}
                 </li>
               ))}
-              <li>
-                <RouterLink
-                  to="/blog"
-                  className="text-lg md:text-xl shine-silver-text-menu transition cursor-pointer"
-                >
-                  Blog
-                </RouterLink>
-              </li>
             </>
           ) : (
             <>
@@ -128,26 +129,27 @@ export default function Header() {
               <>
                 {sections.map((section, index) => (
                   <li key={index} className="px-4 py-2">
-                    <Link
-                      to={section.toLowerCase()}
-                      smooth={true}
-                      duration={500}
-                      className="text-lg shine-silver-text transition cursor-pointer block"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {section}
-                    </Link>
+                    {section === "Blog" ? (
+                      <RouterLink
+                        to="/blog"
+                        className="text-lg shine-silver-text transition cursor-pointer block"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {section}
+                      </RouterLink>
+                    ) : (
+                      <Link
+                        to={section.toLowerCase()}
+                        smooth={true}
+                        duration={500}
+                        className="text-lg shine-silver-text transition cursor-pointer block"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {section}
+                      </Link>
+                    )}
                   </li>
                 ))}
-                <li className="px-4 py-2">
-                  <RouterLink
-                    to="/blog"
-                    className="text-lg shine-silver-text transition cursor-pointer block"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Blog
-                  </RouterLink>
-                </li>
               </>
             ) : (
               <>

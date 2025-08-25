@@ -17,5 +17,7 @@ export default {
     },
   },
   // darkMode: 'media', // ダークモードを有効化
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
 }

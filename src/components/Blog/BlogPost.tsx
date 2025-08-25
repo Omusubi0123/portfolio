@@ -230,11 +230,11 @@ const BlogPost: React.FC = () => {
         </article>
 
         {/* 記事の最後 */}
-        <div className="mt-12 pt-8 border-t border-gray-700/50">
+        <div className="mt-6 pt-4 border-t border-gray-700/50">
           <div className="flex justify-center">
             <Link 
               to="/blog" 
-              className="px-6 py-3 bg-gradient-to-r from-yellow-600 to-yellow-400 text-black font-semibold rounded-lg hover:from-yellow-500 hover:to-yellow-300 transition-all duration-300"
+              className="px-5 py-3 bg-gradient-to-r from-yellow-600 to-yellow-400 text-black font-semibold rounded-lg transition-all duration-300 transform hover:scale-105"
             >
               Read Other Posts
             </Link>

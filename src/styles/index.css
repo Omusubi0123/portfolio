@@ -113,6 +113,14 @@
     color: transparent;
 }
 
+.shine-lightpink-text {
+    background: linear-gradient(90deg, #FFB6C1 0%, #FFC0CB 50%, #FFB6C1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
 .shine-lightblue-text {
     background: linear-gradient(90deg, #00CED1 0%, #66E0FF 50%, #00CED1 100%);
     -webkit-background-clip: text;
