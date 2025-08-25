@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import { Link } from "react-scroll"
+import { Link as RouterLink, useLocation } from "react-router-dom"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -7,6 +8,8 @@ export default function Header() {
   const sections = ["About", "Works", "Carriers", "Certifications", "Skills"]
   const headerRef = useRef<HTMLDivElement>(null)
   const menuRef = useRef<HTMLDivElement>(null)
+  const location = useLocation()
+  const isHomePage = location.pathname === '/'
 
   useEffect(() => {
     let lastScrollY = window.pageYOffset
@@ -52,12 +55,9 @@ export default function Header() {
       }`}
     >
       <nav className="max-w-screen-lg mx-auto flex justify-between items-center px-4 sm:px-10 lg:px-20 py-4 h-16 md:h-12 backdrop-blur-sm bg-black/60 rounded-lg">
-        <h1
-          className="text-xl md:text-2xl font-bold shine-gold-text cursor-pointer"
-          onClick={() => window.location.href = "/"}
-        >
+        <RouterLink to="/" className="text-xl md:text-2xl font-bold shine-gold-text">
           izawa Official Site
-        </h1>
+        </RouterLink>
 
         {/* Hamburger menu for mobile */}
         <button className="md:hidden" onClick={toggleMenu}>
@@ -74,18 +74,49 @@ export default function Header() {
 
         {/* Desktop menu */}
         <ul className="hidden md:flex md:space-x-8">
-          {sections.map((section, index) => (
-            <li key={index}>
-                <Link
-                to={section.toLowerCase()}
-                smooth={true}
-                duration={500}
-                className="text-lg md:text-xl shine-silver-text-menu transition cursor-pointer"
+          {isHomePage ? (
+            <>
+              {sections.map((section, index) => (
+                <li key={index}>
+                  <Link
+                    to={section.toLowerCase()}
+                    smooth={true}
+                    duration={500}
+                    className="text-lg md:text-xl shine-silver-text-menu transition cursor-pointer"
+                  >
+                    {section}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <RouterLink
+                  to="/blog"
+                  className="text-lg md:text-xl shine-silver-text-menu transition cursor-pointer"
                 >
-                {section}
-              </Link>
-            </li>
-          ))}
+                  Blog
+                </RouterLink>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <RouterLink
+                  to="/"
+                  className="text-lg md:text-xl shine-silver-text-menu transition cursor-pointer"
+                >
+                  Home
+                </RouterLink>
+              </li>
+              <li>
+                <RouterLink
+                  to="/blog"
+                  className="text-lg md:text-xl shine-silver-text-menu transition cursor-pointer"
+                >
+                  Blog
+                </RouterLink>
+              </li>
+            </>
+          )}
         </ul>
       </nav>
 
@@ -93,19 +124,53 @@ export default function Header() {
       {isMenuOpen && (
         <div ref={menuRef} className="md:hidden fixed top-16 right-0 w-48 bg-black/90 rounded-bl-lg shadow-lg">
           <ul className="py-2">
-            {sections.map((section, index) => (
-              <li key={index} className="px-4 py-2">
-                <Link
-                  to={section.toLowerCase()}
-                  smooth={true}
-                  duration={500}
-                  className="text-lg shine-silver-text transition cursor-pointer block"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {section}
-                </Link>
-              </li>
-            ))}
+            {isHomePage ? (
+              <>
+                {sections.map((section, index) => (
+                  <li key={index} className="px-4 py-2">
+                    <Link
+                      to={section.toLowerCase()}
+                      smooth={true}
+                      duration={500}
+                      className="text-lg shine-silver-text transition cursor-pointer block"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {section}
+                    </Link>
+                  </li>
+                ))}
+                <li className="px-4 py-2">
+                  <RouterLink
+                    to="/blog"
+                    className="text-lg shine-silver-text transition cursor-pointer block"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Blog
+                  </RouterLink>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="px-4 py-2">
+                  <RouterLink
+                    to="/"
+                    className="text-lg shine-silver-text transition cursor-pointer block"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Home
+                  </RouterLink>
+                </li>
+                <li className="px-4 py-2">
+                  <RouterLink
+                    to="/blog"
+                    className="text-lg shine-silver-text transition cursor-pointer block"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Blog
+                  </RouterLink>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       )}
