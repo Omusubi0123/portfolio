@@ -14,16 +14,16 @@ interface CareerItem {
 }
 
 const careerData: CareerItem[] = [
-  {
-    title: "Academic Technical Staff",
-    company: "東京大学医学部附属病院",
-    startDate: new Date(2025, 9),
-    endDate: null,
-    description: "循環器内科",
-    achievements: [
-      "Technical Support",
-    ],
-  },
+  // {
+  //   title: "Academic Technical Staff",
+  //   company: "東京大学医学部附属病院",
+  //   startDate: new Date(2025, 9),
+  //   endDate: null,
+  //   description: "循環器内科",
+  //   achievements: [
+  //     "Technical Support",
+  //   ],
+  // },
   {
     title: "Algorithm Engineer Intern",
     company: "燈株式会社",
