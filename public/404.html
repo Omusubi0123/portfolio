@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yoshi's Portfolio</title>
+  <title>Yoshihiro Izawa</title>
   <script>
     // GitHub Pages SPA hack
-    // https://github.com/rafgraph/spa-github-pages
+    // Store the current path and redirect to index.html with encoded path
     (function(l) {
-      if (l.search[1] === '/' ) {
-        var decoded = l.search.slice(1).split('&').map(function(s) { 
-          return s.replace(/~and~/g, '&')
-        }).join('?')
-        window.history.replaceState(null, null,
-            l.pathname.slice(0, -1) + decoded + l.hash
-        )
-      }
+      var path = l.pathname;
+      var search = l.search;
+      var hash = l.hash;
+      
+      // Create the redirect URL with the current path as a query parameter
+      var redirectUrl = '/?/' + encodeURIComponent(path + search + hash);
+      
+      // Redirect to index.html with the encoded path
+      window.location.replace(redirectUrl);
     }(window.location))
   </script>
 </head>
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/pages/main.tsx"></script>
+  <p>Redirecting...</p>
 </body>
 </html>
