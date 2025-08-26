@@ -5,6 +5,7 @@ import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import rehypeHighlight from 'rehype-highlight';
+import rehypeRaw from 'rehype-raw';
 import { getBlogPost } from './blogData';
 import Section from '../Section';
 import 'katex/dist/katex.min.css';
@@ -92,7 +93,8 @@ const BlogPost: React.FC = () => {
               <img
                 src={post.thumbnail}
                 alt={post.title}
-                className="w-full h-64 md:h-80 object-cover"
+                className="w-full h-full md:w-120 object-contain"
+                style={{ maxHeight: '350px' }}
               />
             </div>
           )}
@@ -103,7 +105,7 @@ const BlogPost: React.FC = () => {
           <div className="bg-black/20 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-gray-700/50">
             <ReactMarkdown
               remarkPlugins={[remarkGfm, remarkMath]}
-              rehypePlugins={[rehypeKatex, rehypeHighlight]}
+              rehypePlugins={[rehypeKatex, rehypeHighlight, rehypeRaw]}
               components={{
                 h1: ({ children }) => (
                   <h1 className="text-2xl md:text-3xl font-bold shine-gold-text mb-6 mt-8 first:mt-0">
@@ -176,11 +178,11 @@ const BlogPost: React.FC = () => {
                   </a>
                 ),
                 img: ({ src, alt }) => (
-                  <div className="my-6">
+                  <div className="my-6 flex flex-col items-center">
                     <img
                       src={src}
                       alt={alt}
-                      className="w-full rounded-lg border border-gray-700"
+                      className="max-w-md w-full rounded-lg border border-gray-700 shadow-lg"
                     />
                     {alt && (
                       <p className="text-center text-gray-500 text-sm mt-2">
@@ -190,14 +192,18 @@ const BlogPost: React.FC = () => {
                   </div>
                 ),
                 // Custom video component for video support
-                video: ({ src, ...props }: any) => (
-                  <div className="my-6">
+                video: ({ src, muted, ...props }: any) => (
+                  <div className="my-6 flex justify-center">
                     <video
                       src={src}
                       controls
-                      className="w-full rounded-lg border border-gray-700"
+                      muted={muted !== undefined ? muted : false}
+                      className="max-w-lg w-full rounded-lg border border-gray-700 shadow-lg"
+                      style={{ maxHeight: '350px' }}
                       {...props}
-                    />
+                    >
+                      お使いのブラウザは動画タグをサポートしていません。
+                    </video>
                   </div>
                 ),
                 table: ({ children }) => (
@@ -234,7 +240,7 @@ const BlogPost: React.FC = () => {
           <div className="flex justify-center">
             <Link 
               to="/blog" 
-              className="px-5 py-3 bg-gradient-to-r from-yellow-600 to-yellow-400 text-black font-semibold rounded-lg transition-all duration-300 transform hover:scale-105"
+              className="px-5 py-3 bg-gradient-to-r from-yellow-600 to-yellow-400 text-black font-semibold rounded-lg hover:from-yellow-500 hover:to-yellow-300 transition-all duration-300 transform hover:scale-105"
             >
               Read Other Posts
             </Link>

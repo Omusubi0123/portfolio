@@ -67,8 +67,44 @@ $$
 ```
 
 ### 動画
+動画を埋め込むには、HTMLタグを直接記述します：
+
+#### 基本的な動画埋め込み
 ```html
 <video src="/path/to/video.mp4" controls></video>
+```
+
+#### 音声をオフにした動画
+```html
+<video src="/path/to/video.mp4" controls muted></video>
+```
+
+#### その他のオプション
+```html
+<!-- 自動再生（音声オフ推奨） -->
+<video src="/path/to/video.mp4" controls muted autoplay></video>
+
+<!-- ループ再生 -->
+<video src="/path/to/video.mp4" controls loop></video>
+```
+
+動画ファイルは`public/blog/記事名/`フォルダに配置し、以下のような構造にします：
+```
+public/
+  blog/
+    article-name/
+      video.mp4
+      image.png
+```
+
+#### サイズについて
+- **動画**: 最大幅512px、最大高さ350px（レスポンシブ対応）
+- **画像**: 最大幅448px（レスポンシブ対応）
+
+記事内での参照：
+```html
+<video src="/blog/article-name/video.mp4" controls></video>
+![画像説明](/blog/article-name/image.png)
 ```
 
 ### 表
