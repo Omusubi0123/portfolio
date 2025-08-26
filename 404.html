@@ -6,17 +6,26 @@
   <title>Yoshihiro Izawa</title>
   <script>
     // GitHub Pages SPA hack
-    // Store the current path and redirect to index.html with encoded path
+    // https://github.com/rafgraph/spa-github-pages
     (function(l) {
-      var path = l.pathname;
-      var search = l.search;
+      // Remove leading slash and split into segments
+      var path = l.pathname.split('/').slice(1);
+      // Remove trailing empty string if path ends with slash
+      if (path[path.length - 1] === '') {
+        path.pop();
+      }
+      var query = l.search.slice(1);
       var hash = l.hash;
       
-      // Create the redirect URL with the current path as a query parameter
-      var redirectUrl = '/?/' + encodeURIComponent(path + search + hash);
+      // Store path segments and query in sessionStorage
+      sessionStorage.redirect = JSON.stringify({
+        path: path,
+        query: query,
+        hash: hash
+      });
       
-      // Redirect to index.html with the encoded path
-      window.location.replace(redirectUrl);
+      // Redirect to index.html
+      l.replace(l.origin);
     }(window.location))
   </script>
 </head>
