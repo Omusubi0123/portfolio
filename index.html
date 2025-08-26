@@ -8,15 +8,23 @@
     <title>Yoshihiro Izawa</title>
     <script>
       // GitHub Pages SPA hack
-      // Handle redirected paths from 404.html
+      // https://github.com/rafgraph/spa-github-pages
       (function(l) {
-        if (l.search[1] === '/' ) {
-          // Extract the encoded path from the query parameter
-          var encoded = l.search.slice(1);
-          var decoded = decodeURIComponent(encoded);
+        if (sessionStorage.redirect) {
+          var redirect = JSON.parse(sessionStorage.redirect);
+          delete sessionStorage.redirect;
           
-          // Replace the current URL with the decoded path
-          window.history.replaceState(null, null, decoded);
+          // Reconstruct the URL from stored components
+          var url = '/' + redirect.path.join('/');
+          if (redirect.query) {
+            url += '?' + redirect.query;
+          }
+          if (redirect.hash) {
+            url += redirect.hash;
+          }
+          
+          // Replace the current URL with the reconstructed path
+          window.history.replaceState(null, null, url);
         }
       }(window.location))
     </script>
