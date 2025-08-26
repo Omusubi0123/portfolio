@@ -67,7 +67,7 @@ const BlogSection: React.FC = () => {
                 to={`/blog/${post.id}`}
                 className="block group hover:no-underline"
               >
-                <article className="bg-black/20 backdrop-blur-sm rounded-lg p-4 md:p-6 border border-gray-700/50 hover:border-gray-500/70 transition-all duration-300 hover:bg-black/30 transform hover:scale-105">
+                <article className="bg-black/20 backdrop-blur-sm rounded-lg p-4 md:p-4 border border-gray-500/50 hover:border-gray-400/70 transition-all duration-300 hover:bg-black/30 transform hover:scale-105">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                     <div className="flex-grow">
                       <h3 className="text-lg md:text-xl font-bold shine-gold-text mb-2 group-hover:shine-silver-text transition-all duration-300">
