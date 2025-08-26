@@ -31,7 +31,7 @@ const BlogList: React.FC = () => {
             Blog
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            技術的な学習記録や作業報告、日々の発見を綴っています
+            技術的な学習記録や活動報告、日々の出来事を気ままに呟きます
           </p>
         </div>
 

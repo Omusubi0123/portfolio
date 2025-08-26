@@ -5,6 +5,12 @@ import { useInView } from 'react-intersection-observer';
 import Section from '../Section';
 import { getBlogPostMetadata } from './blogData';
 
+// 動画ファイルかどうかを判定する関数
+const isVideoFile = (url: string): boolean => {
+  const videoExtensions = ['.mp4', '.mov', '.avi', '.webm', '.ogg'];
+  return videoExtensions.some(ext => url.toLowerCase().endsWith(ext));
+};
+
 const BlogSection: React.FC = () => {
   const controls = useAnimation();
   const [ref, inView] = useInView({
@@ -66,6 +72,7 @@ const BlogSection: React.FC = () => {
               <Link
                 to={`/blog/${post.id}`}
                 className="block group hover:no-underline"
+                onClick={() => window.scrollTo(0, 0)}
               >
                 <article className="bg-black/20 backdrop-blur-sm rounded-lg p-4 md:p-4 border border-gray-500/50 hover:border-gray-400/70 transition-all duration-300 hover:bg-black/30 transform hover:scale-105">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
@@ -103,11 +110,25 @@ const BlogSection: React.FC = () => {
                     </div>
                     {post.thumbnail && (
                       <div className="w-full md:w-24 md:h-16 rounded-lg overflow-hidden flex-shrink-0">
-                        <img
-                          src={post.thumbnail}
-                          alt={post.title}
-                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                        />
+                        {isVideoFile(post.thumbnail) ? (
+                          <video
+                            src={post.thumbnail}
+                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                            muted
+                            loop
+                            onMouseEnter={(e) => e.currentTarget.play()}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.pause();
+                              e.currentTarget.currentTime = 0;
+                            }}
+                          />
+                        ) : (
+                          <img
+                            src={post.thumbnail}
+                            alt={post.title}
+                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                          />
+                        )}
                       </div>
                     )}
                   </div>
@@ -127,6 +148,7 @@ const BlogSection: React.FC = () => {
           <Link
             to="/blog"
             className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-900 to-purple-700 text-gray-300 font-semibold rounded-lg hover:from-purple-800 hover:to-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            onClick={() => window.scrollTo(0, 0)}
           >
             <span>View All Posts</span>
             <svg

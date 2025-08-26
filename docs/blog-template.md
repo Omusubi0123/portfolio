@@ -16,7 +16,7 @@
   content: `マークダウンコンテンツ`,    // 記事本文（Markdown記法）
   date: '2024-01-15',              // 投稿日（YYYY-MM-DD形式）
   tags: ['タグ1', 'タグ2'],          // タグ（配列）
-  thumbnail: '/image.png'          // サムネイル画像（オプション）
+  thumbnail: '/image.png'          // サムネイル画像・動画（オプション）
 }
 ```
 
@@ -65,6 +65,32 @@ $$
 ```markdown
 ![代替テキスト](/path/to/image.png)
 ```
+
+### サムネイル（画像・動画対応）
+
+サムネイルには画像または動画を使用できます：
+
+#### 画像サムネイル
+```javascript
+{
+  // ...
+  thumbnail: '/blog/article-name/thumbnail.png'
+}
+```
+
+#### 動画サムネイル
+```javascript
+{
+  // ...
+  thumbnail: '/blog/article-name/demo.mp4'
+}
+```
+
+**対応動画形式**: .mp4, .mov, .avi, .webm, .ogg
+
+**動画サムネイルの動作**:
+- **ブログカード・ホームセクション**: マウスホバーで再生、離れると停止
+- **記事詳細ページ**: コントロール付きで表示（音声オフ、ループ再生）
 
 ### 動画
 動画を埋め込むには、HTMLタグを直接記述します：

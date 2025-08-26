@@ -32,7 +32,7 @@ const ProfileImage: React.FC = () => (
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      izawa
+      yoshihiro izawa
     </motion.h1>
   </motion.div>
 );

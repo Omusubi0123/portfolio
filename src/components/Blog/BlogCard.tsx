@@ -2,6 +2,12 @@ import type React from 'react';
 import { Link } from 'react-router-dom';
 import type { BlogPostMetadata } from './types';
 
+// 動画ファイルかどうかを判定する関数
+const isVideoFile = (url: string): boolean => {
+  const videoExtensions = ['.mp4', '.mov', '.avi', '.webm', '.ogg'];
+  return videoExtensions.some(ext => url.toLowerCase().endsWith(ext));
+};
+
 interface BlogCardProps {
   post: BlogPostMetadata;
 }
@@ -11,15 +17,30 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
     <Link
       to={`/blog/${post.id}`}
       className="block group transform transition-all duration-300 hover:scale-105"
+      onClick={() => window.scrollTo(0, 0)}
     >
       <article className="bg-black/40 backdrop-blur-sm rounded-xl p-6 h-full border border-gray-700/50 hover:border-gray-500/70 transition-all duration-300 flex flex-col">
         {post.thumbnail && (
           <div className="mb-4 rounded-lg overflow-hidden">
-            <img
-              src={post.thumbnail}
-              alt={post.title}
-              className="w-full h-48 object-contain transition-transform duration-300 group-hover:scale-110"
-            />
+            {isVideoFile(post.thumbnail) ? (
+              <video
+                src={post.thumbnail}
+                className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                muted
+                loop
+                onMouseEnter={(e) => e.currentTarget.play()}
+                onMouseLeave={(e) => {
+                  e.currentTarget.pause();
+                  e.currentTarget.currentTime = 0;
+                }}
+              />
+            ) : (
+              <img
+                src={post.thumbnail}
+                alt={post.title}
+                className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+            )}
           </div>
         )}
         

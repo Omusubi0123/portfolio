@@ -7,10 +7,12 @@ import BlogList from '../components/Blog/BlogList.tsx'
 import BlogPost from '../components/Blog/BlogPost.tsx'
 import Layout from '../components/Layout.tsx'
 import Header from '../components/Header.tsx'
+import ScrollToTop from '../components/ScrollToTop.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/blog" element={

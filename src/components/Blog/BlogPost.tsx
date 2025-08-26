@@ -11,6 +11,12 @@ import Section from '../Section';
 import 'katex/dist/katex.min.css';
 import 'highlight.js/styles/github-dark.css';
 
+// 動画ファイルかどうかを判定する関数
+const isVideoFile = (url: string): boolean => {
+  const videoExtensions = ['.mp4', '.mov', '.avi', '.webm', '.ogg'];
+  return videoExtensions.some(ext => url.toLowerCase().endsWith(ext));
+};
+
 const BlogPost: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   
@@ -20,7 +26,7 @@ const BlogPost: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold shine-red-text mb-4">エラー</h1>
           <p className="text-xl text-gray-300">記事IDが指定されていません</p>
-          <Link to="/blog" className="inline-block mt-6 px-6 py-3 bg-gradient-to-r from-yellow-600 to-yellow-400 text-black font-semibold rounded-lg hover:from-yellow-500 hover:to-yellow-300 transition-all duration-300">
+          <Link to="/blog" className="inline-block mt-6 px-6 py-3 bg-gradient-to-r from-yellow-600 to-yellow-400 text-black font-semibold rounded-lg hover:from-yellow-500 hover:to-yellow-300 transition-all duration-300" onClick={() => window.scrollTo(0, 0)}>
             ブログ
           </Link>
         </div>
@@ -36,7 +42,7 @@ const BlogPost: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl font-bold shine-red-text mb-4">記事が見つかりません</h1>
           <p className="text-xl text-gray-300">指定された記事は存在しないか、削除された可能性があります</p>
-          <Link to="/blog" className="inline-block mt-6 px-6 py-3 bg-gradient-to-r from-yellow-600 to-yellow-400 text-black font-semibold rounded-lg hover:from-yellow-500 hover:to-yellow-300 transition-all duration-300">
+          <Link to="/blog" className="inline-block mt-6 px-6 py-3 bg-gradient-to-r from-yellow-600 to-yellow-400 text-black font-semibold rounded-lg hover:from-yellow-500 hover:to-yellow-300 transition-all duration-300" onClick={() => window.scrollTo(0, 0)}>
             ブログ一覧
           </Link>
         </div>
@@ -51,6 +57,7 @@ const BlogPost: React.FC = () => {
         <Link 
           to="/blog" 
           className="inline-flex items-center text-gray-400 hover:text-yellow-400 transition-colors duration-300 mb-8"
+          onClick={() => window.scrollTo(0, 0)}
         >
           <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -90,12 +97,25 @@ const BlogPost: React.FC = () => {
 
           {post.thumbnail && (
             <div className="rounded-xl overflow-hidden mb-8">
-              <img
-                src={post.thumbnail}
-                alt={post.title}
-                className="w-full h-full md:w-120 object-contain"
-                style={{ maxHeight: '350px' }}
-              />
+              {isVideoFile(post.thumbnail) ? (
+                <video
+                  src={post.thumbnail}
+                  className="w-full object-contain"
+                  style={{ maxHeight: '350px' }}
+                  controls
+                  muted
+                  loop
+                >
+                  お使いのブラウザは動画タグをサポートしていません。
+                </video>
+              ) : (
+                <img
+                  src={post.thumbnail}
+                  alt={post.title}
+                  className="w-full h-full md:w-120 object-contain"
+                  style={{ maxHeight: '350px' }}
+                />
+              )}
             </div>
           )}
         </header>
@@ -241,6 +261,7 @@ const BlogPost: React.FC = () => {
             <Link 
               to="/blog" 
               className="px-5 py-3 bg-gradient-to-r from-yellow-600 to-yellow-400 text-black font-semibold rounded-lg hover:from-yellow-500 hover:to-yellow-300 transition-all duration-300 transform hover:scale-105"
+              onClick={() => window.scrollTo(0, 0)}
             >
               Read Other Posts
             </Link>

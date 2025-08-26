@@ -14,9 +14,9 @@ export const blogPosts: BlogPost[] = [
 1つの記事では1つのハッカソンについてまとめます．３部構成です．
 
 # TL;DR;
-- UMP-JUSTハッカソンの参加記録をまとめました．
-- 技術賞とcotomi賞を受賞することができました．
-- チームメンバーの友人とさらに仲良くなりました．
+- UMP-JUSTハッカソンの参加記録をまとめました
+- 技術賞とcotomi賞を受賞することができました
+- チームメンバーとさらに仲良くなりました
 
 [公式による大会記録](https://ump-just.i.u-tokyo.ac.jp/2024/10011337051610/)
 
@@ -157,14 +157,14 @@ meetingを通してメンバー2人とさらに仲良くなれました．
 審査の結果，技術賞とcotomi賞を受賞することができました．
 非常に嬉しかったです．
 
-![受賞の様子](/blog/first-hackathon/prize.png)
+![受賞の様子](/blog/first-hackathon/prize.jpg)
 
 大会が終わった後は打ち上げで本郷三丁目近くの韓国焼肉屋に行きました．
 非常に美味しかったです．
 
 ### 打ち上げの様子
 
-<video src="/blog/first-hackathon/uchiage.mov" controls muted></video>
+<video src="/blog/first-hackathon/uchiage.MOV" controls muted></video>
 
 メンバーと雑談も色々できてさらに仲良くなりました．
 
