@@ -19,7 +19,7 @@ const careerData: CareerItem[] = [
     company: "東京大学医学部附属病院",
     startDate: new Date(2025, 9),
     endDate: null,
-    description: "循環器内科",
+    description: "Belonging: Cardiovascular Medicine",
     achievements: [
       "Technical Support",
     ],
