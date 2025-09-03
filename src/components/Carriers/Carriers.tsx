@@ -17,7 +17,7 @@ const careerData: CareerItem[] = [
   {
     title: "AcademicTechnical Staff",
     company: "東京大学医学部附属病院",
-    startDate: new Date(2025, 9),
+    startDate: new Date(2025, 8),
     endDate: null,
     description: "Belonging: Cardiovascular Medicine",
     achievements: [
