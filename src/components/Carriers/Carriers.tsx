@@ -15,7 +15,7 @@ interface CareerItem {
 
 const careerData: CareerItem[] = [
   {
-    title: "AcademicTechnical Staff",
+    title: "Academic Technical Staff",
     company: "東京大学医学部附属病院",
     startDate: new Date(2025, 8),
     endDate: null,
