@@ -12,8 +12,8 @@ export default function App() {
     <Layout header={<Header />}>
       <About />
       <Works />
-      <BlogSection />
       <Carriers />
+      <BlogSection />
       <Certifications />
       <Skills />
     </Layout>
