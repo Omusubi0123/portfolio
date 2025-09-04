@@ -11,9 +11,9 @@ export const siteConfig = {
   },
   
   // サイト基本情報
-  name: 'Yoshihiro Izawa Portfolio',
-  title: 'Yoshihiro Izawa | Portfolio',
-  description: 'Computer Science student and software developer portfolio showcasing projects, blog posts, and technical skills.',
+  name: 'Yoshihiro Izawa',
+  title: 'Yoshihiro Izawa',
+  description: 'A student of The University of Tokyo, pursuing a degree in Computer Science and Electronics. My Research major is Mechanistic Interpretability.',
   author: {
     name: 'Yoshihiro Izawa',
     email: 'your-email@example.com', // 必要に応じて設定
@@ -21,16 +21,16 @@ export const siteConfig = {
   
   // ソーシャルリンク（将来的に追加可能）
   social: {
-    twitter: '@your_twitter', // 必要に応じて設定
-    github: 'https://github.com/your-username', // 必要に応じて設定
+    twitter: '@luckypanchh0123', // 必要に応じて設定
+    github: 'https://github.com/Omusubi0123', // 必要に応じて設定
   },
   
   // SEO設定
-  keywords: ['Yoshihiro Izawa', 'portfolio', 'software developer', 'computer science', 'React', 'TypeScript', 'Next.js'],
+  keywords: ['Yoshihiro Izawa', '井澤慶広', 'いざわ よしひろ', 'portfolio', 'The University of Tokyo', 'EEIC', 'Mechanistic Interpretability'],
   
   // 画像設定
-  ogImage: '/portfolio.png',
-  favicon: '/icon.png',
+  ogImage: '/profile_icon.png',
+  favicon: '/profile_icon.png',
 }
 
 // ページ別のURL生成ヘルパー

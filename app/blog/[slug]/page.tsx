@@ -1,11 +1,23 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import dynamic from 'next/dynamic'
 import Layout from '@/components/Layout'
 import Header from '@/components/Header'
-import BlogPost from '@/components/Blog/BlogPost'
 import { getBlogPost, getBlogPostMetadata } from '@/lib/blog'
 import { generateBlogPostLD } from '@/lib/structured-data'
 import { siteConfig, createBlogPostUrl } from '@/lib/config'
+
+// BlogPostコンポーネントを動的読み込み（重いMarkdown処理ライブラリを含むため）
+const BlogPost = dynamic(() => import('@/components/Blog/BlogPost'), {
+  loading: () => (
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 min-h-screen py-20">
+      <div className="text-center py-20">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-400 mx-auto mb-4"></div>
+        <p className="text-gray-400">Loading article...</p>
+      </div>
+    </div>
+  )
+});
 
 interface BlogPostPageProps {
   params: Promise<{

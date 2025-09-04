@@ -9,8 +9,7 @@ import rehypeKatex from 'rehype-katex';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeRaw from 'rehype-raw';
 import type { BlogPost as BlogPostType } from '@/lib/blog';
-import 'katex/dist/katex.min.css';
-import 'highlight.js/styles/github-dark.css';
+import './blog-styles.css';
 
 // 動画ファイルかどうかを判定する関数
 const isVideoFile = (url: string): boolean => {

@@ -1,0 +1,5 @@
+/* KaTeX styles for math rendering - ブログページでのみ読み込み */
+@import 'katex/dist/katex.min.css';
+
+/* Highlight.js styles for code syntax highlighting - ブログページでのみ読み込み */
+@import 'highlight.js/styles/github-dark.css';
