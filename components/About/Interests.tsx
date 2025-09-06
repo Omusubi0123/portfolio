@@ -80,7 +80,7 @@ const interestsData = [
     {
       icon: <SiFastapi className="text-2xl text-blue-600" />,
       name: "Backend Engineer",
-      description: "APIやDBの開発楽しい 個人開発の経験はあるが実務は未経験",
+      description: "APIやDBの開発楽しい 個人開発では結構使うが実務は少しだけ",
     },
     {
       icon: <SiRobotframework className="text-2xl text-green-600" />,
