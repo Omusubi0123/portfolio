@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* text */
+.gold-text {
+    color: rgb(208, 169, 80)
+    /* background: linear-gradient(90deg, #FFD700 0%, #FFF9E6 50%, #FFD700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; */
+}
+
+.shine-gold-text {
+    background: linear-gradient(90deg, #B39855 0%, #FFF9E6 50%, #B39855 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.shine-pink-text {
+    background: linear-gradient(90deg, #FF69B4 0%, #FFC0CB 50%, #FF69B4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+  
+.silver-text {
+    background: linear-gradient(90deg, #E0E0E0 0%, #FFFFFF 50%, #E0E0E0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.shine-silver-text-menu {
+    background: linear-gradient(90deg, #B0B0B0 0%, #FFFFFF 50%, #B0B0B0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.shine-silver-text-menu:hover {
+    -webkit-text-fill-color: #2d3748; /* Tailwindのgray-800 */
+}
+
+.shine-silver-text {
+    background: linear-gradient(90deg, #B0B0B0 0%, #FFFFFF 50%, #B0B0B0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+
+.shine-red-text {
+    background: linear-gradient(90deg, #FF0000 0%, #FF6666 50%, #FF0000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.shine-blue-text {
+    background: linear-gradient(90deg, #0000FF 0%, #6699FF 50%, #0000FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.shine-yellow-text {
+    background: linear-gradient(90deg, #FFFF00 0%, #FFFF99 50%, #FFFF00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.shine-green-text {
+    background: linear-gradient(90deg, #00FF00 0%, #66FF66 50%, #00FF00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.shine-pink-text {
+    background: linear-gradient(90deg, #FF1493 0%, #FF66B2 50%, #FF1493 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.shine-purple-text {
+    background: linear-gradient(90deg, #800080 0%, #B266FF 50%, #800080 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.shine-lightpink-text {
+    background: linear-gradient(90deg, #FFB6C1 0%, #FFC0CB 50%, #FFB6C1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.shine-lightblue-text {
+    background: linear-gradient(90deg, #00CED1 0%, #66E0FF 50%, #00CED1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.shine-lightgreen-text {
+    background: linear-gradient(90deg, #ADFF2F 0%, #D4FF66 50%, #ADFF2F 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.ios-white {
+    color: rgb(242, 242, 247);
+}
+
+.ios-black {
+    color: rgb(28, 28, 30);
+}
+
+.ios-white-bg {
+    background-color: rgb(242, 242, 247);
+}
+
+.ios-black-bg {
+    background-color: rgb(28, 28, 30);
+}
+
+@keyframes shine {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+  
+.shine-gold-text, .shine-silver-text, .shine-silver-text-menu, .shine-red-text, .shine-blue-text, .shine-yellow-text, .shine-green-text, .shine-pink-text, .shine-purple-text, .shine-lightblue-text, .shine-lightgreen-text {
+    animation: shine 3s linear infinite;
+    background-size: 200% auto;
+}

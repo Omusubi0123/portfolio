@@ -1,0 +1,109 @@
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import dynamic from 'next/dynamic'
+import Layout from '@/components/Layout'
+import Header from '@/components/Header'
+import { getBlogPost, getBlogPostMetadata } from '@/lib/blog'
+import { generateBlogPostLD } from '@/lib/structured-data'
+import { siteConfig, createBlogPostUrl } from '@/lib/config'
+
+// BlogPostコンポーネントを動的読み込み（重いMarkdown処理ライブラリを含むため）
+const BlogPost = dynamic(() => import('@/components/Blog/BlogPost'), {
+  loading: () => (
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 min-h-screen py-20">
+      <div className="text-center py-20">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-400 mx-auto mb-4"></div>
+        <p className="text-gray-400">Loading article...</p>
+      </div>
+    </div>
+  )
+});
+
+interface BlogPostPageProps {
+  params: Promise<{
+    slug: string
+  }>
+}
+
+export async function generateStaticParams() {
+  const posts = getBlogPostMetadata()
+  return posts.map((post) => ({
+    slug: post.id,
+  }))
+}
+
+export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+  const { slug } = await params
+  const post = getBlogPost(slug)
+  
+  if (!post) {
+    return {
+      title: 'Post Not Found',
+    }
+  }
+
+  const publishedTime = new Date(post.date).toISOString()
+  
+  return {
+    title: `${post.title} | ${siteConfig.author.name}`,
+    description: post.summary,
+    keywords: [...post.tags, siteConfig.author.name, 'blog', 'tech'],
+    authors: [{ name: siteConfig.author.name }],
+    openGraph: {
+      type: 'article',
+      title: post.title,
+      description: post.summary,
+              url: createBlogPostUrl(slug),
+      publishedTime,
+      authors: [siteConfig.author.name],
+      tags: post.tags,
+      images: post.thumbnail ? [
+        {
+          url: post.thumbnail,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        }
+      ] : [
+        {
+          url: siteConfig.ogImage,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        }
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.summary,
+      images: post.thumbnail ? [post.thumbnail] : [siteConfig.ogImage],
+    },
+  }
+}
+
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = await params
+  const post = getBlogPost(slug)
+  
+  if (!post) {
+    notFound()
+  }
+
+  const postUrl = createBlogPostUrl(slug)
+  const structuredData = generateBlogPostLD(post, postUrl)
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
+      <Layout header={<Header />}>
+        <BlogPost post={post} />
+      </Layout>
+    </>
+  )
+}
