@@ -6,7 +6,7 @@ import { getBlogPostMetadata } from '@/lib/blog'
 import { siteConfig, createPageUrl } from '@/lib/config'
 
 const blogTitle = `Blog | ${siteConfig.author.name}`
-const blogDescription = 'Technical blog posts about software development, machine learning, and computer science.'
+const blogDescription = 'Technical blog posts about software development, machine learning, and computer science. This page is written by Yoshihiro Izawa, a student of The University of Tokyo.'
 
 export const metadata: Metadata = {
   title: blogTitle,

@@ -1,5 +1,6 @@
 import fs from 'fs'
 import path from 'path'
+import { siteConfig } from './config'
 
 /**
  * CNAMEファイルからドメインを読み取る（サーバーサイドのみ）
@@ -16,7 +17,7 @@ export function getDomainFromCNAME(): string {
   }
   
   // フォールバック
-  return 'www.omusubiy.com'
+  return siteConfig.url
 }
 
 /**
@@ -34,5 +35,5 @@ export function getCurrentDomain(): string {
   }
   
   // 3. フォールバック（クライアントサイド）
-  return 'www.omusubiy.com'
+  return siteConfig.url
 }
