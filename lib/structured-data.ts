@@ -30,6 +30,12 @@ export function generatePersonLD() {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: siteConfig.author.name,
+    alternateName: [
+      '井澤慶広',
+      '井澤 慶広',
+      'いざわ よしひろ',
+      'いざわよしひろ'
+    ],
     jobTitle: 'Computer Science Student',
     description: siteConfig.description,
     url: siteConfig.url,

@@ -13,7 +13,7 @@ export const siteConfig = {
   // サイト基本情報
   name: 'Yoshihiro Izawa',
   title: 'Yoshihiro Izawa',
-  description: 'A student of The University of Tokyo, pursuing a degree in Computer Science and Electronics. My Research major is Mechanistic Interpretability.',
+  description: 'Belonging to The University of Tokyo, computer science student. My research major is Mechanistic Interpretability. ',
   author: {
     name: 'Yoshihiro Izawa',
     email: 'your-email@example.com', // 必要に応じて設定
@@ -26,7 +26,18 @@ export const siteConfig = {
   },
   
   // SEO設定
-  keywords: ['Yoshihiro Izawa', '井澤慶広', 'いざわ よしひろ', 'portfolio', 'The University of Tokyo', 'EEIC', 'Mechanistic Interpretability'],
+  keywords: [
+    'Yoshihiro Izawa',
+    '井澤慶広',
+    '井澤 慶広',
+    'いざわ よしひろ',
+    'いざわよしひろ',
+    'portfolio',
+    '東京大学',
+    'The University of Tokyo',
+    'Mechanistic Interpretability',
+    'EEIC'
+  ],
   
   // 画像設定
   ogImage: '/profile_icon.png',
