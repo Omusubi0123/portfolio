@@ -75,17 +75,17 @@ const interestsData = [
     {
       icon: <SiHuggingface className="text-2xl text-red-600" />,
       name: "AI Researcher",
-      description: "モデル開発楽しい 進化が速すぎて仕事にするのには不安もある…でもやっぱり好きなので仕事にしたいかも…",
+      description: "モデル開発楽しい 進化が速すぎて仕事にするのには不安もある…",
     },
     {
       icon: <SiFastapi className="text-2xl text-blue-600" />,
       name: "Backend Engineer",
-      description: "APIやDBの開発楽しい 個人開発では結構使うが実務は少しだけ",
+      description: "APIやDBの開発楽しい 個人開発では結構使うが実務は少しだけ 開発のノウハウ身につけたい…",
     },
     {
       icon: <SiRobotframework className="text-2xl text-green-600" />,
       name: "Research & Development",
-      description: "研究開発好き D進は悩み中…",
+      description: "研究開発好き 研究分野はMechanistic Interpretability D進は悩み中…",
     },
   ];
 
