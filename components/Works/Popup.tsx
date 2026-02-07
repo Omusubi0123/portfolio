@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface PopupProps {
   title: string;
@@ -17,6 +18,7 @@ interface PopupProps {
 }
 
 export default function Popup({ title, description, media, isVideo = false, onClose, link, github, slide, my_skills, other_skills, cd_skills }: PopupProps) {
+  const t = useTranslations('popup');
   const popupRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -48,19 +50,19 @@ export default function Popup({ title, description, media, isVideo = false, onCl
             <p className="text-gray-700 text-base md:text-lg mb-4">{description}</p>
             {link && (
               <p className="mt-2">
-                <span className="text-black font-bold">Link: </span>
+                <span className="text-black font-bold">{t('link')}: </span>
                 <a href={link} target="_blank" rel="noopener noreferrer" className="text-blue-500 break-all">{link}</a>
               </p>
             )}
             {github && (
               <p className="mt-2">
-                <span className="text-black font-bold">Github: </span>
+                <span className="text-black font-bold">{t('github')}: </span>
                 <a href={github} target="_blank" rel="noopener noreferrer" className="text-blue-500 break-all">{github}</a>
               </p>
             )}
             {slide && (
               <p className="mt-2">
-              <span className="text-black font-bold">Slide: </span>
+              <span className="text-black font-bold">{t('slide')}: </span>
               <a href={slide} target="_blank" rel="noopener noreferrer" className="text-blue-500 break-all">
                 {new URL(slide).hostname}
               </a>
@@ -68,10 +70,10 @@ export default function Popup({ title, description, media, isVideo = false, onCl
             )}
             {(my_skills || other_skills || cd_skills) && (
               <div className="mt-4">
-                <p className="font-bold text-black">使用技術</p>
+                <p className="font-bold text-black">{t('usedTech')}</p>
                 {my_skills && my_skills.length > 0 && (
                   <p>
-                    <span className="text-black font-bold">自分：</span>
+                    <span className="text-black font-bold">{t('mine')}: </span>
                     {my_skills.map((skill, index) => (
                       <span key={index} className="text-black">
                         {skill}{index < my_skills.length - 1 && ', '}
@@ -81,7 +83,7 @@ export default function Popup({ title, description, media, isVideo = false, onCl
                 )}
                 {other_skills && other_skills.length > 0 && (
                   <p>
-                    <span className="text-black font-bold">他：</span>
+                    <span className="text-black font-bold">{t('others')}: </span>
                     {other_skills.map((skill, index) => (
                       <span key={index} className="text-gray-500">
                         {skill}{index < other_skills.length - 1 && ', '}
@@ -91,7 +93,7 @@ export default function Popup({ title, description, media, isVideo = false, onCl
                 )}
                 {cd_skills && cd_skills.length > 0 && (
                   <p>
-                    <span className="text-black font-bold">継続開発：</span>
+                    <span className="text-black font-bold">{t('continuedDev')}: </span>
                     {cd_skills.map((skill, index) => (
                       <span key={index} className="text-black">
                         {skill}{index < cd_skills.length - 1 && ', '}
@@ -125,7 +127,7 @@ export default function Popup({ title, description, media, isVideo = false, onCl
           onClick={onClose}
           className="mt-4 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded"
         >
-          閉じる
+          {t('close')}
         </button>
       </div>
     </div>

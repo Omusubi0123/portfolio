@@ -4,15 +4,14 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { getLocaleFromAcceptLanguage } from '@/lib/i18n'
 
-export default function BlogRedirectPage() {
+export default function LocaleRedirect() {
   const router = useRouter()
 
   useEffect(() => {
-    const locale =
-      typeof navigator !== 'undefined'
-        ? getLocaleFromAcceptLanguage(navigator.language)
-        : 'ja'
-    router.replace(`/${locale}/blog`)
+    const locale = typeof navigator !== 'undefined'
+      ? getLocaleFromAcceptLanguage(navigator.language)
+      : 'ja'
+    router.replace(`/${locale}/`)
   }, [router])
 
   return (

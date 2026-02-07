@@ -4,136 +4,17 @@ import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useInView } from "react-intersection-observer"
+import { useTranslations, useLocale } from "next-intl"
 import Section from "../Section"
-
-interface Skill {
-  name: string
-  icon: string
-  comment: string
-}
+import { getSkills } from "@/data"
+import type { Skill } from "@/data"
 
 interface SkillCategory {
   title: string
   skills: Skill[]
 }
 
-const skillCategories: SkillCategory[] = [
-  {
-    title: "Main",
-    skills: [
-      {
-        name: "Python",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-        comment: "たぶん一番書いてます",
-      },
-      {
-        name: "C",
-        icon: "https://img.icons8.com/?size=96&id=40669&format=png",
-        comment: "高専５年間はこれがメインです",
-      },
-      {
-        name: "Rust",
-        icon: "https://img.icons8.com/?size=160&id=sh3mEpjaKHWj&format=png",
-        comment: "大学のプログラミング言語の授業にて使いました．RustでMinC言語のコンパイラを開発しました",
-      },
-      {
-        name: "Transformers",
-        icon: "https://huggingface.co/front/assets/huggingface_logo-noborder.svg",
-        comment: "モデル作ったりいじったりするのに使ってます",
-      },
-      {
-        name: "PyTorch",
-        icon: "https://www.vectorlogo.zone/logos/pytorch/pytorch-icon.svg",
-        comment: "Deep Learning基礎講座や大学の実験，インターンで使いました",
-      },
-    ],
-  },
-  {
-    title: "Backend + DB",
-    skills: [
-      {
-        name: "FastAPI",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
-        comment: "ハッカソンでbackend開発するときは大体これ使います",
-      },
-      {
-        name: "PostgreSQL",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original-wordmark.svg",
-        comment: "Life Dialogをの継続開発でFirestoreからPostgresに移行しました 他のハッカソンでも使いました",
-      },
-      {
-        name: "Firestore",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain-wordmark.svg",
-        comment: "ハッカソン期間のLife Dialogの開発に使いました",
-      },
-    ],
-  },
-  {
-    title: "Infra + Network",
-    skills: [
-      {
-        name: "Cloudflare",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cloudflare/cloudflare-original.svg",
-        comment: "自宅サーバーでデプロイする時にお世話になってます",
-      },
-      {
-        name: "Docker",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-plain-wordmark.svg",
-        comment: "ハッカソンやインターンで結構使ってます かなり好きです",
-      },
-      {
-        name: "GCP",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
-        comment: "backendサービスをGCPでデプロイしました",
-      },
-      {
-        name: "AWS",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg",
-        comment: "S3やSagemakerを少し触りました まだ人に教えられるレベルではないです",
-      },
-      {
-        name: "Vercel",
-        icon: "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/vercel.png",
-        comment: "Worksのデプロイは基本的にvercelでやってます",
-      },
-    ],
-  },
-  {
-    title: "Frontend",
-    skills: [
-      {
-        name: "HTML",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg",
-        comment: "ネットレンドの開発とこのサイトで使いました",
-      },
-      {
-        name: "CSS",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg",
-        comment: "ネットレンドの開発とこのサイトで使いました",
-      },
-      {
-        name: "JavaScript",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-        comment: "ネットレンドの開発で使いました 結構頑張りました",
-      },
-      {
-        name: "TypeScript",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-        comment: "このサイトで使いました まだまだ勉強中です",
-      },
-      {
-        name: "React",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg",
-        comment: "このサイトで使いました まだまだ勉強中です",
-      },
-      {
-        name: "Vite",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vite/vite-original.svg",
-        comment: "このサイトで使いました まだまだ勉強中です",
-      },
-    ],
-  },
-]
+const skillCategoryKeys = ['main', 'backendDb', 'infraNetwork', 'frontend'] as const
 
 const SkillItem: React.FC<{
   skill: Skill
@@ -235,6 +116,14 @@ const SkillCategory: React.FC<{
 }
 
 export default function Skills() {
+  const locale = useLocale()
+  const skillsData = getSkills(locale as 'ja' | 'en')
+  const t = useTranslations('section')
+  const tSkills = useTranslations('skills')
+  const skillCategories: SkillCategory[] = skillsData.map((cat, i) => ({
+    ...cat,
+    title: tSkills(skillCategoryKeys[i]),
+  }))
   const [isMobile, setIsMobile] = useState(false)
   const [activeSkill, setActiveSkill] = useState<string | null>(null)
   const skillsRef = useRef<HTMLDivElement>(null)
@@ -263,7 +152,7 @@ export default function Skills() {
   return (
     <Section
       id="skills"
-      title="Skills"
+      title={t('skills')}
       className="bg-transparent flex justify-center py-8"
       titleColor="shine-gold-text"
     >

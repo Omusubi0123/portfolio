@@ -1,0 +1,76 @@
+{
+  "common": {
+    "siteName": "izawa Official Site",
+    "loadingWorks": "Loading Works...",
+    "loadingCareer": "Loading Career...",
+    "loadingBlog": "Loading Blog...",
+    "loadingCertifications": "Loading Certifications...",
+    "loadingSkills": "Loading Skills...",
+    "loadingArticle": "Loading article..."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "works": "Works",
+    "blog": "Blog",
+    "carriers": "Carriers",
+    "certifications": "Certifications",
+    "skills": "Skills",
+    "viewAllPosts": "View All Posts",
+    "ja": "Ja",
+    "en": "En"
+  },
+  "section": {
+    "recentBlogPosts": "Recent Blog Posts",
+    "careerJourney": "Career Journey",
+    "myWorks": "My Works",
+    "certifications": "Certifications",
+    "skills": "Skills"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "技術的な学習記録や活動報告、日々の出来事を気ままに呟きます",
+    "all": "すべて",
+    "noPosts": "記事がまだありません",
+    "noPostsForTag": "「{tag}」タグの記事はまだありません",
+    "postNotFound": "Post Not Found"
+  },
+  "bio": {
+    "from": { "label": "From", "content": "Saitama, Japan" },
+    "current": { "label": "Current", "content": "UT EEIC 4th grade" },
+    "major": { "label": "Major", "content": "Computer Science and Electronics" },
+    "quote": { "label": "Favorite Quote", "content": "The rise and fall of fortunes is inevitable." }
+  },
+  "carriers": {
+    "present": "現在",
+    "yearsMonths": "{years}年{months}ヶ月",
+    "months": "{months}ヶ月",
+    "at": " at "
+  },
+  "interests": {
+    "aiResearcher": { "name": "AI Researcher", "description": "モデル開発楽しい 進化が速すぎて仕事にするのには不安もある…" },
+    "backendEngineer": { "name": "Backend Engineer", "description": "APIやDBの開発楽しい 個人開発では結構使うが実務は少しだけ 開発のノウハウ身につけたい…" },
+    "researchDev": { "name": "Research & Development", "description": "研究開発好き 研究分野はMechanistic Interpretability D進は悩み中…" }
+  },
+  "certifications": {
+    "dlCourse": { "title": "東大松尾研 DeepLearning基礎講座修了", "date": "2023年8月取得" },
+    "ap": { "title": "応用情報技術者", "date": "2023年4月取得" },
+    "toeic": { "title": "TOEIC 835点", "date": "2021年9月取得" }
+  },
+  "skills": {
+    "main": "Main",
+    "backendDb": "Backend + DB",
+    "infraNetwork": "Infra + Network",
+    "frontend": "Frontend"
+  },
+  "popup": {
+    "close": "閉じる",
+    "usedTech": "使用技術",
+    "mine": "自分",
+    "others": "他",
+    "continuedDev": "継続開発",
+    "link": "Link",
+    "github": "Github",
+    "slide": "Slide"
+  }
+}

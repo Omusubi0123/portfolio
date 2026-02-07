@@ -1,5 +1,6 @@
 import type React from 'react';
 import Link from 'next/link';
+import { useLocale } from 'next-intl';
 import type { BlogPostMetadata } from '@/lib/blog';
 
 // 動画ファイルかどうかを判定する関数
@@ -13,9 +14,10 @@ interface BlogCardProps {
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
+  const locale = useLocale();
   return (
     <Link
-      href={`/blog/${post.id}`}
+      href={`/${locale}/blog/${post.id}`}
       className="block group transform transition-all duration-300 hover:scale-105"
 
     >
@@ -71,7 +73,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
             </div>
             
             <time className="text-sm text-gray-400">
-              {new Date(post.date).toLocaleDateString('ja-JP', {
+              {new Date(post.date).toLocaleDateString(locale === 'ja' ? 'ja-JP' : 'en-US', {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric'

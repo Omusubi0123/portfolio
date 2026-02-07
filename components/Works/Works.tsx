@@ -2,13 +2,16 @@
 
 import { useState, useRef, useEffect } from "react"
 import { motion, useInView, useAnimation } from "framer-motion"
+import { useTranslations, useLocale } from "next-intl"
 import Section from "../Section"
 import Popup from "./Popup"
 import WorkItem from "./WorkItem"
-import { works } from "./worksData"
+import { getWorks } from "@/data"
 import type { Work } from "./types"
 
 export default function Works() {
+  const locale = useLocale()
+  const works = getWorks(locale as 'ja' | 'en')
   const [selectedWork, setSelectedWork] = useState<Work | null>(null)
   const controls = useAnimation()
   const ref = useRef(null)
@@ -47,14 +50,15 @@ export default function Works() {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 100,
       },
     },
   }
 
+  const t = useTranslations('section')
   return (
-    <Section id="works" title="My Works" className="bg-transparent flex justify-center py-8" titleColor="shine-gold-text">
+    <Section id="works" title={t('myWorks')} className="bg-transparent flex justify-center py-8" titleColor="shine-gold-text">
       <motion.div
         ref={ref}
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-6xl px-4"

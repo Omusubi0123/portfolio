@@ -3,58 +3,26 @@
 import React from "react"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
+import { useTranslations, useLocale } from "next-intl"
 import Section from "../Section"
 import { FaBriefcase, FaCalendarAlt, FaTasks } from "react-icons/fa"
+import { getCareerData } from "@/data"
+import type { CareerItem } from "@/data"
 
-interface CareerItem {
-  title: string
-  company: string
-  startDate: Date
-  endDate: Date | null
-  description: string
-  achievements: string[]
-}
-
-const careerData: CareerItem[] = [
-  {
-    title: "Academic Technical Staff",
-    company: "東京大学医学部附属病院",
-    startDate: new Date(2025, 8),
-    endDate: null,
-    description: "Belonging: Cardiovascular Medicine",
-    achievements: [
-      "Technical Support",
-    ],
-  },
-  {
-    title: "Algorithm Engineer Intern",
-    company: "燈株式会社",
-    startDate: new Date(2023, 7), // 0-indexed month (7 = August)
-    endDate: null, // null represents "present"
-    description: "Belonging: LLM（Large Language Model）Team",
-    achievements: [
-      "Embeddingモデル開発",
-      "SLM（Small Language Model）開発",
-      "検索Agent開発",
-      "LLMを用いたアルゴリズム開発"
-    ],
-  },
-]
-
-const calculateDuration = (startDate: Date, endDate: Date | null): string => {
-  const end = endDate || new Date()
-  const diffTime = Math.abs(end.getTime() - startDate.getTime())
-  const diffYears = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365))
-  const diffMonths = Math.floor((diffTime % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30))
-
-  if (diffYears > 0) {
-    return `${diffYears}年${diffMonths}ヶ月`
-  } else {
-    return `${diffMonths}ヶ月`
+function useDurationFormatter() {
+  const t = useTranslations('carriers')
+  return (startDate: Date, endDate: Date | null): string => {
+    const end = endDate || new Date()
+    const diffTime = Math.abs(end.getTime() - startDate.getTime())
+    const diffYears = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365))
+    const diffMonths = Math.floor((diffTime % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30))
+    if (diffYears > 0) return t('yearsMonths', { years: diffYears, months: diffMonths })
+    return t('months', { months: diffMonths })
   }
 }
 
-const CareerItemComponent: React.FC<{ item: CareerItem }> = ({ item }) => {
+const CareerItemComponent: React.FC<{ item: CareerItem; formatDuration: (start: Date, end: Date | null) => string }> = ({ item, formatDuration }) => {
+  const t = useTranslations('carriers')
   const controls = useAnimation()
   const [ref, inView] = useInView({
     triggerOnce: false,
@@ -71,7 +39,7 @@ const CareerItemComponent: React.FC<{ item: CareerItem }> = ({ item }) => {
 
   const variants = {
     hidden: { opacity: 0, x: -50 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
   }
 
   return (
@@ -79,13 +47,13 @@ const CareerItemComponent: React.FC<{ item: CareerItem }> = ({ item }) => {
       <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white"></div>
       <div className="bg-white dark:bg-black p-6 rounded-lg shadow-xl">
         <h3 className="flex items-center mb-1 text-lg font-semibold text-black dark:text-white">
-          <FaBriefcase className="mr-2" /> {item.title} at {item.company}
+          <FaBriefcase className="mr-2" /> {item.title}{t('at')}{item.company}
         </h3>
         <time className="block mt-2 mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-300">
           <FaCalendarAlt className="inline-block mr-1" />
           {item.startDate.getFullYear()}.{item.startDate.getMonth() + 1} ~{" "}
-          {item.endDate ? `${item.endDate.getFullYear()}.${item.endDate.getMonth() + 1}` : "現在"}（
-          {calculateDuration(item.startDate, item.endDate)}）
+          {item.endDate ? `${item.endDate.getFullYear()}.${item.endDate.getMonth() + 1}` : t('present')}（
+          {formatDuration(item.startDate, item.endDate)}）
         </time>
         <p className="mb-4 text-base font-normal text-gray-400 dark:text-gray-300">{item.description}</p>
         <ul className="space-y-2">
@@ -102,12 +70,16 @@ const CareerItemComponent: React.FC<{ item: CareerItem }> = ({ item }) => {
 }
 
 const Carriers: React.FC = () => {
+  const locale = useLocale()
+  const careerData = getCareerData(locale as 'ja' | 'en')
+  const t = useTranslations('section')
+  const formatDuration = useDurationFormatter()
   return (
-    <Section id="carriers" title="Career Journey" className="bg-transparent py-16" titleColor="shine-blue-text">
+    <Section id="carriers" title={t('careerJourney')} className="bg-transparent py-16" titleColor="shine-blue-text">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative border-l border-gray-200 dark:border-gray-700">
           {careerData.map((item, index) => (
-            <CareerItemComponent key={index} item={item} />
+            <CareerItemComponent key={index} item={item} formatDuration={formatDuration} />
           ))}
         </div>
       </div>

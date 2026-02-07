@@ -4,6 +4,7 @@ import type React from "react";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SiHuggingface, SiFastapi, SiRobotframework } from "react-icons/si";
+import { useTranslations } from "next-intl";
 
 interface InterestItemProps {
   icon: React.ReactNode;
@@ -71,29 +72,24 @@ const InterestItem: React.FC<InterestItemProps> = ({
   );
 };
 
-const interestsData = [
-    {
-      icon: <SiHuggingface className="text-2xl text-red-600" />,
-      name: "AI Researcher",
-      description: "モデル開発楽しい 進化が速すぎて仕事にするのには不安もある…",
-    },
-    {
-      icon: <SiFastapi className="text-2xl text-blue-600" />,
-      name: "Backend Engineer",
-      description: "APIやDBの開発楽しい 個人開発では結構使うが実務は少しだけ 開発のノウハウ身につけたい…",
-    },
-    {
-      icon: <SiRobotframework className="text-2xl text-green-600" />,
-      name: "Research & Development",
-      description: "研究開発好き 研究分野はMechanistic Interpretability D進は悩み中…",
-    },
-  ];
+const interestKeys = ['aiResearcher', 'backendEngineer', 'researchDev'] as const
+const icons = [
+  <SiHuggingface className="text-2xl text-red-600" key="ai" />,
+  <SiFastapi className="text-2xl text-blue-600" key="be" />,
+  <SiRobotframework className="text-2xl text-green-600" key="rd" />,
+]
 
 const Interests: React.FC = () => {
+  const t = useTranslations('interests');
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const observerRefs = useRef<(HTMLDivElement | null)[]>([]);
   const popupRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const interestsData = interestKeys.map((key, i) => ({
+    icon: icons[i],
+    name: t(`${key}.name`),
+    description: t(`${key}.description`),
+  }));
 
   useEffect(() => {
     const checkMobile = () => {

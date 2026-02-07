@@ -4,7 +4,11 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { getLocaleFromAcceptLanguage } from '@/lib/i18n'
 
-export default function BlogRedirectPage() {
+export default function BlogSlugRedirectClient({
+  slug,
+}: {
+  slug: string
+}) {
   const router = useRouter()
 
   useEffect(() => {
@@ -12,8 +16,8 @@ export default function BlogRedirectPage() {
       typeof navigator !== 'undefined'
         ? getLocaleFromAcceptLanguage(navigator.language)
         : 'ja'
-    router.replace(`/${locale}/blog`)
-  }, [router])
+    router.replace(`/${locale}/blog/${slug}`)
+  }, [router, slug])
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-black">

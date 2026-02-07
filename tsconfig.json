@@ -33,6 +33,12 @@
       ],
       "@/content/*": [
         "./content/*"
+      ],
+      "@/data": [
+        "./data/index.ts"
+      ],
+      "@/data/*": [
+        "./data/*"
       ]
     },
     "target": "ES2017"

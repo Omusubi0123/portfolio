@@ -5,15 +5,17 @@ import { Box } from "@mui/material"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { FaMapMarkerAlt, FaUniversity, FaLaptopCode, FaQuoteLeft } from "react-icons/fa"
+import { useTranslations } from "next-intl"
 
 const Bio: React.FC = () => {
+  const t = useTranslations('bio')
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
 
   const bioItems = [
-    { icon: <FaMapMarkerAlt />, label: "From", content: "Saitama, Japan" },
-    { icon: <FaUniversity />, label: "Current", content: "UT EEIC 4th grade" },
-    { icon: <FaLaptopCode />, label: "Major", content: "Computer Science and Electronics" },
-    { icon: <FaQuoteLeft />, label: "Favorite Quote", content: "The rise and fall of fortunes is inevitable." },
+    { icon: <FaMapMarkerAlt />, labelKey: 'from' as const, contentKey: 'from' as const },
+    { icon: <FaUniversity />, labelKey: 'current' as const, contentKey: 'current' as const },
+    { icon: <FaLaptopCode />, labelKey: 'major' as const, contentKey: 'major' as const },
+    { icon: <FaQuoteLeft />, labelKey: 'quote' as const, contentKey: 'quote' as const },
   ]
 
   return (
@@ -50,7 +52,7 @@ const Bio: React.FC = () => {
             <motion.div
               key={index}
               className="relative group h-full"
-              onMouseEnter={() => setHoveredItem(item.label)}
+              onMouseEnter={() => setHoveredItem(item.labelKey)}
               onMouseLeave={() => setHoveredItem(null)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -58,19 +60,19 @@ const Bio: React.FC = () => {
               <div className="bg-white/10 rounded-lg p-4 transition-all duration-300 group-hover:bg-white/20 h-full flex flex-col">
                 <div className="flex items-center mb-2">
                   <span className="text-xl mr-3 text-[#FFBF00]">{item.icon}</span>
-                  <h2 className="text-xl font-semibold shine-pink-text">{item.label}</h2>
+                  <h2 className="text-xl font-semibold shine-pink-text">{t(`${item.labelKey}.label`)}</h2>
                 </div>
-                <p className="ios-white whitespace-pre-line">{item.content}</p>
+                <p className="ios-white whitespace-pre-line">{t(`${item.contentKey}.content`)}</p>
               </div>
               <AnimatePresence>
-                {hoveredItem === item.label && (
+                {hoveredItem === item.labelKey && (
                   <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-lg z-10"
                   initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  />
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                />
                 )}
               </AnimatePresence>
             </motion.div>
