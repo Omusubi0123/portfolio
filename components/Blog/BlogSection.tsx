@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useTranslations, useLocale } from 'next-intl';
 import Section from '../Section';
 import type { BlogPostMetadata } from '@/lib/blog';
 
@@ -18,6 +19,9 @@ interface BlogSectionProps {
 }
 
 const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
+  const t = useTranslations('section');
+  const tNav = useTranslations('nav');
+  const locale = useLocale();
   const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: false,
@@ -61,7 +65,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
   return (
     <Section
       id="blog"
-      title="Recent Blog Posts"
+      title={t('recentBlogPosts')}
       className="bg-transparent py-16"
       titleColor="shine-purple-text"
     >
@@ -76,7 +80,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
           {displayPosts.map((post) => (
             <motion.div key={post.id} variants={itemVariants}>
               <Link
-                href={`/blog/${post.id}`}
+                href={`/${locale}/blog/${post.id}`}
                 className="block group hover:no-underline"
 
               >
@@ -91,7 +95,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
                       </p>
                       <div className="flex flex-wrap items-center gap-3 text-sm text-gray-400">
                         <time>
-                          {new Date(post.date).toLocaleDateString('ja-JP', {
+                          {new Date(post.date).toLocaleDateString(locale === 'ja' ? 'ja-JP' : 'en-US', {
                             year: 'numeric',
                             month: 'short',
                             day: 'numeric'
@@ -152,11 +156,10 @@ const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
           animate={controls}
         >
           <Link
-            href="/blog"
+            href={`/${locale}/blog`}
             className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-900 to-purple-700 text-gray-300 font-semibold rounded-lg hover:from-purple-800 hover:to-purple-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-
           >
-            <span>View All Posts</span>
+            <span>{tNav('viewAllPosts')}</span>
             <svg
               className="ml-2 w-4 h-4"
               fill="none"

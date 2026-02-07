@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react"
 import { motion, useInView, useAnimation } from "framer-motion"
+import { useTranslations } from "next-intl"
 import Section from "../Section"
 import Popup from "./Popup"
 import WorkItem from "./WorkItem"
@@ -53,8 +54,9 @@ export default function Works() {
     },
   }
 
+  const t = useTranslations('section')
   return (
-    <Section id="works" title="My Works" className="bg-transparent flex justify-center py-8" titleColor="shine-gold-text">
+    <Section id="works" title={t('myWorks')} className="bg-transparent flex justify-center py-8" titleColor="shine-gold-text">
       <motion.div
         ref={ref}
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-6xl px-4"

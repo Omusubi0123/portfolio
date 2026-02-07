@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import type { Locale } from './i18n'
 
 // フォールバック用のブログデータ
 const fallbackBlogPosts = [
@@ -77,10 +78,12 @@ export interface BlogPostMetadata {
   thumbnail?: string
 }
 
-const blogDirectory = path.join(process.cwd(), 'content/blog')
+function getBlogDirectory(locale: Locale) {
+  return path.join(process.cwd(), 'content/blog', locale)
+}
 
-export function getBlogPostMetadata(): BlogPostMetadata[] {
-  // contentディレクトリが存在しない場合はフォールバックデータを返す
+export function getBlogPostMetadata(locale: Locale = 'ja'): BlogPostMetadata[] {
+  const blogDirectory = getBlogDirectory(locale)
   if (!fs.existsSync(blogDirectory)) {
     return fallbackBlogPosts.sort((a, b) => (a.date < b.date ? 1 : -1))
   }
@@ -112,16 +115,14 @@ export function getBlogPostMetadata(): BlogPostMetadata[] {
   }
 }
 
-export function getBlogPost(id: string): BlogPost | undefined {
-  // 最初にMarkdownファイルからの読み込みを試行
+export function getBlogPost(id: string, locale: Locale = 'ja'): BlogPost | undefined {
+  const blogDirectory = getBlogDirectory(locale)
   if (fs.existsSync(blogDirectory)) {
     try {
       const fullPath = path.join(blogDirectory, `${id}.md`)
-      
       if (fs.existsSync(fullPath)) {
         const fileContents = fs.readFileSync(fullPath, 'utf8')
         const matterResult = matter(fileContents)
-
         return {
           id,
           title: matterResult.data.title,
@@ -136,8 +137,7 @@ export function getBlogPost(id: string): BlogPost | undefined {
       console.error(`Error reading blog post ${id}:`, error)
     }
   }
-  
-  // Markdownファイルが見つからない場合はフォールバックデータを使用
+
   const fallbackPost = fallbackBlogPosts.find(post => post.id === id)
   if (fallbackPost && fallbackBlogContent[id]) {
     return {
@@ -149,20 +149,14 @@ export function getBlogPost(id: string): BlogPost | undefined {
   return undefined
 }
 
-export function getAllBlogPostIds() {
-  // contentディレクトリが存在しない場合は空配列を返す
-  if (!fs.existsSync(blogDirectory)) {
-    return []
-  }
+export function getAllBlogPostIds(locale: Locale = 'ja') {
+  const blogDirectory = getBlogDirectory(locale)
+  if (!fs.existsSync(blogDirectory)) return []
 
   const fileNames = fs.readdirSync(blogDirectory)
   return fileNames
     .filter((fileName) => fileName.endsWith('.md'))
-    .map((fileName) => {
-      return {
-        params: {
-          slug: fileName.replace(/\.md$/, ''),
-        },
-      }
-    })
+    .map((fileName) => ({
+      params: { slug: fileName.replace(/\.md$/, '') },
+    }))
 }

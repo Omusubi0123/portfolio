@@ -1,0 +1,66 @@
+{
+  "common": {
+    "siteName": "izawa Official Site",
+    "loadingWorks": "Loading Works...",
+    "loadingCareer": "Loading Career...",
+    "loadingBlog": "Loading Blog...",
+    "loadingCertifications": "Loading Certifications...",
+    "loadingSkills": "Loading Skills...",
+    "loadingArticle": "Loading article..."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "works": "Works",
+    "blog": "Blog",
+    "carriers": "Carriers",
+    "certifications": "Certifications",
+    "skills": "Skills",
+    "viewAllPosts": "View All Posts",
+    "ja": "日本語",
+    "en": "English"
+  },
+  "section": {
+    "recentBlogPosts": "Recent Blog Posts",
+    "careerJourney": "Career Journey",
+    "myWorks": "My Works",
+    "certifications": "Certifications",
+    "skills": "Skills"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Technical notes, activity reports, and occasional updates.",
+    "all": "All",
+    "noPosts": "No posts yet.",
+    "noPostsForTag": "No posts with tag \"{tag}\".",
+    "postNotFound": "Post Not Found"
+  },
+  "bio": {
+    "from": { "label": "From", "content": "Saitama, Japan" },
+    "current": { "label": "Current", "content": "UT EEIC 4th grade" },
+    "major": { "label": "Major", "content": "Computer Science and Electronics" },
+    "quote": { "label": "Favorite Quote", "content": "The rise and fall of fortunes is inevitable." }
+  },
+  "carriers": {
+    "present": "Present",
+    "yearsMonths": "{years}y {months}mo",
+    "months": "{months}mo",
+    "at": " at "
+  },
+  "interests": {
+    "aiResearcher": { "name": "AI Researcher", "description": "I enjoy model development. The field evolves so fast that I sometimes worry about making it a career…" },
+    "backendEngineer": { "name": "Backend Engineer", "description": "I enjoy API and DB development. I use it a lot for personal projects but only a bit at work. I want to build more expertise…" },
+    "researchDev": { "name": "Research & Development", "description": "I like R&D. My research area is Mechanistic Interpretability. Still thinking about a PhD…" }
+  },
+  "certifications": {
+    "dlCourse": { "title": "UT Matsuo Lab Deep Learning Basics", "date": "Aug 2023" },
+    "ap": { "title": "Applied Information Technology Engineer", "date": "Apr 2023" },
+    "toeic": { "title": "TOEIC 835", "date": "Sep 2021" }
+  },
+  "skills": {
+    "main": "Main",
+    "backendDb": "Backend + DB",
+    "infraNetwork": "Infra + Network",
+    "frontend": "Frontend"
+  }
+}

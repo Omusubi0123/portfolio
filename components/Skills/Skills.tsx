@@ -4,6 +4,7 @@ import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useInView } from "react-intersection-observer"
+import { useTranslations } from "next-intl"
 import Section from "../Section"
 
 interface Skill {
@@ -17,9 +18,9 @@ interface SkillCategory {
   skills: Skill[]
 }
 
-const skillCategories: SkillCategory[] = [
+const skillCategoryKeys = ['main', 'backendDb', 'infraNetwork', 'frontend'] as const
+const skillCategoriesData: Omit<SkillCategory, 'title'>[] = [
   {
-    title: "Main",
     skills: [
       {
         name: "Python",
@@ -49,7 +50,6 @@ const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    title: "Backend + DB",
     skills: [
       {
         name: "FastAPI",
@@ -69,7 +69,6 @@ const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    title: "Infra + Network",
     skills: [
       {
         name: "Cloudflare",
@@ -99,7 +98,6 @@ const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    title: "Frontend",
     skills: [
       {
         name: "HTML",
@@ -235,6 +233,12 @@ const SkillCategory: React.FC<{
 }
 
 export default function Skills() {
+  const t = useTranslations('section')
+  const tSkills = useTranslations('skills')
+  const skillCategories: SkillCategory[] = skillCategoriesData.map((cat, i) => ({
+    ...cat,
+    title: tSkills(skillCategoryKeys[i]),
+  }))
   const [isMobile, setIsMobile] = useState(false)
   const [activeSkill, setActiveSkill] = useState<string | null>(null)
   const skillsRef = useRef<HTMLDivElement>(null)
@@ -263,7 +267,7 @@ export default function Skills() {
   return (
     <Section
       id="skills"
-      title="Skills"
+      title={t('skills')}
       className="bg-transparent flex justify-center py-8"
       titleColor="shine-gold-text"
     >

@@ -4,30 +4,47 @@ import { useState, useEffect, useRef } from "react"
 import { Link } from "react-scroll"
 import { usePathname } from 'next/navigation'
 import NextLink from 'next/link'
+import { useTranslations } from 'next-intl'
+import { isValidLocale, type Locale } from '@/lib/i18n'
+
+const LOCALES: Locale[] = ['ja', 'en']
+
+function getLocaleFromPathname(pathname: string): Locale {
+  const segment = pathname.split('/')[1]
+  return isValidLocale(segment) ? segment : 'ja'
+}
 
 export default function Header() {
+  const t = useTranslations('nav')
+  const tCommon = useTranslations('common')
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
-  const sections = ["About", "Works", "Blog", "Carriers", "Certifications", "Skills"]
   const headerRef = useRef<HTMLDivElement>(null)
   const menuRef = useRef<HTMLDivElement>(null)
   const pathname = usePathname()
-  const isHomePage = pathname === '/'
+  const locale = getLocaleFromPathname(pathname)
+  const isHomePage = pathname === `/${locale}` || pathname === `/${locale}/`
+
+  const sectionIds = ['about', 'works', 'blog', 'carriers', 'certifications', 'skills'] as const
+  const sectionLabels = [
+    t('about'),
+    t('works'),
+    t('blog'),
+    t('carriers'),
+    t('certifications'),
+    t('skills'),
+  ]
 
   useEffect(() => {
     let lastScrollY = window.pageYOffset
-
     const handleScroll = () => {
       if (window.innerWidth < 768) {
-        // Only apply scroll hiding on mobile
         const currentScrollY = window.pageYOffset
         setIsVisible(currentScrollY < lastScrollY || currentScrollY < 50)
         lastScrollY = currentScrollY
       }
     }
-
     window.addEventListener("scroll", handleScroll, { passive: true })
-
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
@@ -41,14 +58,14 @@ export default function Header() {
         setIsMenuOpen(false)
       }
     }
-
     document.addEventListener("mousedown", handleClickOutside)
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
+    return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
+
+  const homeHref = `/${locale}/`
+  const blogHref = `/${locale}/blog`
 
   return (
     <header
@@ -58,12 +75,11 @@ export default function Header() {
       }`}
     >
       <nav className="max-w-screen-lg mx-auto flex justify-between items-center px-4 sm:px-10 lg:px-20 py-4 h-16 md:h-12 backdrop-blur-sm bg-black/60 rounded-lg">
-        <NextLink href="/" className="text-xl md:text-2xl font-bold shine-gold-text">
-          izawa Official Site
+        <NextLink href={homeHref} className="text-xl md:text-2xl font-bold shine-gold-text">
+          {tCommon('siteName')}
         </NextLink>
 
-        {/* Hamburger menu for mobile */}
-        <button className="md:hidden" onClick={toggleMenu}>
+        <button className="md:hidden" onClick={toggleMenu} aria-label="Menu">
           <svg
             className="w-6 h-6"
             fill="none"
@@ -75,111 +91,117 @@ export default function Header() {
           </svg>
         </button>
 
-        {/* Desktop menu */}
-        <ul className="hidden md:flex md:space-x-8">
+        <ul className="hidden md:flex md:items-center md:space-x-6">
           {isHomePage ? (
-            <>
-              {sections.map((section, index) => (
-                <li key={index}>
-                  {section === "Blog" ? (
-                    <NextLink
-                      href="/blog"
-                      className="text-lg md:text-xl shine-silver-text-menu transition cursor-pointer"
-                    >
-                      {section}
-                    </NextLink>
-                  ) : (
-                    <Link
-                      to={section.toLowerCase()}
-                      smooth={true}
-                      duration={500}
-                      className="text-lg md:text-xl shine-silver-text-menu transition cursor-pointer"
-                    >
-                      {section}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </>
+            sectionIds.map((id, index) => (
+              <li key={id}>
+                {id === 'blog' ? (
+                  <NextLink
+                    href={blogHref}
+                    className="text-lg md:text-xl shine-silver-text-menu transition cursor-pointer"
+                  >
+                    {sectionLabels[index]}
+                  </NextLink>
+                ) : (
+                  <Link
+                    to={id}
+                    smooth={true}
+                    duration={500}
+                    className="text-lg md:text-xl shine-silver-text-menu transition cursor-pointer"
+                  >
+                    {sectionLabels[index]}
+                  </Link>
+                )}
+              </li>
+            ))
           ) : (
             <>
               <li>
-                <NextLink
-                  href="/"
-                  className="text-lg md:text-xl shine-silver-text-menu transition cursor-pointer"
-                >
-                  Home
+                <NextLink href={homeHref} className="text-lg md:text-xl shine-silver-text-menu transition cursor-pointer">
+                  {t('home')}
                 </NextLink>
               </li>
               <li>
-                <NextLink
-                  href="/blog"
-                  className="text-lg md:text-xl shine-silver-text-menu transition cursor-pointer"
-                >
-                  Blog
+                <NextLink href={blogHref} className="text-lg md:text-xl shine-silver-text-menu transition cursor-pointer">
+                  {t('blog')}
                 </NextLink>
               </li>
             </>
           )}
+          <li className="flex items-center gap-2 ml-2 border-l border-gray-500 pl-4">
+            {LOCALES.map((loc) => (
+              <NextLink
+                key={loc}
+                href={pathname.replace(`/${locale}`, `/${loc}`) || `/${loc}/`}
+                className={`text-sm px-2 py-1 rounded transition ${
+                  loc === locale
+                    ? 'bg-yellow-600/30 text-yellow-400 font-medium'
+                    : 'text-gray-400 hover:text-white'
+                }`}
+              >
+                {loc === 'ja' ? t('ja') : t('en')}
+              </NextLink>
+            ))}
+          </li>
         </ul>
       </nav>
 
-      {/* Mobile menu */}
       {isMenuOpen && (
         <div ref={menuRef} className="md:hidden fixed top-16 right-0 w-48 bg-black/90 rounded-bl-lg shadow-lg">
           <ul className="py-2">
             {isHomePage ? (
-              <>
-                {sections.map((section, index) => (
-                  <li key={index} className="px-4 py-2">
-                    {section === "Blog" ? (
-                      <NextLink
-                        href="/blog"
-                        className="text-lg shine-silver-text transition cursor-pointer block"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {section}
-                      </NextLink>
-                    ) : (
-                      <Link
-                        to={section.toLowerCase()}
-                        smooth={true}
-                        duration={500}
-                        className="text-lg shine-silver-text transition cursor-pointer block"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {section}
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </>
+              sectionIds.map((id, index) => (
+                <li key={id} className="px-4 py-2">
+                  {id === 'blog' ? (
+                    <NextLink
+                      href={blogHref}
+                      className="text-lg shine-silver-text transition cursor-pointer block"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {sectionLabels[index]}
+                    </NextLink>
+                  ) : (
+                    <Link
+                      to={id}
+                      smooth={true}
+                      duration={500}
+                      className="text-lg shine-silver-text transition cursor-pointer block"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {sectionLabels[index]}
+                    </Link>
+                  )}
+                </li>
+              ))
             ) : (
               <>
                 <li className="px-4 py-2">
-                  <NextLink
-                    href="/"
-                    className="text-lg shine-silver-text transition cursor-pointer block"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Home
+                  <NextLink href={homeHref} className="text-lg shine-silver-text transition cursor-pointer block" onClick={() => setIsMenuOpen(false)}>
+                    {t('home')}
                   </NextLink>
                 </li>
                 <li className="px-4 py-2">
-                  <NextLink
-                    href="/blog"
-                    className="text-lg shine-silver-text transition cursor-pointer block"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Blog
+                  <NextLink href={blogHref} className="text-lg shine-silver-text transition cursor-pointer block" onClick={() => setIsMenuOpen(false)}>
+                    {t('blog')}
                   </NextLink>
                 </li>
               </>
             )}
+            <li className="px-4 py-2 border-t border-gray-600 mt-2 flex gap-2">
+              {LOCALES.map((loc) => (
+                <NextLink
+                  key={loc}
+                  href={pathname.replace(`/${locale}`, `/${loc}`) || `/${loc}/`}
+                  className={`text-sm ${loc === locale ? 'text-yellow-400 font-medium' : 'text-gray-400'}`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {loc === 'ja' ? t('ja') : t('en')}
+                </NextLink>
+              ))}
+            </li>
           </ul>
         </div>
       )}
     </header>
   )
 }
-

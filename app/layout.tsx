@@ -1,35 +1,31 @@
 import type { Metadata } from 'next'
-import { generatePersonLD, generateWebsiteLD } from '@/lib/structured-data'
-import { siteConfig } from '@/lib/config'
+import { siteConfig, getSiteConfig } from '@/lib/config'
 import './globals.css'
+
+const defaultConfig = getSiteConfig('ja')
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: siteConfig.title,
-  description: siteConfig.description,
-  keywords: siteConfig.keywords,
+  title: defaultConfig.title,
+  description: defaultConfig.description,
+  keywords: defaultConfig.keywords,
   authors: [{ name: siteConfig.author.name }],
   creator: siteConfig.author.name,
   openGraph: {
     type: 'website',
     locale: 'ja_JP',
     url: siteConfig.url,
-    title: siteConfig.title,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
+    title: defaultConfig.title,
+    description: defaultConfig.description,
+    siteName: defaultConfig.name,
     images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
-      },
+      { url: siteConfig.ogImage, width: 1200, height: 630, alt: defaultConfig.name },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: siteConfig.title,
-    description: siteConfig.description,
+    title: defaultConfig.title,
+    description: defaultConfig.description,
     images: [siteConfig.ogImage],
   },
   robots: {
@@ -50,27 +46,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const personLD = generatePersonLD()
-  const websiteLD = generateWebsiteLD()
-
   return (
     <html lang="ja">
       <head>
         <link rel="icon" href={siteConfig.favicon} />
         <link rel="apple-touch-icon" href={siteConfig.favicon} />
         <meta name="theme-color" content="#000000" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(personLD),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(websiteLD),
-          }}
-        />
       </head>
       <body className="antialiased">
         {children}

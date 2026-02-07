@@ -1,22 +1,24 @@
 import { BlogPost } from './blog'
-import { siteConfig, createImageUrl } from './config'
+import { getSiteConfig, createImageUrl } from './config'
 
-export function generateBlogPostLD(post: BlogPost, url: string) {
+type SiteConfigLike = ReturnType<typeof getSiteConfig>
+
+export function generateBlogPostLD(post: BlogPost, url: string, config: SiteConfigLike = getSiteConfig('ja')) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.summary,
-    image: post.thumbnail ? createImageUrl(post.thumbnail) : createImageUrl(siteConfig.ogImage),
+    image: post.thumbnail ? createImageUrl(post.thumbnail) : createImageUrl(config.ogImage),
     author: {
       '@type': 'Person',
-      name: siteConfig.author.name,
-      url: siteConfig.url,
+      name: config.author.name,
+      url: config.url,
     },
     publisher: {
       '@type': 'Person',
-      name: siteConfig.author.name,
-      url: siteConfig.url,
+      name: config.author.name,
+      url: config.url,
     },
     datePublished: post.date,
     dateModified: post.date,
@@ -25,11 +27,11 @@ export function generateBlogPostLD(post: BlogPost, url: string) {
   }
 }
 
-export function generatePersonLD() {
+export function generatePersonLD(config: SiteConfigLike = getSiteConfig('ja')) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: siteConfig.author.name,
+    name: config.author.name,
     alternateName: [
       '井澤慶広',
       '井澤 慶広',
@@ -37,24 +39,22 @@ export function generatePersonLD() {
       'いざわよしひろ'
     ],
     jobTitle: 'Computer Science Student',
-    description: siteConfig.description,
-    url: siteConfig.url,
-    sameAs: [
-      // ここにSNSのURLなどを追加
-    ],
+    description: config.description,
+    url: config.url,
+    sameAs: [],
   }
 }
 
-export function generateWebsiteLD() {
+export function generateWebsiteLD(config: SiteConfigLike = getSiteConfig('ja')) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Website',
-    name: siteConfig.name,
-    description: siteConfig.description,
-    url: siteConfig.url,
+    name: config.name,
+    description: config.description,
+    url: config.url,
     author: {
       '@type': 'Person',
-      name: siteConfig.author.name,
+      name: config.author.name,
     },
   }
 }

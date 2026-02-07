@@ -3,6 +3,7 @@
 import type React from "react"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
+import { useTranslations } from "next-intl"
 import Section from "../Section"
 import { FaGraduationCap, FaLanguage, FaLaptopCode } from "react-icons/fa"
 
@@ -13,26 +14,9 @@ interface Certification {
   color: string
 }
 
-const certifications: Certification[] = [
-  {
-    title: "東大松尾研 DeepLearning基礎講座修了",
-    date: "2023年8月取得",
-    icon: <FaGraduationCap />,
-    color: "bg-green-600",
-  },
-  {
-    title: "応用情報技術者",
-    date: "2023年4月取得",
-    icon: <FaLaptopCode />,
-    color: "bg-blue-500",
-  },
-  {
-    title: "TOEIC 835点",
-    date: "2021年9月取得",
-    icon: <FaLanguage />,
-    color: "bg-yellow-500",
-  },
-]
+const certKeys = ['dlCourse', 'ap', 'toeic'] as const
+const certIcons = [<FaGraduationCap key="g" />, <FaLaptopCode key="l" />, <FaLanguage key="lang" />]
+const certColors = ['bg-green-600', 'bg-blue-500', 'bg-yellow-500']
 
 const CertificationItem: React.FC<{ cert: Certification; index: number }> = ({ cert, index }) => {
   const [ref, inView] = useInView({
@@ -72,11 +56,20 @@ const CertificationItem: React.FC<{ cert: Certification; index: number }> = ({ c
 }
 
 export default function Certifications() {
+  const t = useTranslations('section')
+  const tCert = useTranslations('certifications')
+  const certifications: Certification[] = certKeys.map((key, i) => ({
+    title: tCert(`${key}.title`),
+    date: tCert(`${key}.date`),
+    icon: certIcons[i],
+    color: certColors[i],
+  }))
   return (
     <Section
       id="certifications"
-      title="Certifications"
-      className="bg-transparent flex justify-center py-16 overflow-hidden" titleColor="shine-gold-text"
+      title={t('certifications')}
+      className="bg-transparent flex justify-center py-16 overflow-hidden"
+      titleColor="shine-gold-text"
     >
       <div className="w-full max-w-4xl">
         {certifications.map((cert, index) => (
