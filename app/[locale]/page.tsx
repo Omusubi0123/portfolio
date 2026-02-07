@@ -28,6 +28,10 @@ type Props = {
   params: Promise<{ locale: string }>
 }
 
+export async function generateStaticParams(): Promise<{ locale: string }[]> {
+  return [{ locale: 'ja' }, { locale: 'en' }]
+}
+
 export default async function LocaleHomePage({ params }: Props) {
   const { locale } = await params
   const posts = getBlogPostMetadata(locale as 'ja' | 'en')

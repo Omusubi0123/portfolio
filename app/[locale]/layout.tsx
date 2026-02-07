@@ -11,7 +11,7 @@ import en from '../../messages/en.json'
 
 const messagesMap = { ja, en } as const
 
-export function generateStaticParams() {
+export async function generateStaticParams(): Promise<{ locale: string }[]> {
   return [{ locale: 'ja' }, { locale: 'en' }]
 }
 

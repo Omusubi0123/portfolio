@@ -62,5 +62,15 @@
     "backendDb": "Backend + DB",
     "infraNetwork": "Infra + Network",
     "frontend": "Frontend"
+  },
+  "popup": {
+    "close": "Close",
+    "usedTech": "Technologies",
+    "mine": "My role",
+    "others": "Others",
+    "continuedDev": "Continued dev",
+    "link": "Link",
+    "github": "Github",
+    "slide": "Slide"
   }
 }

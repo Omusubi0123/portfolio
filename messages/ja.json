@@ -62,5 +62,15 @@
     "backendDb": "Backend + DB",
     "infraNetwork": "Infra + Network",
     "frontend": "Frontend"
+  },
+  "popup": {
+    "close": "閉じる",
+    "usedTech": "使用技術",
+    "mine": "自分",
+    "others": "他",
+    "continuedDev": "継続開発",
+    "link": "Link",
+    "github": "Github",
+    "slide": "Slide"
   }
 }
