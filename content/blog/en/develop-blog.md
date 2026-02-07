@@ -1,34 +1,34 @@
 ---
-title: "ブログを開設しました"
-summary: "ポートフォリオサイトにブログ機能を追加しました．気ままに発信していきます．"
+title: "Blog launch"
+summary: "I added a blog to my portfolio site. I’ll post updates here from time to time."
 date: "2025-08-25"
-tags: ["お知らせ"]
+tags: ["Announcement"]
 thumbnail: "/portfolio.png"
 ---
 
-# ブログを開設しました
+# Blog launch
 
-ポートフォリオサイトにブログ機能を追加しました．
+I’ve added a blog section to my portfolio site.
 
-## このブログについて
+## What to expect
 
-このブログでは以下のような内容を投稿していく予定です：
+I plan to post about:
 
-- **技術学習の記録**: 新しく学んだ技術やツールについて
-- **プロジェクトの進捗報告**: 現在取り組んでいるプロジェクトの状況
-- **開発での気づき**: 開発中に発見した小技やハマったポイント
-- **活動記録**: ハッカソンやインターン，学会発表などの活動記録
-- **その他の雑記**: 日々の思考や発見について
+- **Learning notes**: New technologies and tools I’m picking up
+- **Project updates**: Progress on current projects
+- **Development notes**: Tips and pitfalls from day-to-day development
+- **Activities**: Hackathons, internships, conference talks, and the like
+- **Misc**: Thoughts and discoveries
 
-## 技術スタック
+## Tech stack
 
-このブログシステムは以下の技術で構築されています：
+This blog is built with:
 
-- **React + TypeScript**: フロントエンド開発
-- **Tailwind CSS**: スタイリング
-- **React Markdown**: Markdown記事の表示
-- **React Router**: ページルーティング
+- **React + TypeScript**: Frontend
+- **Tailwind CSS**: Styling
+- **React Markdown**: Rendering Markdown posts
+- **React Router**: Routing
 
-## 今後の予定
-- どのくらいの頻度になるかは分かりませんが，気ままに更新していく予定です．
-- 気が向いたら読んでください．
+## Going forward
+
+I’ll update when I have something to share — no fixed schedule. Feel free to drop by when you feel like it.

@@ -1,35 +1,27 @@
 ---
-title: "ハッカソンを振り返る1+α/3（執筆中）"
-summary: "UMP-JUSTのハッカソンについて，技術的・ビジネス的な面から振り返ります．"
+title: "Looking back at the hackathon (1+α/3) — technical side (draft)"
+summary: "A technical and business-oriented look back at the UMP-JUST hackathon."
 date: "2025-09-06"
-tags: ["ハッカソン", "技術"]
+tags: ["Hackathon", "Tech"]
 thumbnail: "/blog/first-hackathon-tech/thumbnail.png"
 ---
 
-# はじめに
+# Introduction
 
-1つ前の記事[UMP-JUSTのハッカソンの振り返り](https:///www.omusubiy.com/blog/first-hackathon/)では，ハッカソン出場の経緯や流れ・感想について述べました．
+In the [previous post](https://www.omusubiy.com/en/blog/first-hackathon/) I wrote about how I ended up at the UMP-JUST hackathon, how it went, and my takeaways.
 
-今回はテーマ決めや技術的な観点について書いていこうと思います．
-（気力があんまりないので短め）
+This time I’ll focus on how we chose the theme and the technical side. (Keeping it short.)
 
-## 開発したサービス
-「外国人教育人材の不足」という課題に対処するため，外国人労働者の日本語学習を支援するサービス「にほんGO UP app」を開発しました．
+## What we built
 
-### テーマ決定の背景
-- 今回のハッカソンはテーマが「生成AIを使って何らかの課題を解決するサービスの開発」
-- 事前にmiroを使ってチームメンバーの3人で案出
-- 本番までに2つほどに案を絞っていて，細かなビジネスモデルは当日に考えた
-- 最初は「小学生などの子供向けに漢字の読み書きをサポートするサービス」を考えていたのですが，ターゲット層をより絞り込む（ハッカソンではこれが大事だったりする）ため，対象を「外国人労働者」にしました．
+We developed “Nihon GO UP app,” a service to support Japanese language learning for foreign workers, addressing the shortage of educational support for them.
 
-## 作ったサービス
-書き途中・・・
+### How we chose the theme
+- The hackathon theme was “build a service that uses generative AI to solve some problem.”
+- The three of us brainstormed in advance using Miro.
+- We narrowed down to about two ideas before the event and refined the business model on the day.
+- We initially considered a service to help elementary-school kids with kanji reading and writing, but to narrow the target (which often matters in hackathons), we switched to “foreign workers.”
 
-<!-- ## 何をしたか
+## The service we built
 
-
-## 結果，どうなったか
-
-- どのような状況だったか
-- そのとき，何をしたか？
-- 行動の結果，どのような変化があったか？ -->
+Still writing…

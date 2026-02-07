@@ -1,23 +1,23 @@
 ---
-title: "輪読会で発表しました(Emergent Introspective Awareness in Large Language Models)"
-summary: "研究室の輪読会で，研究分野に関する論文(Anthropicの研究)を発表しました．"
+title: "Reading Circle Presentation: Emergent Introspective Awareness in Large Language Models"
+summary: "I presented a paper (Anthropic research) related to my research area at our lab's reading circle."
 date: "2025-11-13"
-tags: ["研究", "輪読会", "Mechanistic Interpretation"]
+tags: ["Research", "Reading Circle", "Mechanistic Interpretability"]
 thumbnail: "/blog/reading-circle/thumbnail.png"
 ---
 
-11月13日に輪読会で発表した内容を共有します．
+Sharing what I presented at the reading circle on November 13.
 
-# 発表内容
-- 論文タイトル：[Emergent Introspective Awareness in Large Language Models](https://transformer-circuits.pub/2025/introspection/index.html)
-- 著者：Jack Lindsey (Anthropic)
-- 概要：大規模言語モデル（LLM）は内省的を行うことができるのか，という問いに，モデルの入出力の文章ではなくモデルの内部状態の変化を観察することで答えようという論文．「モデル推論時に概念ベクトルを注入し，どんな概念が注入されたか，もしくはされていないか，を答えさせる」などの大きく分けて4つの実験を実施．Claudeの多種モデルに実施した結果，Opus4, 4.1では内省的な思考をする割合が他のモデルに比べて高かった．内省的な能力はpost-trainingやモデルの全体的な性能に影響している可能性がある，との考察を述べている．
+# Presentation Summary
+- **Paper**: [Emergent Introspective Awareness in Large Language Models](https://transformer-circuits.pub/2025/introspection/index.html)
+- **Author**: Jack Lindsey (Anthropic)
+- **Summary**: The paper asks whether LLMs can be introspective, and addresses this by observing changes in internal model states rather than input/output text. It runs four main kinds of experiments (e.g., injecting concept vectors during inference and asking the model which concepts were or were not injected). On multiple Claude models, Opus 4 and 4.1 showed a higher proportion of introspective-like behavior than others. The authors suggest that introspective capability may be linked to post-training and overall model performance.
 
-# 発表スライド
-[輪読会スライド](https://drive.google.com/file/d/1SnGS0XP-Vh2d_FjFOkrISEv4sN9kJ7R9/view?usp=sharing)
+# Slides
+[Reading circle slides](https://drive.google.com/file/d/1SnGS0XP-Vh2d_FjFOkrISEv4sN9kJ7R9/view?usp=sharing)
 
-# 終わりに
-- この論文は今年読んだ論文の中でも3本の指標に入るほど面白かったものです．興味ある方は是非読んでみてください．
-- 論文をスライドに落とし込む，ことを前提に読む際の論文の読み方が少し掴めた気がします．徐々に論文の流し読みもできるようになってきており，すこすずつですが成長を実感できて嬉しいです．
-- Mechanistic Interpretabilityの研究は「え，モデルの中身はそうなってたの？」という面白さを含んでいるものが多く，読んでいて非常に楽しいです．
-- 今後もこの分野の論文紹介を続けていきたいと思います．
+# Closing
+- This was one of the three most interesting papers I read this year. I recommend it if the topic interests you.
+- I feel I'm getting a better sense of how to read papers with an eye to turning them into slides. I'm gradually able to skim papers more efficiently and am happy to see the progress.
+- A lot of Mechanistic Interpretability work has that “wait, is that really what’s going on inside the model?” appeal, and I find it very enjoyable to read.
+- I’d like to keep sharing papers in this area in the future.

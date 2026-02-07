@@ -1,177 +1,163 @@
 ---
-title: "ハッカソンを振り返る1/3（UMP-JUST）"
-summary: "初めて参加したハッカソンについて今更ですが振り返ります．"
+title: "Looking back at my first hackathon 1/3 (UMP-JUST)"
+summary: "A (belated) look back at the first hackathon I participated in."
 date: "2025-08-26"
-tags: ["ハッカソン"]
+tags: ["Hackathon"]
 thumbnail: "/blog/first-hackathon/demo.MP4"
 ---
 
-# はじめに
+# Introduction
 
-去年は初めてハッカソンに参加したのですが，その後も他のハッカソンに参加し，合計3回出場しました．
+I participated in my first hackathon last year and have since attended two more, for a total of three.
 
-振り返りをしていなかったので，参加の経緯や得られたことについてまとめておきます．
+I never wrote a proper retrospective, so I’m summarizing how I got involved and what I gained.
 
-1つの記事では1つのハッカソンについてまとめます．３部構成です．
+I’ll cover one hackathon per post. This is part 1 of 3.
 
-# TL;DR;
-- UMP-JUSTハッカソンの参加記録をまとめました
-- 技術賞とcotomi賞を受賞することができました
-- チームメンバーとさらに仲良くなりました
+# TL;DR
+- Summary of my experience at the UMP-JUST hackathon
+- We won the Technical Award and the cotomi Award
+- I got even closer with my teammates
 
-[公式による大会記録](https://ump-just.i.u-tokyo.ac.jp/2024/10011337051610/)
+[Official event record](https://ump-just.i.u-tokyo.ac.jp/2024/10011337051610/)
 
-[開発したサービス 【にほん GO UP APP】](https://nihon-go-up-app.vercel.app/)
+[Our service: Nihon GO UP APP](https://nihon-go-up-app.vercel.app/)
 
-[発表スライド](https://drive.google.com/file/d/1P33v6AeTH96daZJ3wcWP9QqZngSPy6jZ/view?usp=drive_link)
+[Presentation slides](https://drive.google.com/file/d/1P33v6AeTH96daZJ3wcWP9QqZngSPy6jZ/view?usp=drive_link)
 
 [Github](https://github.com/Omusubi0123/nihon-go-up-app)
 
 
-# ハッカソンとは
+# What is a hackathon?
 
-ハッカソンとは，主にComputer Science系の学生が集まり，短期間でソフトウェアサービスを開発するイベントです．
+A hackathon is an event where people (often CS students) get together and build software in a short time.
 
-基本的な流れ
+Typical flow:
 
-**1．テーマ発表：**
-  - 主催者から作成するサービスのテーマが発表されます．参加者はテーマに沿ったサービスを開発します．
+**1. Theme announcement**
+- The organizers announce the theme. Participants build a service that fits it.
 
-**2．チーム編成：**
-  - 参加者は3〜5人のチームを編成し，指定された開発期間でサービスを開発します．
-  - チームメンバーの中でも役割分担（サービスを開発するエンジニア，サービスのプレゼンを行うプレゼンテーターなど）するのが一般的です．
-  - ソフトウェア開発の場合，さらに細かくフロントエンド（Webサイト開発）・バックエンド（API・DB開発）・インフラ（デプロイ等）の担当で分けるのが一般的です．
+**2. Team formation**
+- Teams of about 3–5 people form and build during the given period.
+- Roles are usually split (e.g., engineers who build, someone who presents).
+- In software hackathons, roles are often split further: frontend (web), backend (APIs, DB), infra (deployment), etc.
 
-**3．開発期間：**
-  - 多くは1日〜2日で開催され，アイデアだしからサービス開発，最終発表まで行います．
-  - 開発期間が1ヶ月ほど与えられるハッカソンもあります．
-  - 2日間のハッカソンの場合，1日目の夜は徹夜に近い状態で開発することになります（深夜4時くらいから自分の限界を超え始める）．
+**3. Development**
+- Many events run 1–2 days from idea to demo and final presentation.
+- Some give around a month.
+- In a 2-day hackathon, the first night often turns into a near all-nighter (I hit my limit around 4 a.m.).
 
-**4．発表・審査：**
-  - 開発したサービスを発表します．
-  - ピッチ形式，2分~10分の発表時間であることが多いです．
-  - 開発背景→課題→解決策→サービス内容→デモ，の流れが一般的です．
-  - どれだけ良いサービスを開発してもプレゼンがうまくいかないと審査員には伝わらないので，スライド資料・プレゼンにも力を入れる必要があります．
-
-
-# UMP-JUSTハッカソン
-僕が初めて参加したハッカソンです．
-2024年9月7日，8日の2日間で開催されました．
-
-東京大学大学院情報理工学系研究科の一組織「UMP-JUST」が主催のハッカソンで，当時所属していた学科の教授が宣伝しているのを見て知りました．
-
-ハッカソンのテーマは「生成AI」．（特にLLM）をテーマにしたものでした．
-
-2023年以降はLLMの爆発的な普及によって，生成AIをテーマにしたハッカソンが非常に多いです．
+**4. Presentation and judging**
+- Teams present what they built.
+- Usually a pitch format, 2–10 minutes.
+- Common flow: background → problem → solution → product → demo.
+- A great product can fall flat if the presentation doesn’t land, so slides and delivery matter.
 
 
-# 参加背景
-高専時代や大学2年次はハッカソンに一度も参加したことがなく，ハッカソンは未知の世界でした．
+# UMP-JUST hackathon
 
-そんな中，その年の3月に大学編入同期の友人があるハッカソンで優勝し海外研修に行くのを知り，ハッカソンに興味を持ち始めました．
+This was my first hackathon. It was held over two days, September 7–8, 2024.
 
-しかし，当時の僕はソフトウェア開発について全く知識がなく，個人開発の経験もありませんでした．できることと言えばpythonやLLMを使ったアルゴリズム開発くらい・・・．
-（友人の仕事の関係でハッカソン前に少しソフトウェア開発に携わることになったのですが，それはまた別の機会に）
+It was organized by UMP-JUST (part of the Grad School of Information Science and Technology, UT). I heard about it from a professor in my department.
 
-ただ，このハッカソンは条件があまりに良く，貴重な機会でした．
-参加学生が学内に限られていて，電子情報工学科の3, 4学生 or 情報理工の院生のみだと思われる（昨年は参加チームが10チーム程度）．
-さらに，優勝賞金が30万円と大会の規模に対して非常に高額．．．
-対外的に開催しているハッカソンでは，優勝賞金が10万前後，賞金なしの場合もある，参加チームは30チーム以上であることが多い．
-それを考えるとこのハッカソンの条件は別格です．
+The theme was “generative AI” (especially LLMs).
 
-お金に目が眩んだ僕は参加することにしました．
+Since 2023, LLMs have spread so quickly that many hackathons are now generative-AI themed.
 
-# メンバー探し
-参加することに決めた次は，チームメンバーを探します．
 
-声をかけるチームメンバーは参加を決めた瞬間から決めていました．
-大学編入同期でインターン先も同じだった2人に声をかけました．
-2人とは1年以上の付き合いがあり，実力に対して絶対の信頼をおいていたので，この2人以外にはいないなと考えていました．
+# Why I joined
 
-強い仲間を引き入れて自分の実力の無さを補う作戦です．
+I had never joined a hackathon in college or in my first two years at university; it felt like another world.
 
-幸い，2人とも参加を快諾してくれました．チームメンバー探しはこれにて終了です．
+In March that year, a friend from the same transfer cohort won a hackathon and went on an overseas trip. That got me interested.
 
-# 事前準備
-ハッカソンは２日間のみの開催なので，アイデア出しはある程度事前に行っておくのが得策です（当日になってアイデア出しから始めると，実質的な開発時間は徹夜でやっても10時間弱になる）．
+At the time I had almost no software development experience and no side projects. The only thing I could do was a bit of Python and LLM-based algorithm work.
+(I did get a little exposure to software dev before the hackathon through a friend’s work — more on that another time.)
 
-メンバーと事前にmeetingを2回ほど行い，アイデアだしを行いました．
-メンバーの1人は先ほど述べた優勝経験のあるメンバーだったので，アイデア出しや当日のノウハウは彼に教えてもらいました．
+Still, the conditions for this hackathon were hard to pass up. Participation was limited to students in the department (I think 3rd/4th year undergrads in our program or grad students in information science; there were about 10 teams the previous year). The first prize was 300,000 JPY — very high for an event of that size. Many open hackathons offer around 100,000 JPY or no cash prize and have 30+ teams. So this one was special.
 
-meetingを通してメンバー2人とさらに仲良くなれました．
-アイデア出しも楽しい時間になりました．
+I decided to join. (Yes, the prize was a big motivator.)
 
-開発するサービスの案を2つまで絞り込み，本番に臨みました．
+# Finding teammates
 
-# 本番
-## 1日目
-会場は東大の弥生キャンパスにありました．
-普段通っている本郷キャンパスと隣接しているキャンパスですが，初めて入った場所でした．
+Once I decided to join, I needed a team.
 
-朝早くに起きて大学に向かい，何だか新鮮な気分の状態で会場に向かいました．
+I knew who I wanted to ask from the start: two people from the same transfer cohort who were also at the same internship. I’d known them for over a year and trusted their skills completely. I couldn’t imagine a team without them.
 
-参加チームは10チームでした．
-学部3年の同級生が2チーム，学部4年のチームが1チーム(?)，即席チームが1, 2チーム，残りが修士チーム・博士チームでした．
+The plan was to team up with strong people and compensate for my own lack of experience.
 
-会場に入った瞬間は，ハッカソンへの参加が初めてなのもあり，かなり緊張しました．
-ですが強強のチームメンバーが一緒だったので少し経ったら緊張は解消されました．
-小中学生時代に参加していたピアノの発表会ではずっと緊張していたので，仲間がいることに心強さを感じました．
+Both said yes. Team formation was done.
 
-1日目は前半がアイデアソン（アイデアを出し合う）で，後半からプロトタイプ開発が始まりました．
-アイデアソンでは終始わいわいでしたが，開発が始まったらどのチームも忙しく開発してました．
 
-昼休憩時間に開発するサービスを決定し，午後は開発を頑張りました．
-僕はbackend・LLMを使ったアルゴリズムの開発，友人Aはfrontend・インフラの開発，友人Bはリーダー兼ビジネスモデル調査・プレゼンを担当することにしました．
-役割分担が綺麗に決まり，事前にMVP（Minimul Viable Product）を話し合っていたこともあり，開発はスムーズに行えました．
+# Preparation
 
-初日の開発は順調に終わりました．
+With only two days on site, it helps to do some ideation in advance (if you start from zero on the day, you only have about 10 hours of real dev time even with an all-nighter).
 
-ここからが徹夜作業です．
+We had a couple of meetings beforehand to brainstorm. One of my teammates had won that hackathon I mentioned, so he shared how to come up with ideas and how to approach the day.
 
-帰宅後，zoomで開発の方針・明日の方針を決め，爆速開発に入ります．
-僕は睡魔に勝てず深夜4時ごろには寝たのですが，友人Aは徹夜で頑張ってくれました（本当に感謝）．
-深夜テンションでの開発は楽しいです．zoomを繋いでおしゃべりしながら開発すｒのでさらに仲良くなります．
+Those meetings also made us closer. Ideation was fun.
 
-## 2日目
-一番の難関，朝の起床を乗り越えました．
-無事会場に辿り着きます．
+We narrowed down to two service ideas and went in ready.
 
-午前中は開発だったので，ずっと残りの開発をしていました．
-計画通りの時間にデプロイ段階に入りましたが，若干バグが残った状態で開発時間が終了してしまいました．
-ギリギリまで全集中して取り組んでくれた友人Aには大感謝です．
 
-若干の心残りはありましたが，作ったサービスには相当な自信があったので自信を持って発表に臨みました．
+# The event
 
-友人Bがスライドを作ってくれました．ビジネスモデル提案から開発したプロダクト・デモ紹介まで素晴らしいスライドで，大感謝でした．
-発表も完璧で，感謝でいっぱいです．
+## Day 1
 
-### プロダクトデモ動画
+The venue was on the Yayoi campus. It’s next to the main Hongo campus I usually use, but I’d never been there before.
 
-実際に開発したサービスのデモ動画です：
+I got up early, went to campus, and headed to the venue in a fresh mood.
+
+There were 10 teams: two from 3rd year, one (?) from 4th year, one or two ad-hoc teams, and the rest were master’s and PhD teams.
+
+I was pretty nervous at first — it was my first hackathon. Having strong teammates helped; the nerves eased after a while. I used to be nervous through entire piano recitals as a kid, so having teammates I could rely on made a big difference.
+
+The first half of Day 1 was an idea session; in the second half we started building. The idea session was lively; once coding started, every team was heads-down.
+
+We decided what to build during the lunch break and spent the afternoon developing. I took backend and LLM/algorithm work; Friend A took frontend and infra; Friend B led and handled business model research and the presentation. The split was clear, and we’d already discussed an MVP, so we moved quickly.
+
+Day 1 went smoothly.
+
+Then came the all-nighter.
+
+After going home we hopped on Zoom to align on what to build and what to do the next day, then went full speed. I gave in to sleep around 4 a.m., but Friend A stayed up (thank you!). Late-night coding is fun — we stayed on Zoom and chatted while working, and got even closer.
+
+## Day 2
+
+The hardest part was getting up in the morning. We made it to the venue.
+
+We spent the morning on the remaining development. We hit the deployment phase on schedule, but time ran out with a few bugs still in place. Huge thanks to Friend A for pushing to the last minute.
+
+We had a few regrets, but I was confident in what we’d built and went into the presentation with that confidence.
+
+Friend B prepared the slides — from the business model to the product and demo. They were great, and I was really grateful. The presentation itself was solid too. Thank you both.
+
+### Product demo video
+
+Demo of the service we built:
 
 <video src="/blog/first-hackathon/demo.MP4" controls></video>
 
-## 結果
-全チームのプレゼンが終わり，ドキドキの状態で結果発表を待っていました．
-開発したプロダクトの出来，プレゼンともに両方良い感触を持ちましたが，審査はどうなるかわからないのでかなり緊張しました．
+## Results
 
-審査の結果，技術賞とcotomi賞を受賞することができました．
-非常に嬉しかったです．
+After all teams presented, we waited for the results on edge. I had a good feeling about both our product and our pitch, but you never know with judges, so I was still nervous.
 
-![受賞の様子](/blog/first-hackathon/prize.jpg)
+We won the Technical Award and the cotomi Award. I was really happy.
 
-大会が終わった後は打ち上げで本郷三丁目近くの韓国焼肉屋に行きました．
-非常に美味しかったです．
+![Award ceremony](/blog/first-hackathon/prize.jpg)
 
-### 打ち上げの様子
+After the event we had a get-together at a Korean BBQ place near Hongo-sanchome. It was really good.
+
+### Get-together
 
 <video src="/blog/first-hackathon/uchiage.MOV" controls muted></video>
 
-メンバーと雑談も色々できてさらに仲良くなりました．
+We had a good chat and grew closer as a team.
 
-# 感想
-ハッカソンは開発期間が短くて大変だけど，期間が短いが故に技術も急成長すると感じました．
+# Takeaways
 
-同じチームで参加してくれた友人に大感謝．
+Hackathons are tough because the time is short, but that same pressure made me learn a lot in a short time.
 
-ハッカソン楽しかったです．
+I’m very grateful to my teammates.
+
+I had a lot of fun.
