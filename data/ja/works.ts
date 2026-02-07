@@ -1,6 +1,6 @@
-import { Work } from './types';
+import type { Work } from '@/components/Works/types'
 
-export const works: Work[] = [
+export const worksJa: Work[] = [
   {
     id: 1,
     title: 'にほんGO UP APP',
@@ -45,7 +45,7 @@ export const works: Work[] = [
     link: 'https://page.line.me/900crthd',
     github: 'https://github.com/Omusubi0123/life-dialog',
     my_skills: ['FastAPI', 'LINE Messaging API', 'Firebase Firestore', 'Azure AI Search', 'OpenAI API'],
-    other_skills: ['TypeScript', 'React', 'Vite', 'Docker', 'Google Cloud Platform','Vercel'],
+    other_skills: ['TypeScript', 'React', 'Vite', 'Docker', 'Google Cloud Platform', 'Vercel'],
     cd_skills: ['PostgreSQL', 'pgvector', 'elasticsearch', 'Google OAuth', 'docker-compose', 'Cloudflare tunnel', '(自宅サーバー)'],
   },
   {
@@ -90,4 +90,4 @@ export const works: Work[] = [
     link: 'https://qiita.com/Omusubi0123/items/216968e23b13f35a90a1',
     isVideo: false,
   },
-];
+]

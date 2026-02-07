@@ -3,44 +3,11 @@
 import React from "react"
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 import Section from "../Section"
 import { FaBriefcase, FaCalendarAlt, FaTasks } from "react-icons/fa"
-
-interface CareerItem {
-  title: string
-  company: string
-  startDate: Date
-  endDate: Date | null
-  description: string
-  achievements: string[]
-}
-
-const careerData: CareerItem[] = [
-  {
-    title: "Academic Technical Staff",
-    company: "東京大学医学部附属病院",
-    startDate: new Date(2025, 8),
-    endDate: null,
-    description: "Belonging: Cardiovascular Medicine",
-    achievements: [
-      "Technical Support",
-    ],
-  },
-  {
-    title: "Algorithm Engineer Intern",
-    company: "燈株式会社",
-    startDate: new Date(2023, 7), // 0-indexed month (7 = August)
-    endDate: null, // null represents "present"
-    description: "Belonging: LLM（Large Language Model）Team",
-    achievements: [
-      "Embeddingモデル開発",
-      "SLM（Small Language Model）開発",
-      "検索Agent開発",
-      "LLMを用いたアルゴリズム開発"
-    ],
-  },
-]
+import { getCareerData } from "@/data"
+import type { CareerItem } from "@/data"
 
 function useDurationFormatter() {
   const t = useTranslations('carriers')
@@ -103,6 +70,8 @@ const CareerItemComponent: React.FC<{ item: CareerItem; formatDuration: (start: 
 }
 
 const Carriers: React.FC = () => {
+  const locale = useLocale()
+  const careerData = getCareerData(locale as 'ja' | 'en')
   const t = useTranslations('section')
   const formatDuration = useDurationFormatter()
   return (

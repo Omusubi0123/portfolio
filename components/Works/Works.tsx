@@ -2,14 +2,16 @@
 
 import { useState, useRef, useEffect } from "react"
 import { motion, useInView, useAnimation } from "framer-motion"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 import Section from "../Section"
 import Popup from "./Popup"
 import WorkItem from "./WorkItem"
-import { works } from "./worksData"
+import { getWorks } from "@/data"
 import type { Work } from "./types"
 
 export default function Works() {
+  const locale = useLocale()
+  const works = getWorks(locale as 'ja' | 'en')
   const [selectedWork, setSelectedWork] = useState<Work | null>(null)
   const controls = useAnimation()
   const ref = useRef(null)
