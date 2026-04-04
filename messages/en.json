@@ -16,6 +16,8 @@
     "carriers": "Carriers",
     "certifications": "Certifications",
     "skills": "Skills",
+    "education": "Education",
+    "research": "Research",
     "viewAllPosts": "View All Posts",
     "ja": "Ja",
     "en": "En"
@@ -37,7 +39,7 @@
   },
   "bio": {
     "from": { "label": "From", "content": "Saitama, Japan" },
-    "current": { "label": "Current", "content": "UT EEIC 4th grade" },
+    "current": { "label": "Current", "content": "UT IST M1" },
     "major": { "label": "Major", "content": "Computer Science and Electronics" },
     "quote": { "label": "Favorite Quote", "content": "The rise and fall of fortunes is inevitable." }
   },
@@ -72,5 +74,27 @@
     "link": "Link",
     "github": "Github",
     "slide": "Slide"
+  },
+  "research": {
+    "title": "Research",
+    "description": "Publications, awards, and presentations.",
+    "publications": "Publications",
+    "awards": "Awards",
+    "presentations": "Presentations",
+    "citations": "Citations",
+    "comingSoon": "Coming Soon...",
+    "abstract": "Abstract",
+    "authors": "Authors",
+    "venue": "Venue",
+    "close": "Close",
+    "viewResearch": "View Research",
+    "aboutName": "Yoshihiro Izawa",
+    "aboutAffiliation": "The University of Tokyo, Graduate School of IST, M1",
+    "aboutLab": "Yamakata Laboratory",
+    "aboutField": "Mechanistic Interpretability",
+    "aboutIntro": "My primary research area is Mechanistic Interpretability — understanding the internal mechanisms of Large Language Models (LLMs). I work on improving model interpretability and controllability through techniques such as Activation Steering.",
+    "fieldLabel": "Research Field",
+    "affiliationLabel": "Affiliation",
+    "education": "Education"
   }
 }
