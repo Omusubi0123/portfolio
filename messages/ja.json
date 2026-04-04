@@ -16,6 +16,7 @@
     "carriers": "Carriers",
     "certifications": "Certifications",
     "skills": "Skills",
+    "research": "Research",
     "viewAllPosts": "View All Posts",
     "ja": "Ja",
     "en": "En"
@@ -72,5 +73,19 @@
     "link": "Link",
     "github": "Github",
     "slide": "Slide"
+  },
+  "research": {
+    "title": "Research",
+    "description": "論文・受賞・発表の一覧",
+    "publications": "Publications",
+    "awards": "Awards",
+    "presentations": "Presentations",
+    "citations": "Citations",
+    "comingSoon": "Coming Soon...",
+    "abstract": "Abstract",
+    "authors": "Authors",
+    "venue": "Venue",
+    "close": "閉じる",
+    "viewResearch": "View Research"
   }
 }
