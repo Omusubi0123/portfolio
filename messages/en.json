@@ -16,6 +16,7 @@
     "carriers": "Carriers",
     "certifications": "Certifications",
     "skills": "Skills",
+    "education": "Education",
     "research": "Research",
     "viewAllPosts": "View All Posts",
     "ja": "Ja",
@@ -91,7 +92,7 @@
     "aboutAffiliation": "The University of Tokyo, Graduate School of IST, M1",
     "aboutLab": "Yamakata Laboratory",
     "aboutField": "Mechanistic Interpretability",
-    "aboutIntro": "My primary research area is Mechanistic Interpretability — understanding the internal mechanisms of Large Language Models (LLMs). I work on improving model interpretability and controllability through techniques such as Activation Steering and Sparse Autoencoders.",
+    "aboutIntro": "My primary research area is Mechanistic Interpretability — understanding the internal mechanisms of Large Language Models (LLMs). I work on improving model interpretability and controllability through techniques such as Activation Steering.",
     "fieldLabel": "Research Field",
     "affiliationLabel": "Affiliation",
     "education": "Education"

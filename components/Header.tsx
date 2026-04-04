@@ -64,6 +64,7 @@ export default function Header() {
         { id: 'about', label: t('about') },
         { id: 'works', label: t('works') },
         { id: 'carriers', label: t('carriers') },
+        { id: 'education', label: t('education') },
         { id: 'certifications', label: t('certifications') },
         { id: 'skills', label: t('skills') },
       ],
@@ -166,10 +167,10 @@ export default function Header() {
             >
               <NextLink
                 href={item.href}
-                className={`w-[90px] text-center text-lg md:text-xl transition-colors cursor-pointer inline-flex items-center justify-center px-2 py-1 ${
+                className={`w-[90px] text-center text-lg md:text-xl cursor-pointer inline-flex items-center justify-center px-2 py-1 ${
                   isActiveNav(item.id)
-                    ? 'text-white font-medium'
-                    : 'text-gray-500 hover:text-gray-200'
+                    ? 'shine-gold-text font-medium'
+                    : 'shine-silver-text-menu'
                 }`}
               >
                 {item.label}

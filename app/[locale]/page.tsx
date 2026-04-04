@@ -16,6 +16,10 @@ const BlogSection = dynamic(() => import('@/components/Blog/BlogSection'), {
   loading: () => <div className="text-center py-8 text-gray-400">Loading Blog...</div>
 })
 
+const Education = dynamic(() => import('@/components/Research/Education'), {
+  loading: () => <div className="text-center py-8 text-gray-400">Loading Education...</div>
+})
+
 const ResearchSection = dynamic(() => import('@/components/Research/ResearchSection'), {
   loading: () => <div className="text-center py-8 text-gray-400">Loading Research...</div>
 })
@@ -45,6 +49,7 @@ export default async function LocaleHomePage({ params }: Props) {
       <About />
       <Works />
       <Carriers />
+      <Education />
       <ResearchSection />
       <BlogSection posts={posts} />
       <Certifications />
