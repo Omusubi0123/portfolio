@@ -1,4 +1,4 @@
-import type { Publication, Award, Presentation } from '../types'
+import type { Publication, Award, Presentation, Education } from '../types'
 
 export const publicationsEn: Publication[] = [
   {
@@ -28,6 +28,27 @@ export const awardsEn: Award[] = [
     organization: 'Faculty of Engineering, The University of Tokyo',
     year: 2026,
     category: 'Research',
+  },
+]
+
+export const educationEn: Education[] = [
+  {
+    id: 'ist-master',
+    degree: "Master's Program",
+    department: 'Graduate School of Information Science and Technology',
+    institution: 'The University of Tokyo',
+    lab: 'Yamakata Laboratory',
+    period: '2026.4 - Present',
+    current: true,
+  },
+  {
+    id: 'eeic-bachelor',
+    degree: "Bachelor's Program",
+    department: 'Department of Electrical Engineering and Information Systems',
+    institution: 'The University of Tokyo',
+    lab: 'Taura Laboratory',
+    period: '2022.4 - 2026.3',
+    current: false,
   },
 ]
 

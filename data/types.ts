@@ -47,3 +47,13 @@ export interface Presentation {
   slideUrl?: string
   description?: string
 }
+
+export interface Education {
+  id: string
+  degree: string
+  department: string
+  institution: string
+  lab?: string
+  period: string
+  current: boolean
+}

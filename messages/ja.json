@@ -38,7 +38,7 @@
   },
   "bio": {
     "from": { "label": "From", "content": "Saitama, Japan" },
-    "current": { "label": "Current", "content": "UT EEIC 4th grade" },
+    "current": { "label": "Current", "content": "UT IST M1" },
     "major": { "label": "Major", "content": "Computer Science and Electronics" },
     "quote": { "label": "Favorite Quote", "content": "The rise and fall of fortunes is inevitable." }
   },
@@ -86,6 +86,14 @@
     "authors": "Authors",
     "venue": "Venue",
     "close": "閉じる",
-    "viewResearch": "View Research"
+    "viewResearch": "View Research",
+    "aboutName": "Yoshihiro Izawa",
+    "aboutAffiliation": "東京大学大学院 情報理工学系研究科 修士1年",
+    "aboutLab": "山肩研究室",
+    "aboutField": "Mechanistic Interpretability",
+    "aboutIntro": "大規模言語モデル（LLM）の内部メカニズムを解明するMechanistic Interpretabilityを主な研究分野としています。Activation SteeringやSparse Autoencoderなど、モデルの解釈可能性と制御性の向上に取り組んでいます。",
+    "fieldLabel": "Research Field",
+    "affiliationLabel": "Affiliation",
+    "education": "Education"
   }
 }

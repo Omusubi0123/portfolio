@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Layout from '@/components/Layout'
 import Header from '@/components/Header'
+import ResearchAbout from '@/components/Research/ResearchAbout'
 import { getSiteConfig, createLocalePageUrl } from '@/lib/config'
 import { isValidLocale, type Locale } from '@/lib/i18n'
 import { notFound } from 'next/navigation'
@@ -12,6 +13,10 @@ const Publications = dynamic(() => import('@/components/Research/Publications'),
 
 const Awards = dynamic(() => import('@/components/Research/Awards'), {
   loading: () => <div className="text-center py-8 text-gray-400">Loading Awards...</div>
+})
+
+const Education = dynamic(() => import('@/components/Research/Education'), {
+  loading: () => <div className="text-center py-8 text-gray-400">Loading Education...</div>
 })
 
 const Presentations = dynamic(() => import('@/components/Research/Presentations'), {
@@ -53,8 +58,10 @@ export default async function ResearchPage({ params }: Props) {
 
   return (
     <Layout header={<Header />}>
+      <ResearchAbout />
       <Publications />
       <Awards />
+      <Education />
       <Presentations />
     </Layout>
   )

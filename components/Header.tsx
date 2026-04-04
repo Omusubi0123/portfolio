@@ -40,11 +40,20 @@ export default function Header() {
   const pathname = usePathname()
   const locale = getLocaleFromPathname(pathname)
   const isHomePage = pathname === `/${locale}` || pathname === `/${locale}/`
+  const isBlogPage = pathname.startsWith(`/${locale}/blog`)
   const isResearchPage = pathname.startsWith(`/${locale}/research`)
 
   const homeHref = `/${locale}/`
   const blogHref = `/${locale}/blog`
   const researchHref = `/${locale}/research`
+  const cvHref = '/cv.pdf'
+
+  const isActiveNav = (navId: string) => {
+    if (navId === 'home') return isHomePage
+    if (navId === 'blog') return isBlogPage
+    if (navId === 'research') return isResearchPage
+    return false
+  }
 
   const navItems: NavItem[] = [
     {
@@ -72,6 +81,7 @@ export default function Header() {
       subItems: [
         { id: 'publications', label: tResearch('publications') },
         { id: 'awards', label: tResearch('awards') },
+        { id: 'education', label: tResearch('education') },
         { id: 'presentations', label: tResearch('presentations') },
       ],
     },
@@ -146,7 +156,7 @@ export default function Header() {
         </button>
 
         {/* Desktop nav */}
-        <ul className="hidden md:flex md:items-center md:space-x-8">
+        <ul className="hidden md:flex md:items-center md:space-x-2">
           {navItems.map((item) => (
             <li
               key={item.id}
@@ -156,14 +166,13 @@ export default function Header() {
             >
               <NextLink
                 href={item.href}
-                className="text-lg md:text-xl shine-silver-text-menu transition cursor-pointer inline-flex items-center gap-1"
+                className={`w-[90px] text-center text-lg md:text-xl transition-colors cursor-pointer inline-flex items-center justify-center px-2 py-1 ${
+                  isActiveNav(item.id)
+                    ? 'text-white font-medium'
+                    : 'text-gray-500 hover:text-gray-200'
+                }`}
               >
                 {item.label}
-                {item.subItems.length > 0 && (
-                  <svg className="w-3 h-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                )}
               </NextLink>
 
               {hoveredNav === item.id && item.subItems.length > 0 && (
@@ -198,7 +207,20 @@ export default function Header() {
               )}
             </li>
           ))}
-          <li className="flex items-center gap-2 ml-2 border-l border-gray-500 pl-4">
+          <li className="border-l border-gray-500 pl-3 ml-2">
+            <a
+              href={cvHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm px-2 py-1 rounded text-gray-400 hover:text-white transition-colors inline-flex items-center gap-1"
+            >
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              CV
+            </a>
+          </li>
+          <li className="flex items-center gap-2 border-l border-gray-500 pl-4">
             {LOCALES.map((loc) => (
               <NextLink
                 key={loc}
@@ -282,7 +304,21 @@ export default function Header() {
                 )}
               </li>
             ))}
-            <li className="px-4 py-2 border-t border-gray-600 mt-2 flex gap-2">
+            <li className="px-4 py-2 border-t border-gray-600 mt-2">
+              <a
+                href={cvHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-gray-300 hover:text-white inline-flex items-center gap-1.5"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                CV
+              </a>
+            </li>
+            <li className="px-4 py-2 flex gap-2">
               {LOCALES.map((loc) => (
                 <NextLink
                   key={loc}

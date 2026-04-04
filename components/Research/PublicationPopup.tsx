@@ -6,13 +6,13 @@ import { useTranslations } from 'next-intl'
 import type { Publication } from '@/data'
 import { FaExternalLinkAlt } from 'react-icons/fa'
 
-const LINK_COLORS: Record<string, { bg: string; text: string; border: string; hoverBg: string }> = {
-  arXiv:      { bg: 'bg-red-600/20',    text: 'text-red-300',    border: 'border-red-500/40',    hoverBg: 'hover:bg-red-600/30' },
-  Code:       { bg: 'bg-green-600/20',   text: 'text-green-300',  border: 'border-green-500/40',  hoverBg: 'hover:bg-green-600/30' },
-  OpenReview: { bg: 'bg-purple-600/20',  text: 'text-purple-300', border: 'border-purple-500/40', hoverBg: 'hover:bg-purple-600/30' },
+const LINK_COLORS: Record<string, { bg: string; text: string; border: string }> = {
+  arXiv:      { bg: 'bg-red-100',    text: 'text-red-700',    border: 'border-red-300' },
+  Code:       { bg: 'bg-green-100',  text: 'text-green-700',  border: 'border-green-300' },
+  OpenReview: { bg: 'bg-purple-100', text: 'text-purple-700', border: 'border-purple-300' },
 }
 
-const DEFAULT_LINK_COLOR = { bg: 'bg-white/5', text: 'text-gray-300', border: 'border-gray-600/50', hoverBg: 'hover:bg-white/10' }
+const DEFAULT_LINK_COLOR = { bg: 'bg-gray-100', text: 'text-gray-700', border: 'border-gray-300' }
 
 function getLinkColor(label: string) {
   return LINK_COLORS[label] || DEFAULT_LINK_COLOR
@@ -32,63 +32,46 @@ export default function PublicationPopup({ pub, onClose }: PublicationPopupProps
       if (e.key === 'Escape') onClose()
     }
     document.addEventListener('keydown', handleEscape)
-    document.body.style.overflow = 'hidden'
     return () => {
       document.removeEventListener('keydown', handleEscape)
-      document.body.style.overflow = ''
     }
   }, [onClose])
 
   return (
     <div
-      className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-50 p-4 overflow-y-auto"
+      className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 p-4 overflow-y-auto"
       onClick={onClose}
     >
       <div
         ref={popupRef}
-        className="bg-gray-900/95 backdrop-blur-md border border-gray-600/50 rounded-xl shadow-2xl p-5 md:p-8 w-full max-w-4xl max-h-[90vh] overflow-y-auto"
+        className="bg-white rounded-lg shadow-lg p-4 md:p-6 w-full max-w-5xl max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex flex-col md:flex-row gap-6">
-          {/* Thumbnail */}
-          {pub.thumbnail && (
-            <div className="w-full md:w-72 flex-shrink-0">
-              <div className="rounded-lg overflow-hidden border border-gray-600/50">
-                <img
-                  src={pub.thumbnail}
-                  alt={pub.title}
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            </div>
-          )}
-
-          {/* Info */}
-          <div className="flex-grow min-w-0">
-            <h2 className="text-xl md:text-2xl font-bold text-white mb-3 leading-snug">
-              {pub.title}
-            </h2>
+        <div className="flex flex-col md:flex-row">
+          {/* Left: info */}
+          <div className="md:flex-1 md:pr-4 mb-4 md:mb-0">
+            <h2 className="text-2xl md:text-3xl font-bold mb-3 text-black">{pub.title}</h2>
 
             {/* Badges */}
             <div className="flex flex-wrap items-center gap-2 mb-4">
               {pub.isFirstAuthor && (
-                <span className="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-gradient-to-r from-yellow-600/30 to-yellow-400/30 text-yellow-300 border border-yellow-500/40">
+                <span className="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800 border border-yellow-300">
                   First Author
                 </span>
               )}
-              <span className="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-gradient-to-r from-blue-600/30 to-blue-400/30 text-blue-300 border border-blue-500/40">
+              <span className="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 border border-blue-300">
                 {pub.venueShort}
               </span>
             </div>
 
             {/* Authors */}
             <div className="mb-3">
-              <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">{t('authors')}</span>
-              <p className="text-sm text-gray-300 mt-1">
+              <p className="text-black font-bold mb-1">{t('authors')}</p>
+              <p className="text-gray-700 text-base">
                 {pub.authors.map((author, i) => (
                   <React.Fragment key={author}>
                     {i > 0 && ', '}
-                    <span className={author === pub.highlightAuthor ? 'font-bold text-white' : ''}>
+                    <span className={author === pub.highlightAuthor ? 'font-bold text-black' : ''}>
                       {author}
                     </span>
                   </React.Fragment>
@@ -98,8 +81,8 @@ export default function PublicationPopup({ pub, onClose }: PublicationPopupProps
 
             {/* Venue */}
             <div className="mb-4">
-              <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">{t('venue')}</span>
-              <p className="text-sm text-gray-300 mt-1">{pub.venue}</p>
+              <p className="text-black font-bold mb-1">{t('venue')}</p>
+              <p className="text-gray-700 text-base">{pub.venue}</p>
             </div>
 
             {/* Links */}
@@ -112,7 +95,7 @@ export default function PublicationPopup({ pub, onClose }: PublicationPopupProps
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md ${color.bg} ${color.text} border ${color.border} ${color.hoverBg} hover:brightness-110 transition-all duration-200`}
+                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md ${color.bg} ${color.text} border ${color.border} hover:brightness-95 transition-all duration-200`}
                   >
                     <FaExternalLinkAlt className="w-2.5 h-2.5" />
                     {link.label}
@@ -120,30 +103,39 @@ export default function PublicationPopup({ pub, onClose }: PublicationPopupProps
                 )
               })}
               {pub.citations !== undefined && (
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md bg-white/5 text-gray-400 border border-gray-600/50">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md bg-gray-100 text-gray-600 border border-gray-300">
                   {t('citations')}: {pub.citations}
                 </span>
               )}
             </div>
           </div>
+
+          {/* Right: thumbnail */}
+          {pub.thumbnail && (
+            <div className="md:flex-1">
+              <img
+                src={pub.thumbnail}
+                alt={pub.title}
+                className="w-full h-auto rounded-lg border-4 border-gray-300"
+              />
+            </div>
+          )}
         </div>
 
         {/* Abstract */}
         {pub.abstract && (
-          <div className="mt-6 pt-5 border-t border-gray-700/50">
-            <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">{t('abstract')}</h3>
-            <p className="text-sm text-gray-300 leading-relaxed">{pub.abstract}</p>
+          <div className="mt-4 pt-4 border-t border-gray-200">
+            <p className="text-black font-bold mb-2">{t('abstract')}</p>
+            <p className="text-gray-700 text-sm leading-relaxed">{pub.abstract}</p>
           </div>
         )}
 
-        <div className="mt-6 flex justify-end">
-          <button
-            onClick={onClose}
-            className="px-5 py-2 text-sm font-medium text-gray-300 bg-white/5 border border-gray-600/50 rounded-lg hover:bg-white/10 hover:text-white transition-all duration-200"
-          >
-            {t('close')}
-          </button>
-        </div>
+        <button
+          onClick={onClose}
+          className="mt-4 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded"
+        >
+          {t('close')}
+        </button>
       </div>
     </div>
   )

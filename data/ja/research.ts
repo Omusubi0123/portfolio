@@ -1,4 +1,4 @@
-import type { Publication, Award, Presentation } from '../types'
+import type { Publication, Award, Presentation, Education } from '../types'
 
 export const publicationsJa: Publication[] = [
   {
@@ -28,6 +28,27 @@ export const awardsJa: Award[] = [
     organization: '東京大学 工学部',
     year: 2026,
     category: '研究',
+  },
+]
+
+export const educationJa: Education[] = [
+  {
+    id: 'ist-master',
+    degree: '修士課程',
+    department: '情報理工学系研究科',
+    institution: '東京大学大学院',
+    lab: '山肩研究室',
+    period: '2026.4 - 現在',
+    current: true,
+  },
+  {
+    id: 'eeic-bachelor',
+    degree: '学士課程',
+    department: '工学部 電子情報工学科',
+    institution: '東京大学',
+    lab: '田浦研究室',
+    period: '2022.4 - 2026.3',
+    current: false,
   },
 ]
 
