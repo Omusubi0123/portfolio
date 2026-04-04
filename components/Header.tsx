@@ -208,7 +208,7 @@ export default function Header() {
               )}
             </li>
           ))}
-          <li className="border-l border-gray-500 pl-3 ml-2">
+          {/* <li className="border-l border-gray-500 pl-3 ml-2">
             <a
               href={cvHref}
               target="_blank"
@@ -220,7 +220,7 @@ export default function Header() {
               </svg>
               CV
             </a>
-          </li>
+          </li> */}
           <li className="flex items-center gap-2 border-l border-gray-500 pl-4">
             {LOCALES.map((loc) => (
               <NextLink
@@ -305,7 +305,7 @@ export default function Header() {
                 )}
               </li>
             ))}
-            <li className="px-4 py-2 border-t border-gray-600 mt-2">
+            {/* <li className="px-4 py-2 border-t border-gray-600 mt-2">
               <a
                 href={cvHref}
                 target="_blank"
@@ -318,7 +318,7 @@ export default function Header() {
                 </svg>
                 CV
               </a>
-            </li>
+            </li> */}
             <li className="px-4 py-2 flex gap-2">
               {LOCALES.map((loc) => (
                 <NextLink
