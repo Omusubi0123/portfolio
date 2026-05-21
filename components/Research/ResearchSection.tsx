@@ -1,12 +1,14 @@
 "use client"
 
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { useTranslations, useLocale } from 'next-intl'
 import Section from '../Section'
+import PublicationPopup from './PublicationPopup'
 import { getPublications } from '@/data'
+import type { Publication } from '@/data'
 import { FaExternalLinkAlt } from 'react-icons/fa'
 
 const LINK_COLORS: Record<string, { bg: string; text: string; border: string }> = {
@@ -21,6 +23,7 @@ const ResearchSection: React.FC = () => {
   const locale = useLocale()
   const controls = useAnimation()
   const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.2 })
+  const [selectedPub, setSelectedPub] = useState<Publication | null>(null)
 
   const publications = getPublications(locale as 'ja' | 'en')
   const latestPub = publications[0]
@@ -50,7 +53,10 @@ const ResearchSection: React.FC = () => {
         <motion.div ref={ref} variants={containerVariants} initial="hidden" animate={controls} className="space-y-4">
           {latestPub && (
             <motion.div variants={itemVariants}>
-              <article className="bg-black/20 backdrop-blur-sm rounded-lg p-4 md:p-5 border border-gray-500/50 hover:border-gray-400/70 transition-all duration-300 hover:bg-black/30 transform hover:scale-[1.02]">
+              <article
+                className="bg-black/20 backdrop-blur-sm rounded-lg p-4 md:p-5 border border-gray-500/50 hover:border-gray-400/70 transition-all duration-300 hover:bg-black/30 transform hover:scale-[1.02] cursor-pointer"
+                onClick={() => setSelectedPub(latestPub)}
+              >
                 <div className="flex flex-col md:flex-row gap-4">
                   {latestPub.thumbnail && (
                     <div className="w-full md:w-40 flex-shrink-0">
@@ -81,7 +87,7 @@ const ResearchSection: React.FC = () => {
                         {latestPub.venueShort}
                       </span>
                     </div>
-                    <div className="flex flex-wrap items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2" onClick={(e) => e.stopPropagation()}>
                       {latestPub.links.map((link) => {
                         const c = LINK_COLORS[link.label] || DEFAULT_COLOR
                         return (
@@ -113,6 +119,10 @@ const ResearchSection: React.FC = () => {
           </Link>
         </motion.div>
       </div>
+
+      {selectedPub && (
+        <PublicationPopup pub={selectedPub} onClose={() => setSelectedPub(null)} />
+      )}
     </Section>
   )
 }
