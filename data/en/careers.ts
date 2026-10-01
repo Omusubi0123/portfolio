@@ -2,10 +2,20 @@ import type { CareerItem } from '../types'
 
 export const careersEn: CareerItem[] = [
   {
+    title: 'Machine Learning Engineer',
+    company: 'LY Corporation',
+    startDate: new Date(2026, 8),
+    endDate: new Date(2026, 9),
+    description: 'Visual Understanding Team',
+    achievements: [
+      'Additional Training of MLLMs in Japanese',
+    ],
+  },
+  {
     title: 'Academic Technical Staff',
     company: 'The University of Tokyo Hospital',
     startDate: new Date(2025, 8),
-    endDate: null,
+    endDate: new Date(2026, 9),
     description: 'Belonging: Cardiovascular Medicine',
     achievements: [
       'Technical Support',
