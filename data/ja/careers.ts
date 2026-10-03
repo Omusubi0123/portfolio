@@ -2,6 +2,14 @@ import type { CareerItem } from '../types'
 
 export const careersJa: CareerItem[] = [
   {
+    title: 'Visiting Scholar',
+    company: 'シンガポール国立大学',
+    startDate: new Date(2026, 10),
+    endDate: null,
+    description: '',
+    achievements: [],
+  },
+  {
     title: 'Machine Learning Engineer',
     company: 'LY Corporation',
     startDate: new Date(2026, 8),
