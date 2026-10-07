@@ -47,10 +47,10 @@ export default async function LocaleHomePage({ params }: Props) {
   return (
     <Layout header={<Header />}>
       <About />
+      <ResearchSection />
       <Works />
       <Carriers />
       <Education />
-      <ResearchSection />
       <BlogSection posts={posts} />
       <Certifications />
       <Skills />

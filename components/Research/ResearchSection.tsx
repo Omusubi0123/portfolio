@@ -26,7 +26,6 @@ const ResearchSection: React.FC = () => {
   const [selectedPub, setSelectedPub] = useState<Publication | null>(null)
 
   const publications = getPublications(locale as 'ja' | 'en')
-  const latestPub = publications[0]
 
   React.useEffect(() => {
     controls.start(inView ? 'visible' : 'hidden')
@@ -51,44 +50,44 @@ const ResearchSection: React.FC = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
         <motion.div ref={ref} variants={containerVariants} initial="hidden" animate={controls} className="space-y-4">
-          {latestPub && (
-            <motion.div variants={itemVariants}>
+          {publications.map((publication) => (
+            <motion.div key={publication.id} variants={itemVariants}>
               <article
                 className="bg-black/20 backdrop-blur-sm rounded-lg p-4 md:p-5 border border-gray-500/50 hover:border-gray-400/70 transition-all duration-300 hover:bg-black/30 transform hover:scale-[1.02] cursor-pointer"
-                onClick={() => setSelectedPub(latestPub)}
+                onClick={() => setSelectedPub(publication)}
               >
                 <div className="flex flex-col md:flex-row gap-4">
-                  {latestPub.thumbnail && (
+                  {publication.thumbnail && (
                     <div className="w-full md:w-40 flex-shrink-0">
                       <div className="aspect-[16/10] rounded-lg overflow-hidden border border-gray-600/50">
-                        <img src={latestPub.thumbnail} alt={latestPub.title} className="w-full h-full object-cover" />
+                        <img src={publication.thumbnail} alt={publication.title} className="w-full h-full object-cover" />
                       </div>
                     </div>
                   )}
                   <div className="flex-grow min-w-0">
                     <h3 className="text-base md:text-lg font-bold shine-gold-text mb-2 leading-snug">
-                      {latestPub.title}
+                      {publication.title}
                     </h3>
                     <p className="text-xs text-gray-400 mb-2">
-                      {latestPub.authors.map((a, i) => (
+                      {publication.authors.map((a, i) => (
                         <React.Fragment key={a}>
                           {i > 0 && ', '}
-                          <span className={a === latestPub.highlightAuthor ? 'font-bold text-gray-200' : ''}>{a}</span>
+                          <span className={a === publication.highlightAuthor ? 'font-bold text-gray-200' : ''}>{a}</span>
                         </React.Fragment>
                       ))}
                     </p>
                     <div className="flex flex-wrap items-center gap-2 mb-2">
-                      {latestPub.isFirstAuthor && (
+                      {publication.isFirstAuthor && (
                         <span className="px-2 py-0.5 text-xs font-semibold rounded-full bg-gradient-to-r from-yellow-600/30 to-yellow-400/30 text-yellow-300 border border-yellow-500/40">
                           First Author
                         </span>
                       )}
                       <span className="px-2 py-0.5 text-xs font-semibold rounded-full bg-gradient-to-r from-blue-600/30 to-blue-400/30 text-blue-300 border border-blue-500/40">
-                        {latestPub.venueShort}
+                        {publication.venueShort}
                       </span>
                     </div>
                     <div className="flex flex-wrap items-center gap-2" onClick={(e) => e.stopPropagation()}>
-                      {latestPub.links.map((link) => {
+                      {publication.links.map((link) => {
                         const c = LINK_COLORS[link.label] || DEFAULT_COLOR
                         return (
                           <a key={link.label} href={link.url} target="_blank" rel="noopener noreferrer"
@@ -104,7 +103,7 @@ const ResearchSection: React.FC = () => {
                 </div>
               </article>
             </motion.div>
-          )}
+          ))}
         </motion.div>
 
         <motion.div className="text-center mt-6" variants={itemVariants} initial="hidden" animate={controls}>
