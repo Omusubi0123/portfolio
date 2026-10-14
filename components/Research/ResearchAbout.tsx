@@ -115,6 +115,17 @@ const ResearchAbout: React.FC = () => {
             >
               {t('aboutName')}
             </motion.h1>
+            {locale === "ja" && (
+              <motion.p
+                className="name-subtitle mt-1 text-sm md:text-base italic tracking-[0.28em]"
+                style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontWeight: 400 }}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.15 }}
+              >
+                yoshihiro izawa
+              </motion.p>
+            )}
           </div>
         </motion.div>
 

@@ -187,6 +187,16 @@
     color: transparent;
 }
 
+.name-subtitle {
+    background: linear-gradient(90deg, #8F8F8F 0%, #FFFFFF 50%, #8F8F8F 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    animation: shine 3s linear infinite;
+}
+
 
 .shine-red-text {
     background: linear-gradient(90deg, #FF0000 0%, #FF6666 50%, #FF0000 100%);
