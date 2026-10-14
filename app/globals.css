@@ -56,6 +56,28 @@
     color: transparent;
 }
 
+.gold-outline-button {
+    border: 3px solid transparent;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)) padding-box,
+        linear-gradient(90deg, #B39855 0%, #FFF9E6 50%, #B39855 100%) border-box;
+}
+
+.gold-outline-button:hover {
+    background: linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08)) padding-box,
+        linear-gradient(90deg, #B39855 0%, #FFF9E6 50%, #B39855 100%) border-box;
+}
+
+.purple-outline-button {
+    border: 3px solid transparent;
+    background: linear-gradient(transparent, transparent) padding-box,
+        linear-gradient(90deg, #7E57C2 0%, #E1BEE7 50%, #7E57C2 100%) border-box;
+}
+
+.purple-outline-button:hover {
+    background: linear-gradient(rgba(168, 85, 247, 0.08), rgba(168, 85, 247, 0.08)) padding-box,
+        linear-gradient(90deg, #7E57C2 0%, #E1BEE7 50%, #7E57C2 100%) border-box;
+}
+
 .shine-pink-text {
     background: linear-gradient(90deg, #FF69B4 0%, #FFC0CB 50%, #FF69B4 100%);
     -webkit-background-clip: text;

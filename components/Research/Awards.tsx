@@ -38,20 +38,19 @@ const Awards: React.FC = () => {
       titleColor="shine-gold-text"
     >
       <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <motion.div ref={ref} animate={controls} initial="hidden" variants={variants} className="space-y-4">
+        <motion.div ref={ref} animate={controls} initial="hidden" variants={variants} className="relative border-l border-gray-600/80">
           {awards.map((award) => (
             <motion.article
               key={award.id}
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.99 }}
-              className="group relative overflow-hidden rounded-lg border border-gray-500/50 bg-white/10 p-5 backdrop-blur-sm transition-all duration-300 hover:bg-white/20 md:p-6"
+              className="relative mb-8 ml-6 rounded-lg border border-gray-600/60 bg-black/60 p-6 shadow-xl last:mb-0"
             >
-              <div className="relative z-10 flex items-start gap-4">
-                <FaTrophy className="mt-1 h-5 w-5 flex-shrink-0 text-yellow-400" />
-                <div className="min-w-0 space-y-2">
-                  <h3 className="font-semibold text-base leading-relaxed text-white md:text-lg">{award.title}</h3>
-                  <p className="text-sm leading-relaxed text-gray-300 md:text-base">{award.organization}</p>
-                  <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 md:text-sm">
+              <div className="absolute -left-[2.05rem] top-7 flex h-5 w-5 items-center justify-center rounded-full border border-white bg-gray-200">
+                <FaTrophy className="h-3 w-3 text-gray-700" />
+              </div>
+              <div className="min-w-0 space-y-3">
+                  <h3 className="font-semibold text-lg leading-relaxed text-white md:text-xl">{award.title}</h3>
+                  <p className="text-base font-semibold leading-relaxed text-gray-300 md:text-lg">{award.organization}</p>
+                  <div className="flex flex-wrap items-center gap-3 text-base font-semibold text-gray-300 md:text-lg">
                     <span>{award.year}</span>
                     {award.category && (
                       <span className="rounded-full border border-yellow-500/30 bg-gradient-to-r from-yellow-600/20 to-yellow-400/20 px-2 py-0.5 text-xs text-yellow-300">
@@ -59,9 +58,7 @@ const Awards: React.FC = () => {
                       </span>
                     )}
                   </div>
-                </div>
               </div>
-              <div className="pointer-events-none absolute inset-0 rounded-lg bg-gradient-to-r from-purple-500/20 to-pink-500/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </motion.article>
           ))}
         </motion.div>

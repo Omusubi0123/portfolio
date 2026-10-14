@@ -128,10 +128,10 @@ const ResearchSection: React.FC = () => {
         <motion.div className="text-center mt-6" variants={itemVariants} initial="hidden" animate={controls}>
           <Link
             href={`/${locale}/research`}
-            className="inline-flex items-center px-4 py-2 shine-gold-text bg-black/30 border border-yellow-600/40 font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            className="gold-outline-button inline-flex items-center px-4 py-2 shine-gold-text font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
           >
             <span>{t('viewResearch')}</span>
-            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="ml-2 w-4 h-4 text-yellow-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </Link>

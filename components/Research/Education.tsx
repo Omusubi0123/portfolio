@@ -38,34 +38,33 @@ const Education: React.FC = () => {
       titleColor="shine-gold-text"
     >
       <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <motion.div ref={ref} animate={controls} initial="hidden" variants={variants} className="space-y-4">
+        <motion.div ref={ref} animate={controls} initial="hidden" variants={variants} className="relative border-l border-gray-600/80">
           {education.map((edu) => (
             <motion.article
               key={edu.id}
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.99 }}
-              className="group relative overflow-hidden rounded-lg border border-gray-500/50 bg-white/10 p-5 backdrop-blur-sm transition-all duration-300 hover:bg-white/20 md:p-6"
+              className="relative mb-8 ml-6 rounded-lg border border-gray-600/60 bg-black/60 p-6 shadow-xl last:mb-0"
             >
-              <div className="relative z-10 flex items-start gap-4">
-                <FaGraduationCap className="mt-1 h-5 w-5 flex-shrink-0 text-yellow-400" />
-                <div className="min-w-0 space-y-2">
+              <div className="absolute -left-[2.05rem] top-7 flex h-5 w-5 items-center justify-center rounded-full border border-white bg-gray-200">
+                <FaGraduationCap className="h-3 w-3 text-gray-700" />
+              </div>
+              <div className="min-w-0 space-y-3">
                   <div>
                     {edu.institutionUrl ? (
                       <a
                         href={edu.institutionUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="education-primary-link font-semibold text-base md:text-lg"
+                        className="education-primary-link font-semibold text-lg md:text-xl"
                       >
                         {edu.institution}
                         <FaExternalLinkAlt className="ml-2 inline h-2.5 w-2.5 text-gray-500" />
                       </a>
                     ) : (
-                      <span className="font-semibold text-base text-white md:text-lg">{edu.institution}</span>
+                      <span className="font-semibold text-lg text-white md:text-xl">{edu.institution}</span>
                     )}
                   </div>
 
-                  <div className="text-sm leading-relaxed md:text-base">
+                  <div className="text-base font-semibold leading-relaxed md:text-lg">
                     {edu.departmentUrl ? (
                       <a
                         href={edu.departmentUrl}
@@ -87,18 +86,18 @@ const Education: React.FC = () => {
                             href={edu.labUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-gray-400 transition-colors hover:text-blue-300"
+                            className="education-secondary-link"
                           >
                             {edu.lab}
                           </a>
                         ) : (
-                          <span className="text-gray-400">{edu.lab}</span>
+                          <span className="education-secondary-link">{edu.lab}</span>
                         )}
                       </>
                     )}
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 md:text-sm">
+                  <div className="education-secondary-link flex flex-wrap items-center gap-3 text-base font-semibold md:text-lg">
                     <span>{edu.period}</span>
                     {edu.current && (
                       <span className="rounded-full border border-green-500/30 bg-gradient-to-r from-green-600/20 to-green-400/20 px-2 py-0.5 text-xs text-green-300">
@@ -106,9 +105,7 @@ const Education: React.FC = () => {
                       </span>
                     )}
                   </div>
-                </div>
               </div>
-              <div className="pointer-events-none absolute inset-0 rounded-lg bg-gradient-to-r from-purple-500/20 to-pink-500/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </motion.article>
           ))}
         </motion.div>
