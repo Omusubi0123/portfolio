@@ -32,7 +32,11 @@ const ProfileImage: React.FC = () => {
     {/* 名前のグラデーション */}
     <motion.h1
       className="text-4xl md:text-5xl font-bold mt-4 bg-clip-text text-transparent bg-gradient-to-r from-[#B39855] via-[#E0E0E0] to-[#B39855]"
-      style={{ fontFamily: "Georgia, 'Caveat', cursive" }}
+      style={{
+        fontFamily: locale === "ja"
+          ? '"Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif'
+          : "Georgia, 'Caveat', cursive",
+      }}
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}

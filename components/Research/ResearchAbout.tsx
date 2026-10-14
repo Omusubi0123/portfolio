@@ -4,7 +4,7 @@ import type React from "react"
 import { useEffect, useState } from "react"
 import { motion, useAnimation, AnimatePresence } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import { FaUniversity, FaFlask, FaMicroscope } from "react-icons/fa"
 import Section from "../Section"
 import SocialLinks from "../About/SocialLinks"
@@ -55,6 +55,7 @@ const HoverInfoCard: React.FC<HoverInfoCardProps> = ({
 )
 
 const ResearchAbout: React.FC = () => {
+  const locale = useLocale()
   const t = useTranslations('research')
   const controls = useAnimation()
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
@@ -103,7 +104,11 @@ const ResearchAbout: React.FC = () => {
             </div>
             <motion.h1
               className="text-4xl md:text-5xl font-bold mt-4 bg-clip-text text-transparent bg-gradient-to-r from-[#B39855] via-[#E0E0E0] to-[#B39855]"
-              style={{ fontFamily: "Georgia, 'Caveat', cursive" }}
+              style={{
+                fontFamily: locale === "ja"
+                  ? '"Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif'
+                  : "Georgia, 'Caveat', cursive",
+              }}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
