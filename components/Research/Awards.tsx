@@ -53,7 +53,7 @@ const Awards: React.FC = () => {
                   <div className="flex flex-wrap items-center gap-3 text-base font-semibold text-gray-300 md:text-lg">
                     <span>{award.year}</span>
                     {award.category && (
-                      <span className="rounded-full border border-yellow-500/30 bg-gradient-to-r from-yellow-600/20 to-yellow-400/20 px-2 py-0.5 text-xs text-yellow-300">
+                      <span className="rounded-full border border-yellow-500/30 bg-gradient-to-r from-yellow-600/20 to-yellow-400/20 px-3 py-1 text-sm text-yellow-300">
                         {award.category}
                       </span>
                     )}

@@ -48,7 +48,7 @@ const CertificationItem: React.FC<{ cert: Certification; index: number }> = ({ c
         className={`flex-grow border-t-2 ${cert.color} ${index % 2 === 0 ? "border-l-2 pl-4" : "border-r-2 pr-4"}`}
       />
       <div
-        className={`w-64 p-4 bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-lg shadow-xl ${
+        className={`w-64 p-4 bg-black rounded-lg shadow-xl ${
           index % 2 === 0 ? "text-right" : "text-left"
         }`}
       >

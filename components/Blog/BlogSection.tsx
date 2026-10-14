@@ -157,22 +157,10 @@ const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
         >
           <Link
             href={`/${locale}/blog`}
-            className="purple-outline-button inline-flex items-center px-4 py-2 shine-purple-text font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            className="purple-outline-button inline-flex items-center px-4 py-2 text-lg md:text-xl font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
           >
-            <span>{tNav('viewAllPosts')}</span>
-            <svg
-              className="ml-2 w-4 h-4 text-purple-200"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
+            <span className="shine-purple-text">{tNav('viewAllPosts')}</span>
+            <span aria-hidden="true" className="ml-3 text-2xl leading-none text-purple-200">→</span>
           </Link>
         </motion.div>
       </div>

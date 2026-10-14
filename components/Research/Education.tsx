@@ -6,7 +6,7 @@ import { useInView } from "react-intersection-observer"
 import { useTranslations, useLocale } from "next-intl"
 import Section from "../Section"
 import { getEducation } from "@/data"
-import { FaGraduationCap, FaExternalLinkAlt } from "react-icons/fa"
+import { FaGraduationCap } from "react-icons/fa"
 
 const Education: React.FC = () => {
   const locale = useLocale()
@@ -57,7 +57,6 @@ const Education: React.FC = () => {
                         className="education-primary-link font-semibold text-lg md:text-xl"
                       >
                         {edu.institution}
-                        <FaExternalLinkAlt className="ml-2 inline h-2.5 w-2.5 text-gray-500" />
                       </a>
                     ) : (
                       <span className="font-semibold text-lg text-white md:text-xl">{edu.institution}</span>
@@ -73,7 +72,6 @@ const Education: React.FC = () => {
                         className="education-secondary-link"
                       >
                         {edu.department}
-                        <FaExternalLinkAlt className="ml-2 inline h-2.5 w-2.5 text-gray-500" />
                       </a>
                     ) : (
                       edu.department
@@ -97,10 +95,10 @@ const Education: React.FC = () => {
                     )}
                   </div>
 
-                  <div className="education-secondary-link flex flex-wrap items-center gap-3 text-base font-semibold md:text-lg">
+                  <div className="shine-silver-text flex flex-wrap items-center gap-3 text-base font-semibold md:text-lg">
                     <span>{edu.period}</span>
                     {edu.current && (
-                      <span className="rounded-full border border-green-500/30 bg-gradient-to-r from-green-600/20 to-green-400/20 px-2 py-0.5 text-xs text-green-300">
+                      <span className="rounded-full border border-green-500/30 bg-gradient-to-r from-green-600/20 to-green-400/20 px-3 py-1 text-sm text-green-300">
                         Current
                       </span>
                     )}
