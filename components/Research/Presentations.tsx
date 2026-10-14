@@ -7,7 +7,6 @@ import { useTranslations, useLocale } from "next-intl"
 import Section from "../Section"
 import { getPresentations } from "@/data"
 import type { Presentation } from "@/data"
-import { FaExternalLinkAlt } from "react-icons/fa"
 
 const PresentationCard: React.FC<{ pres: Presentation; index: number }> = ({ pres, index }) => {
   const t = useTranslations('research')
@@ -56,12 +55,6 @@ const PresentationCard: React.FC<{ pres: Presentation; index: number }> = ({ pre
           </div>
 
           <div className="min-w-0 flex-grow">
-            <div className="mb-2 flex flex-wrap items-center gap-2 text-xs text-gray-400">
-              <span>{pres.event}</span>
-              <span aria-hidden="true" className="text-gray-600">•</span>
-              <span>{pres.date}</span>
-            </div>
-
             <h3 className="mb-3 text-base font-bold leading-snug text-white md:text-lg">
               {pres.title}
             </h3>
@@ -75,6 +68,15 @@ const PresentationCard: React.FC<{ pres: Presentation; index: number }> = ({ pre
                   {tag}
                 </span>
               ))}
+            </div>
+
+            <div className="mt-2 flex flex-wrap items-center gap-2">
+              <span className="rounded-full border border-purple-500/40 bg-gradient-to-r from-purple-600/30 to-purple-400/30 px-2.5 py-0.5 text-xs font-semibold text-purple-200">
+                {pres.event}
+              </span>
+              <span className="rounded-full border border-gray-500/50 bg-white/5 px-2.5 py-0.5 text-xs font-semibold text-gray-300">
+                {pres.date}
+              </span>
             </div>
           </div>
         </div>
@@ -91,10 +93,6 @@ const PresentationCard: React.FC<{ pres: Presentation; index: number }> = ({ pre
               <p className="text-sm leading-relaxed text-gray-100 md:text-base">
                 {pres.description}
               </p>
-              <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-gray-300">
-                <FaExternalLinkAlt className="h-2.5 w-2.5" />
-                {t('viewPdf')}
-              </span>
             </div>
           </div>
         )}

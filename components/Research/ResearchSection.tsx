@@ -128,7 +128,7 @@ const ResearchSection: React.FC = () => {
         <motion.div className="text-center mt-6" variants={itemVariants} initial="hidden" animate={controls}>
           <Link
             href={`/${locale}/research`}
-            className="gold-outline-button inline-flex items-center px-4 py-2 text-lg md:text-xl font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            className="gold-outline-button inline-flex items-center px-4 py-2 text-base md:text-lg font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
           >
             <span className="shine-gold-text">{t('viewResearch')}</span>
             <span aria-hidden="true" className="ml-3 text-2xl leading-none text-yellow-100">→</span>

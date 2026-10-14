@@ -3,12 +3,6 @@ import Link from 'next/link';
 import { useLocale } from 'next-intl';
 import type { BlogPostMetadata } from '@/lib/blog';
 
-// 動画ファイルかどうかを判定する関数
-const isVideoFile = (url: string): boolean => {
-  const videoExtensions = ['.mp4', '.mov', '.avi', '.webm', '.ogg'];
-  return videoExtensions.some(ext => url.toLowerCase().endsWith(ext));
-};
-
 interface BlogCardProps {
   post: BlogPostMetadata;
 }
@@ -24,25 +18,12 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
       <article className="bg-black/40 backdrop-blur-sm rounded-xl p-6 h-full border border-gray-700/50 hover:border-gray-500/70 transition-all duration-300 flex flex-col">
         {post.thumbnail && (
           <div className="mb-4 rounded-lg overflow-hidden">
-            {isVideoFile(post.thumbnail) ? (
-              <video
-                src={post.thumbnail}
-                className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
-                muted
-                loop
-                onMouseEnter={(e) => e.currentTarget.play()}
-                onMouseLeave={(e) => {
-                  e.currentTarget.pause();
-                  e.currentTarget.currentTime = 0;
-                }}
-              />
-            ) : (
-              <img
-                src={post.thumbnail}
-                alt={post.title}
-                className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
-              />
-            )}
+            <img
+              src={post.thumbnail}
+              alt={post.title}
+              loading="lazy"
+              className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+            />
           </div>
         )}
         

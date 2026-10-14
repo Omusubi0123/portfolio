@@ -14,8 +14,10 @@ function useDurationFormatter() {
   return (startDate: Date, endDate: Date | null): string => {
     const end = endDate || new Date()
     const diffTime = Math.abs(end.getTime() - startDate.getTime())
-    const diffYears = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365))
-    const diffMonths = Math.floor((diffTime % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30))
+    const monthMs = 1000 * 60 * 60 * 24 * 30
+    const totalMonths = Math.max(1, Math.ceil(diffTime / monthMs))
+    const diffYears = Math.floor(totalMonths / 12)
+    const diffMonths = totalMonths % 12
     if (diffYears > 0) return t('yearsMonths', { years: diffYears, months: diffMonths })
     return t('months', { months: diffMonths })
   }

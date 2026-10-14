@@ -3,7 +3,7 @@ title: "ハッカソンを振り返る1/3（UMP-JUST）"
 summary: "初めて参加したハッカソンについて今更ですが振り返ります．"
 date: "2025-08-26"
 tags: ["ハッカソン"]
-thumbnail: "/blog/first-hackathon/demo.MP4"
+thumbnail: "/blog/first-hackathon/thumbnail.png"
 ---
 
 # はじめに

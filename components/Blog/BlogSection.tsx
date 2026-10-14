@@ -8,12 +8,6 @@ import { useTranslations, useLocale } from 'next-intl';
 import Section from '../Section';
 import type { BlogPostMetadata } from '@/lib/blog';
 
-// 動画ファイルかどうかを判定する関数
-const isVideoFile = (url: string): boolean => {
-  const videoExtensions = ['.mp4', '.mov', '.avi', '.webm', '.ogg'];
-  return videoExtensions.some(ext => url.toLowerCase().endsWith(ext));
-};
-
 interface BlogSectionProps {
   posts: BlogPostMetadata[];
 }
@@ -120,25 +114,12 @@ const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
                     </div>
                     {post.thumbnail && (
                       <div className="w-full md:w-24 md:h-16 rounded-lg overflow-hidden flex-shrink-0">
-                        {isVideoFile(post.thumbnail) ? (
-                          <video
-                            src={post.thumbnail}
-                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                            muted
-                            loop
-                            onMouseEnter={(e) => e.currentTarget.play()}
-                            onMouseLeave={(e) => {
-                              e.currentTarget.pause();
-                              e.currentTarget.currentTime = 0;
-                            }}
-                          />
-                        ) : (
-                          <img
-                            src={post.thumbnail}
-                            alt={post.title}
-                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                          />
-                        )}
+                        <img
+                          src={post.thumbnail}
+                          alt={post.title}
+                          loading="lazy"
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        />
                       </div>
                     )}
                   </div>
@@ -157,7 +138,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
         >
           <Link
             href={`/${locale}/blog`}
-            className="purple-outline-button inline-flex items-center px-4 py-2 text-lg md:text-xl font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            className="purple-outline-button inline-flex items-center px-4 py-2 text-base md:text-lg font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
           >
             <span className="shine-purple-text">{tNav('viewAllPosts')}</span>
             <span aria-hidden="true" className="ml-3 text-2xl leading-none text-purple-200">→</span>

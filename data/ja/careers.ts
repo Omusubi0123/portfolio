@@ -4,7 +4,7 @@ export const careersJa: CareerItem[] = [
   {
     title: 'Visiting Scholar',
     company: 'シンガポール国立大学',
-    startDate: new Date(2026, 10),
+    startDate: new Date(2026, 9),
     endDate: null,
     description: '',
     achievements: [],
@@ -12,8 +12,8 @@ export const careersJa: CareerItem[] = [
   {
     title: 'Machine Learning Engineer',
     company: 'LY Corporation',
-    startDate: new Date(2026, 8),
-    endDate: new Date(2026, 9),
+    startDate: new Date(2026, 7),
+    endDate: new Date(2026, 8),
     description: 'Visual Understanding Team',
     achievements: [
       'MLLM日本語追加学習',
@@ -23,7 +23,7 @@ export const careersJa: CareerItem[] = [
     title: 'Academic Technical Staff',
     company: '東京大学医学部附属病院',
     startDate: new Date(2025, 8),
-    endDate: new Date(2026, 9),
+    endDate: new Date(2026, 8),
     description: 'Belonging: Cardiovascular Medicine',
     achievements: [
       'Technical Support',

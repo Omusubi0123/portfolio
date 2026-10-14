@@ -80,7 +80,7 @@ export const educationJa: Education[] = [
     institutionUrl: 'https://www.u-tokyo.ac.jp/ja/',
     departmentUrl: 'https://www.eeis.t.u-tokyo.ac.jp/',
     labUrl: 'https://www.eidos.ic.i.u-tokyo.ac.jp/',
-    period: '2022.4 - 2026.3',
+    period: '2023.4 - 2026.3',
     current: false,
   },
 ]

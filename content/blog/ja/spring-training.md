@@ -1,7 +1,7 @@
 ---
 title: "MPI入門"
 summary: "研究室のSpring TrainingでMPIについて発表しました．"
-date: "2025-11/12"
+date: "2025-07-09"
 tags: ["研究", "MPI"]
 thumbnail: "/blog/spring-training/thumbnail.png"
 ---

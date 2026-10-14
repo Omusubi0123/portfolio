@@ -3,7 +3,7 @@ title: "Looking back at my first hackathon 1/3 (UMP-JUST)"
 summary: "A (belated) look back at the first hackathon I participated in."
 date: "2025-08-26"
 tags: ["Hackathon"]
-thumbnail: "/blog/first-hackathon/demo.MP4"
+thumbnail: "/blog/first-hackathon/thumbnail.png"
 ---
 
 # Introduction

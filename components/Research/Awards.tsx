@@ -48,7 +48,7 @@ const Awards: React.FC = () => {
                 <FaTrophy className="h-3 w-3 text-gray-700" />
               </div>
               <div className="min-w-0 space-y-3">
-                  <h3 className="font-semibold text-lg leading-relaxed text-white md:text-xl">{award.title}</h3>
+                  <h3 className="shine-gold-text font-semibold text-lg leading-relaxed md:text-xl">{award.title}</h3>
                   <p className="text-base font-semibold leading-relaxed text-gray-300 md:text-lg">{award.organization}</p>
                   <div className="flex flex-wrap items-center gap-3 text-base font-semibold text-gray-300 md:text-lg">
                     <span>{award.year}</span>
