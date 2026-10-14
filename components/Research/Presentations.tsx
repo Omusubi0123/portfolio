@@ -85,7 +85,7 @@ const PresentationCard: React.FC<{ pres: Presentation; index: number }> = ({ pre
             className="pointer-events-none absolute inset-0 flex max-h-full items-start overflow-y-auto overscroll-contain bg-black/85 p-5 opacity-0 transition-opacity duration-300 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-visible:pointer-events-auto group-focus-visible:opacity-100 md:p-8"
           >
             <div className="max-w-3xl">
-              <p className="mb-2 text-base font-bold leading-snug text-yellow-300 md:text-lg">
+              <p className="mb-2 text-base font-bold leading-snug shine-gold-text md:text-lg">
                 {pres.title}
               </p>
               <p className="text-sm leading-relaxed text-gray-100 md:text-base">

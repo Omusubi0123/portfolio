@@ -20,6 +20,42 @@
     color: transparent;
 }
 
+.education-primary-link {
+    background: linear-gradient(90deg, #B39855 0%, #FFF9E6 50%, #B39855 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    background-size: 200% auto;
+    animation: shine 3s linear infinite;
+}
+
+.education-primary-link:hover {
+    background: linear-gradient(90deg, #60A5FA 0%, #DBEAFE 50%, #60A5FA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.education-secondary-link {
+    background: linear-gradient(90deg, #B0B0B0 0%, #FFFFFF 50%, #B0B0B0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    background-size: 200% auto;
+    animation: shine 3s linear infinite;
+}
+
+.education-secondary-link:hover {
+    background: linear-gradient(90deg, #60A5FA 0%, #DBEAFE 50%, #60A5FA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
 .shine-pink-text {
     background: linear-gradient(90deg, #FF69B4 0%, #FFC0CB 50%, #FF69B4 100%);
     -webkit-background-clip: text;

@@ -40,11 +40,13 @@ const Awards: React.FC = () => {
       <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <motion.div ref={ref} animate={controls} initial="hidden" variants={variants} className="space-y-4">
           {awards.map((award) => (
-            <article
+            <motion.article
               key={award.id}
-              className="rounded-lg border border-gray-500/50 bg-black/20 p-5 backdrop-blur-sm transition-colors duration-200 hover:bg-white/5 md:p-6"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.99 }}
+              className="group relative overflow-hidden rounded-lg border border-gray-500/50 bg-white/10 p-5 backdrop-blur-sm transition-all duration-300 hover:bg-white/20 md:p-6"
             >
-              <div className="flex items-start gap-4">
+              <div className="relative z-10 flex items-start gap-4">
                 <FaTrophy className="mt-1 h-5 w-5 flex-shrink-0 text-yellow-400" />
                 <div className="min-w-0 space-y-2">
                   <h3 className="font-semibold text-base leading-relaxed text-white md:text-lg">{award.title}</h3>
@@ -59,7 +61,8 @@ const Awards: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </article>
+              <div className="pointer-events-none absolute inset-0 rounded-lg bg-gradient-to-r from-purple-500/20 to-pink-500/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            </motion.article>
           ))}
         </motion.div>
       </div>

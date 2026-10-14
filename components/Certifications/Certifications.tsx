@@ -14,7 +14,7 @@ interface Certification {
   color: string
 }
 
-const certKeys = ['dlCourse', 'ap', 'toeic', 'toefl'] as const
+const certKeys = ['toefl', 'dlCourse', 'ap', 'toeic'] as const
 const certIcons = [
   <FaGraduationCap key="g" />,
   <FaLaptopCode key="l" />,

@@ -162,7 +162,7 @@ const ResearchAbout: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="mt-6">
+          <div className="mt-2">
             <SocialLinks />
           </div>
         </motion.div>

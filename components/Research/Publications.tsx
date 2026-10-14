@@ -6,6 +6,7 @@ import { useInView } from "react-intersection-observer"
 import { useTranslations, useLocale } from "next-intl"
 import Section from "../Section"
 import PublicationPopup from "./PublicationPopup"
+import ImageLightbox from "./ImageLightbox"
 import { getPublications } from "@/data"
 import type { Publication } from "@/data"
 import { FaExternalLinkAlt } from "react-icons/fa"
@@ -22,7 +23,7 @@ function getLinkColor(label: string) {
   return LINK_COLORS[label] || DEFAULT_LINK_COLOR
 }
 
-const PublicationCard: React.FC<{ pub: Publication; index: number; onClick: () => void }> = ({ pub, index, onClick }) => {
+const PublicationCard: React.FC<{ pub: Publication; index: number; onClick: () => void; onImageClick: () => void }> = ({ pub, index, onClick, onImageClick }) => {
   const t = useTranslations('research')
   const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.1 })
   const controls = useAnimation()
@@ -50,17 +51,20 @@ const PublicationCard: React.FC<{ pub: Publication; index: number; onClick: () =
           {pub.thumbnail && (
             <div className="w-full md:w-48 lg:w-56 flex-shrink-0">
               <div className="aspect-[16/10] rounded-lg overflow-hidden border border-gray-600/50">
-                <img
-                  src={pub.thumbnail}
-                  alt={pub.title}
-                  className="w-full h-full object-cover"
-                />
+                <button
+                  type="button"
+                  onClick={(event) => { event.stopPropagation(); onImageClick() }}
+                  className="block h-full w-full cursor-zoom-in"
+                  aria-label={`Enlarge thumbnail for ${pub.title}`}
+                >
+                  <img src={pub.thumbnail} alt={pub.title} className="w-full h-full object-cover" />
+                </button>
               </div>
             </div>
           )}
 
           <div className="flex-grow min-w-0">
-            <h3 className="text-lg md:text-xl font-bold text-white mb-2 leading-snug">
+            <h3 className="text-lg md:text-xl font-bold shine-gold-text mb-2 leading-snug">
               {pub.title}
             </h3>
 
@@ -68,9 +72,17 @@ const PublicationCard: React.FC<{ pub: Publication; index: number; onClick: () =
               {pub.authors.map((author, i) => (
                 <React.Fragment key={author}>
                   {i > 0 && ', '}
-                  <span className={author === pub.highlightAuthor ? 'font-bold text-white' : ''}>
-                    {author}
-                  </span>
+                  {pub.authorUrls?.[author] ? (
+                    <a
+                      href={pub.authorUrls[author]}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(event) => event.stopPropagation()}
+                      className={`text-blue-300 transition-colors hover:text-blue-100 hover:underline ${author === pub.highlightAuthor ? 'font-bold' : ''}`}
+                    >{author}</a>
+                  ) : (
+                    <span className={author === pub.highlightAuthor ? 'font-bold text-white' : ''}>{author}</span>
+                  )}
                 </React.Fragment>
               ))}
             </p>
@@ -120,6 +132,7 @@ const Publications: React.FC = () => {
   const publications = getPublications(locale as 'ja' | 'en')
   const t = useTranslations('research')
   const [selectedPub, setSelectedPub] = useState<Publication | null>(null)
+  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null)
 
   return (
     <Section
@@ -136,6 +149,7 @@ const Publications: React.FC = () => {
               pub={pub}
               index={index}
               onClick={() => setSelectedPub(pub)}
+              onImageClick={() => pub.thumbnail && setSelectedImage({ src: pub.thumbnail, alt: pub.title })}
             />
           ))}
         </div>
@@ -143,6 +157,13 @@ const Publications: React.FC = () => {
 
       {selectedPub && (
         <PublicationPopup pub={selectedPub} onClose={() => setSelectedPub(null)} />
+      )}
+      {selectedImage && (
+        <ImageLightbox
+          src={selectedImage.src}
+          alt={selectedImage.alt}
+          onClose={() => setSelectedImage(null)}
+        />
       )}
     </Section>
   )

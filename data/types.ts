@@ -20,6 +20,7 @@ export interface Publication {
   title: string
   authors: string[]
   highlightAuthor: string
+  authorUrls?: Record<string, string>
   venue: string
   venueShort: string
   year: number
@@ -58,6 +59,7 @@ export interface Education {
   lab?: string
   institutionUrl?: string
   departmentUrl?: string
+  labUrl?: string
   period: string
   current: boolean
 }

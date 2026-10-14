@@ -1,10 +1,11 @@
 "use client"
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import React from 'react'
 import { useTranslations } from 'next-intl'
 import type { Publication } from '@/data'
 import { FaExternalLinkAlt } from 'react-icons/fa'
+import ImageLightbox from './ImageLightbox'
 
 const LINK_COLORS: Record<string, { bg: string; text: string; border: string }> = {
   arXiv:      { bg: 'bg-red-100',    text: 'text-red-700',    border: 'border-red-300' },
@@ -26,6 +27,7 @@ interface PublicationPopupProps {
 export default function PublicationPopup({ pub, onClose }: PublicationPopupProps) {
   const t = useTranslations('research')
   const popupRef = useRef<HTMLDivElement>(null)
+  const [isImageOpen, setIsImageOpen] = useState(false)
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -71,9 +73,17 @@ export default function PublicationPopup({ pub, onClose }: PublicationPopupProps
                 {pub.authors.map((author, i) => (
                   <React.Fragment key={author}>
                     {i > 0 && ', '}
-                    <span className={author === pub.highlightAuthor ? 'font-bold text-black' : ''}>
-                      {author}
-                    </span>
+                    {pub.authorUrls?.[author] ? (
+                      <a
+                        href={pub.authorUrls[author]}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(event) => event.stopPropagation()}
+                        className={`text-blue-600 transition-colors hover:text-blue-800 hover:underline ${author === pub.highlightAuthor ? 'font-bold' : ''}`}
+                      >{author}</a>
+                    ) : (
+                      <span className={author === pub.highlightAuthor ? 'font-bold text-black' : ''}>{author}</span>
+                    )}
                   </React.Fragment>
                 ))}
               </p>
@@ -113,11 +123,14 @@ export default function PublicationPopup({ pub, onClose }: PublicationPopupProps
           {/* Right: thumbnail */}
           {pub.thumbnail && (
             <div className="md:flex-1">
-              <img
-                src={pub.thumbnail}
-                alt={pub.title}
-                className="w-full h-auto rounded-lg border-4 border-gray-300"
-              />
+              <button
+                type="button"
+                onClick={() => setIsImageOpen(true)}
+                className="block w-full cursor-zoom-in"
+                aria-label={`Enlarge thumbnail for ${pub.title}`}
+              >
+                <img src={pub.thumbnail} alt={pub.title} className="w-full h-auto rounded-lg border-4 border-gray-300" />
+              </button>
             </div>
           )}
         </div>
@@ -136,6 +149,14 @@ export default function PublicationPopup({ pub, onClose }: PublicationPopupProps
         >
           {t('close')}
         </button>
+
+        {isImageOpen && pub.thumbnail && (
+          <ImageLightbox
+            src={pub.thumbnail}
+            alt={pub.title}
+            onClose={() => setIsImageOpen(false)}
+          />
+        )}
       </div>
     </div>
   )
