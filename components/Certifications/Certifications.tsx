@@ -14,9 +14,14 @@ interface Certification {
   color: string
 }
 
-const certKeys = ['dlCourse', 'ap', 'toeic'] as const
-const certIcons = [<FaGraduationCap key="g" />, <FaLaptopCode key="l" />, <FaLanguage key="lang" />]
-const certColors = ['bg-green-600', 'bg-blue-500', 'bg-yellow-500']
+const certKeys = ['dlCourse', 'ap', 'toeic', 'toefl'] as const
+const certIcons = [
+  <FaGraduationCap key="g" />,
+  <FaLaptopCode key="l" />,
+  <FaLanguage key="lang" />,
+  <FaLanguage key="toefl" />,
+]
+const certColors = ['bg-green-600', 'bg-blue-500', 'bg-yellow-500', 'bg-purple-500']
 
 const CertificationItem: React.FC<{ cert: Certification; index: number }> = ({ cert, index }) => {
   const [ref, inView] = useInView({

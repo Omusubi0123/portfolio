@@ -35,6 +35,14 @@ const PresentationCard: React.FC<{ pres: Presentation; index: number }> = ({ pre
         rel="noopener noreferrer"
         className="group relative block overflow-hidden rounded-lg border border-gray-500/50 bg-black/20 p-4 backdrop-blur-sm transition-all duration-300 hover:scale-[1.01] hover:border-gray-400/70 hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400/80 md:p-5"
         aria-label={`${pres.title} - ${t('viewPdf')}`}
+        onMouseEnter={(event) => {
+          const overlay = event.currentTarget.querySelector<HTMLElement>('[data-presentation-overlay]')
+          if (overlay) overlay.scrollTop = 0
+        }}
+        onFocus={(event) => {
+          const overlay = event.currentTarget.querySelector<HTMLElement>('[data-presentation-overlay]')
+          if (overlay) overlay.scrollTop = 0
+        }}
       >
         <div className="flex flex-col gap-4 sm:flex-row sm:gap-5">
           <div className="w-full flex-shrink-0 sm:w-48 lg:w-56">
@@ -72,7 +80,10 @@ const PresentationCard: React.FC<{ pres: Presentation; index: number }> = ({ pre
         </div>
 
         {pres.description && (
-          <div className="pointer-events-none absolute inset-0 flex items-center bg-black/85 p-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 md:p-8">
+          <div
+            data-presentation-overlay
+            className="pointer-events-none absolute inset-0 flex max-h-full items-start overflow-y-auto overscroll-contain bg-black/85 p-5 opacity-0 transition-opacity duration-300 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-visible:pointer-events-auto group-focus-visible:opacity-100 md:p-8"
+          >
             <div className="max-w-3xl">
               <p className="mb-2 text-base font-bold leading-snug text-yellow-300 md:text-lg">
                 {pres.title}

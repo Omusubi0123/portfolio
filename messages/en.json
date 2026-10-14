@@ -39,7 +39,7 @@
   },
   "bio": {
     "from": { "label": "From", "content": "Saitama, Japan" },
-    "current": { "label": "Current", "content": "UT IST M1" },
+    "current": { "label": "Current", "content": "UTokyo IST M1" },
     "major": { "label": "Major", "content": "Computer Science and Electronics" },
     "quote": { "label": "Favorite Quote", "content": "The rise and fall of fortunes is inevitable." }
   },
@@ -57,7 +57,8 @@
   "certifications": {
     "dlCourse": { "title": "UT Matsuo Lab Deep Learning Basics", "date": "Aug 2023" },
     "ap": { "title": "Applied Information Technology Engineer", "date": "Apr 2023" },
-    "toeic": { "title": "TOEIC 835", "date": "Sep 2021" }
+    "toeic": { "title": "TOEIC 835", "date": "Sep 2021" },
+    "toefl": { "title": "TOEFL iBT 90", "date": "Aug 2026" }
   },
   "skills": {
     "main": "Main",

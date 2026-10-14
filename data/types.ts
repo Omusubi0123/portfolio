@@ -56,6 +56,8 @@ export interface Education {
   department: string
   institution: string
   lab?: string
+  institutionUrl?: string
+  departmentUrl?: string
   period: string
   current: boolean
 }

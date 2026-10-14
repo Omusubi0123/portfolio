@@ -1,16 +1,63 @@
 "use client"
 
 import type React from "react"
-import { useEffect } from "react"
-import { motion, useAnimation } from "framer-motion"
+import { useEffect, useState } from "react"
+import { motion, useAnimation, AnimatePresence } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { useTranslations } from "next-intl"
 import { FaUniversity, FaFlask, FaMicroscope } from "react-icons/fa"
 import Section from "../Section"
+import SocialLinks from "../About/SocialLinks"
+
+interface HoverInfoCardProps {
+  id: string
+  icon: React.ReactNode
+  label: string
+  children: React.ReactNode
+  hoveredItem: string | null
+  setHoveredItem: (id: string | null) => void
+}
+
+const HoverInfoCard: React.FC<HoverInfoCardProps> = ({
+  id,
+  icon,
+  label,
+  children,
+  hoveredItem,
+  setHoveredItem,
+}) => (
+  <motion.div
+    className="relative group h-full"
+    onMouseEnter={() => setHoveredItem(id)}
+    onMouseLeave={() => setHoveredItem(null)}
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+  >
+    <div className="bg-white/10 rounded-lg p-4 transition-all duration-300 group-hover:bg-white/20 h-full flex flex-col">
+      <div className="flex items-center mb-2">
+        <span className="text-xl mr-3 text-[#FFBF00]">{icon}</span>
+        <h2 className="text-xl font-semibold shine-pink-text">{label}</h2>
+      </div>
+      <div className="ios-white">{children}</div>
+    </div>
+    <AnimatePresence>
+      {hoveredItem === id && (
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-lg z-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+        />
+      )}
+    </AnimatePresence>
+  </motion.div>
+)
 
 const ResearchAbout: React.FC = () => {
   const t = useTranslations('research')
   const controls = useAnimation()
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null)
   const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.1 })
 
   useEffect(() => {
@@ -38,15 +85,21 @@ const ResearchAbout: React.FC = () => {
         animate={controls}
         className="relative z-10 flex flex-col md:flex-row items-center md:items-start space-y-8 md:space-y-0 md:space-x-12"
       >
-        {/* Profile image */}
         <motion.div variants={itemVariants} className="flex justify-center items-center w-full md:w-auto h-full">
           <div className="flex flex-col items-center mt-20">
             <div className="relative p-2 rounded-full bg-gradient-to-r from-[#B39855] via-[#E0E0E0] to-[#B39855] transform transition-transform duration-300 hover:scale-105">
-              <img
-                src="/research_icon.png"
-                alt="Research Icon"
-                className="w-40 h-40 md:w-60 md:h-60 rounded-full bg-white brightness-95 transition-all duration-300 hover:brightness-100"
-              />
+              <a
+                href="https://github.com/Omusubi0123"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative block"
+              >
+                <img
+                  src="/research_icon.png"
+                  alt="Research Icon"
+                  className="w-40 h-40 md:w-60 md:h-60 rounded-full bg-white brightness-95 transition-filter duration-300 hover:brightness-100"
+                />
+              </a>
             </div>
             <motion.h1
               className="text-4xl md:text-5xl font-bold mt-4 bg-clip-text text-transparent bg-gradient-to-r from-[#B39855] via-[#E0E0E0] to-[#B39855]"
@@ -60,7 +113,6 @@ const ResearchAbout: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Info */}
         <motion.div variants={itemVariants} className="max-w-lg">
           <div className="relative">
             <motion.div
@@ -77,35 +129,41 @@ const ResearchAbout: React.FC = () => {
               }}
             >
               <div className="space-y-4">
-                {/* Affiliation */}
-                <div className="bg-white/10 rounded-lg p-4 hover:bg-white/20 transition-all duration-300">
-                  <div className="flex items-center mb-2">
-                    <FaUniversity className="text-xl mr-3 text-[#FFBF00]" />
-                    <h2 className="text-xl font-semibold shine-pink-text">{t('affiliationLabel')}</h2>
-                  </div>
-                  <p className="ios-white">{t('aboutAffiliation')}</p>
+                <HoverInfoCard
+                  id="affiliation"
+                  icon={<FaUniversity />}
+                  label={t('affiliationLabel')}
+                  hoveredItem={hoveredItem}
+                  setHoveredItem={setHoveredItem}
+                >
+                  <p>{t('aboutAffiliation')}</p>
                   <p className="text-gray-400 text-sm mt-1">{t('aboutLab')}</p>
-                </div>
+                </HoverInfoCard>
 
-                {/* Research field */}
-                <div className="bg-white/10 rounded-lg p-4 hover:bg-white/20 transition-all duration-300">
-                  <div className="flex items-center mb-2">
-                    <FaMicroscope className="text-xl mr-3 text-[#FFBF00]" />
-                    <h2 className="text-xl font-semibold shine-pink-text">{t('fieldLabel')}</h2>
-                  </div>
-                  <p className="ios-white">{t('aboutField')}</p>
-                </div>
+                <HoverInfoCard
+                  id="field"
+                  icon={<FaMicroscope />}
+                  label={t('fieldLabel')}
+                  hoveredItem={hoveredItem}
+                  setHoveredItem={setHoveredItem}
+                >
+                  <p>{t('aboutField')}</p>
+                </HoverInfoCard>
 
-                {/* Intro */}
-                <div className="bg-white/10 rounded-lg p-4 hover:bg-white/20 transition-all duration-300">
-                  <div className="flex items-center mb-2">
-                    <FaFlask className="text-xl mr-3 text-[#FFBF00]" />
-                    <h2 className="text-xl font-semibold shine-pink-text">About</h2>
-                  </div>
-                  <p className="ios-white text-sm leading-relaxed">{t('aboutIntro')}</p>
-                </div>
+                <HoverInfoCard
+                  id="about"
+                  icon={<FaFlask />}
+                  label="About"
+                  hoveredItem={hoveredItem}
+                  setHoveredItem={setHoveredItem}
+                >
+                  <p className="text-sm leading-relaxed">{t('aboutIntro')}</p>
+                </HoverInfoCard>
               </div>
             </div>
+          </div>
+          <div className="mt-6">
+            <SocialLinks />
           </div>
         </motion.div>
       </motion.div>

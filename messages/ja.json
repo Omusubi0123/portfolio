@@ -39,7 +39,7 @@
   },
   "bio": {
     "from": { "label": "From", "content": "Saitama, Japan" },
-    "current": { "label": "Current", "content": "UT IST M1" },
+    "current": { "label": "Current", "content": "UTokyo IST M1" },
     "major": { "label": "Major", "content": "Computer Science and Electronics" },
     "quote": { "label": "Favorite Quote", "content": "The rise and fall of fortunes is inevitable." }
   },
@@ -50,14 +50,15 @@
     "at": " at "
   },
   "interests": {
-    "aiResearcher": { "name": "AI Researcher", "description": "モデル開発楽しい 進化が速すぎて仕事にするのには不安もある…" },
-    "backendEngineer": { "name": "Backend Engineer", "description": "APIやDBの開発楽しい 個人開発では結構使うが実務は少しだけ 開発のノウハウ身につけたい…" },
-    "researchDev": { "name": "Research & Development", "description": "研究開発好き 研究分野はMechanistic Interpretability D進は悩み中…" }
+    "aiResearcher": { "name": "AI Researcher", "description": "研究好きかもしれん..." },
+    "backendEngineer": { "name": "Backend Engineer", "description": "APIやDBの開発楽しい 個人開発では結構使うが実務は少しだけ" },
+    "researchDev": { "name": "Research & Development", "description": "研究分野はMechanistic Interpretability D進は悩み中…" }
   },
   "certifications": {
     "dlCourse": { "title": "東大松尾研 DeepLearning基礎講座修了", "date": "2023年8月取得" },
     "ap": { "title": "応用情報技術者", "date": "2023年4月取得" },
-    "toeic": { "title": "TOEIC 835点", "date": "2021年9月取得" }
+    "toeic": { "title": "TOEIC 835点", "date": "2021年9月取得" },
+    "toefl": { "title": "TOEFL iBT 90点", "date": "2026年8月取得" }
   },
   "skills": {
     "main": "Main",
@@ -93,7 +94,7 @@
     "aboutAffiliation": "東京大学大学院 情報理工学系研究科 修士1年",
     "aboutLab": "山肩研究室",
     "aboutField": "Mechanistic Interpretability",
-    "aboutIntro": "大規模言語モデル（LLM）の内部メカニズムを解明するMechanistic Interpretabilityを主な研究分野としています。Activation Steeringなど、モデルの解釈可能性と制御性の向上に取り組んでいます。",
+    "aboutIntro": "歯を食いしばって生きてます",
     "fieldLabel": "Research Field",
     "affiliationLabel": "Affiliation",
     "education": "Education"
