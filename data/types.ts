@@ -44,7 +44,9 @@ export interface Presentation {
   title: string
   event: string
   date: string
-  slideUrl?: string
+  thumbnail: string
+  pdfUrl: string
+  tags: string[]
   description?: string
 }
 
