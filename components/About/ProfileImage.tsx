@@ -1,8 +1,13 @@
 import type React from "react";
 import { motion } from "framer-motion";
+import { useLocale } from "next-intl";
 
-const ProfileImage: React.FC = () => (
-  <motion.div
+const ProfileImage: React.FC = () => {
+  const locale = useLocale()
+  const displayName = locale === "ja" ? "井澤慶広" : "yoshihiro izawa"
+
+  return (
+    <motion.div
     initial={{ opacity: 0, scale: 0.5 }}
     animate={{ opacity: 1, scale: 1 }}
     transition={{ duration: 0.5 }}
@@ -32,9 +37,10 @@ const ProfileImage: React.FC = () => (
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      yoshihiro izawa
+      {displayName}
     </motion.h1>
-  </motion.div>
-);
+    </motion.div>
+  )
+};
 
 export default ProfileImage;

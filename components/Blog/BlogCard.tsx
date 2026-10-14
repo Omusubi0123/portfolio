@@ -64,13 +64,13 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
               {post.tags.slice(0, 3).map((tag, index) => (
                 <span
                   key={index}
-                  className="px-2 py-1 text-xs rounded-full bg-gradient-to-r from-yellow-600/20 to-yellow-400/20 text-yellow-300 border border-yellow-500/30"
+                  className="tag-yellow rounded-full px-2 py-1 text-xs font-medium"
                 >
                   {tag}
                 </span>
               ))}
               {post.tags.length > 3 && (
-                <span className="px-2 py-1 text-xs rounded-full bg-gray-600/20 text-gray-400">
+                <span className="tag-gray rounded-full px-2 py-1 text-xs font-medium">
                   +{post.tags.length - 3}
                 </span>
               )}

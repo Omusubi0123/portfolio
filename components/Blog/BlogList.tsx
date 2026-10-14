@@ -43,7 +43,7 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
               className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${
                 selectedTag === null
                   ? 'gold-outline-button text-[#FFF9E6] font-semibold'
-                  : 'tag-purple text-sm hover:bg-black/50'
+                  : 'tag-silver-muted text-sm hover:bg-gray-700/30'
               }`}
             >
               <span>{t('all')}</span>
@@ -55,7 +55,7 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
                 className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${
                   selectedTag === tag
                   ? 'gold-outline-button text-[#FFF9E6] font-semibold'
-                  : 'tag-purple hover:bg-black/50'
+                  : 'tag-silver-muted hover:bg-gray-700/30'
                 }`}
               >
                 <span>{tag}</span>

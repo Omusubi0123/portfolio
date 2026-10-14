@@ -30,8 +30,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: config.title,
     description: config.description,
     keywords: config.keywords,
-    authors: [{ name: config.author.name }],
-    creator: config.author.name,
+    authors: [{ name: config.name }],
+    creator: config.name,
     openGraph: {
       type: 'website',
       locale: localeTag,

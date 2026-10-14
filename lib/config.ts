@@ -24,9 +24,9 @@ export const siteConfig = {
 
 const localeConfig: Record<Locale, { title: string; description: string; keywords: string[]; name: string }> = {
   ja: {
-    name: 'Yoshihiro Izawa',
-    title: 'Yoshihiro Izawa',
-    description: 'Belonging to The University of Tokyo, computer science student. My research major is Mechanistic Interpretability.',
+    name: '井澤慶広',
+    title: '井澤慶広',
+    description: '東京大学でコンピュータサイエンスを学び、Mechanistic Interpretabilityを研究する井澤慶広のポートフォリオです。',
     keywords: [
       'Yoshihiro Izawa',
       '井澤慶広',

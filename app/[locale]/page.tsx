@@ -1,8 +1,11 @@
 import dynamic from 'next/dynamic'
+import type { Metadata } from 'next'
 import Layout from '@/components/Layout'
 import Header from '@/components/Header'
 import About from '@/components/About/About'
 import { getBlogPostMetadata } from '@/lib/blog'
+import { createLocalePageUrl, getSiteConfig } from '@/lib/config'
+import { isValidLocale, type Locale } from '@/lib/i18n'
 
 const Works = dynamic(() => import('@/components/Works/Works'), {
   loading: () => <div className="text-center py-8 text-gray-400">Loading Works...</div>
@@ -34,6 +37,33 @@ const Skills = dynamic(() => import('@/components/Skills/Skills'), {
 
 type Props = {
   params: Promise<{ locale: string }>
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  if (!isValidLocale(locale)) return {}
+
+  const config = getSiteConfig(locale)
+  const pageUrl = createLocalePageUrl(locale as Locale, '/')
+
+  return {
+    title: config.title,
+    description: config.description,
+    alternates: {
+      canonical: pageUrl,
+      languages: {
+        ja: createLocalePageUrl('ja', '/'),
+        en: createLocalePageUrl('en', '/'),
+      },
+    },
+    openGraph: {
+      url: pageUrl,
+      title: config.title,
+      description: config.description,
+      siteName: config.name,
+      locale: locale === 'ja' ? 'ja_JP' : 'en_US',
+    },
+  }
 }
 
 export async function generateStaticParams(): Promise<{ locale: string }[]> {
