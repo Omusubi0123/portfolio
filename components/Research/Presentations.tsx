@@ -63,19 +63,19 @@ const PresentationCard: React.FC<{ pres: Presentation; index: number }> = ({ pre
               {pres.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full border border-blue-500/40 bg-gradient-to-r from-blue-600/30 to-blue-400/30 px-2.5 py-0.5 text-xs font-semibold text-blue-300"
+                  className="tag-blue rounded-full px-2.5 py-0.5 text-xs font-semibold"
                 >
-                  {tag}
+                  <span className="shine-blue-text">{tag}</span>
                 </span>
               ))}
             </div>
 
             <div className="mt-2 flex flex-wrap items-center gap-2">
-              <span className="rounded-full border border-purple-500/40 bg-gradient-to-r from-purple-600/30 to-purple-400/30 px-2.5 py-0.5 text-xs font-semibold text-purple-200">
-                {pres.event}
+              <span className="tag-purple rounded-full px-2.5 py-0.5 text-xs font-semibold">
+                <span className="shine-purple-text">{pres.event}</span>
               </span>
-              <span className="rounded-full border border-gray-500/50 bg-white/5 px-2.5 py-0.5 text-xs font-semibold text-gray-300">
-                {pres.date}
+              <span className="tag-gray rounded-full px-2.5 py-0.5 text-xs font-semibold">
+                <span className="shine-silver-text">{pres.date}</span>
               </span>
             </div>
           </div>

@@ -43,10 +43,10 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
               className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${
                 selectedTag === null
                   ? 'shine-yellow-bg font-semibold'
-                  : 'bg-black/40 text-gray-300 hover:bg-black/60 border border-gray-600'
+                  : 'tag-purple text-sm hover:bg-black/50'
               }`}
             >
-              {t('all')}
+              <span className={selectedTag === null ? '' : 'shine-purple-text'}>{t('all')}</span>
             </button>
             {allTags.map((tag) => (
               <button
@@ -55,10 +55,10 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
                 className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${
                   selectedTag === tag
                   ? 'shine-yellow-bg font-semibold'
-                    : 'bg-black/40 text-gray-300 hover:bg-black/60 border border-gray-600'
+                  : 'tag-purple hover:bg-black/50'
                 }`}
               >
-                {tag}
+                <span className={selectedTag === tag ? 'text-black' : 'shine-purple-text'}>{tag}</span>
               </button>
             ))}
           </div>

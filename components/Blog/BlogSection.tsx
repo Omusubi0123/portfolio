@@ -99,9 +99,9 @@ const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
                           {post.tags.slice(0, 2).map((tag, index) => (
                             <span
                               key={index}
-                              className="px-2 py-1 text-xs rounded-full bg-gradient-to-r from-purple-600/20 to-purple-400/20 text-purple-300 border border-purple-500/30"
+                              className="tag-purple px-2 py-1 text-xs rounded-full"
                             >
-                              {tag}
+                              <span className="shine-purple-text">{tag}</span>
                             </span>
                           ))}
                           {post.tags.length > 2 && (
@@ -113,7 +113,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
                       </div>
                     </div>
                     {post.thumbnail && (
-                      <div className="w-full md:w-24 md:h-16 rounded-lg overflow-hidden flex-shrink-0">
+                      <div className="w-full md:w-36 md:h-24 rounded-lg overflow-hidden flex-shrink-0">
                         <img
                           src={post.thumbnail}
                           alt={post.title}

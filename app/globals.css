@@ -57,25 +57,103 @@
 }
 
 .gold-outline-button {
-    border: 3px solid transparent;
-    background: linear-gradient(transparent, transparent) padding-box,
-        linear-gradient(90deg, #B39855 0%, #FFF9E6 50%, #B39855 100%) border-box;
+    position: relative;
+    isolation: isolate;
+    border: 0;
+    background: rgba(0, 0, 0, 0.2);
 }
 
-.gold-outline-button:hover {
-    background: linear-gradient(transparent, transparent) padding-box,
-        linear-gradient(90deg, #B39855 0%, #FFF9E6 50%, #B39855 100%) border-box;
+.gold-outline-button::before,
+.purple-outline-button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    padding: 3px;
+    border-radius: inherit;
+    pointer-events: none;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
 }
 
 .purple-outline-button {
-    border: 3px solid transparent;
-    background: linear-gradient(transparent, transparent) padding-box,
-        linear-gradient(90deg, #7E57C2 0%, #E1BEE7 50%, #7E57C2 100%) border-box;
+    position: relative;
+    isolation: isolate;
+    border: 0;
+    background: rgba(0, 0, 0, 0.2);
 }
 
-.purple-outline-button:hover {
-    background: linear-gradient(transparent, transparent) padding-box,
-        linear-gradient(90deg, #7E57C2 0%, #E1BEE7 50%, #7E57C2 100%) border-box;
+.gold-outline-button::before {
+    background: linear-gradient(90deg, #B39855 0%, #FFF9E6 50%, #B39855 100%);
+    background-size: 200% auto;
+    animation: shine 3s linear infinite;
+}
+
+.purple-outline-button::before {
+    background: linear-gradient(90deg, #7E57C2 0%, #E1BEE7 50%, #7E57C2 100%);
+    background-size: 200% auto;
+    animation: shine 3s linear infinite;
+}
+
+.tag-blue,
+.tag-purple,
+.tag-yellow,
+.tag-gray {
+    position: relative;
+    isolation: isolate;
+    border: 0;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.tag-blue::before,
+.tag-purple::before,
+.tag-yellow::before,
+.tag-gray::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    padding: 1px;
+    border-radius: inherit;
+    pointer-events: none;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    background-size: 200% auto;
+    animation: shine 3s linear infinite;
+}
+
+.tag-blue {
+    color: #93C5FD;
+}
+
+.tag-purple {
+    color: #D8B4FE;
+}
+
+.tag-yellow {
+    color: #FDE68A;
+}
+
+.tag-gray {
+    color: #D1D5DB;
+}
+
+.tag-blue::before {
+    background: linear-gradient(90deg, #2563EB 0%, #BFDBFE 50%, #2563EB 100%);
+}
+
+.tag-purple::before {
+    background: linear-gradient(90deg, #7E22CE 0%, #E9D5FF 50%, #7E22CE 100%);
+}
+
+.tag-yellow::before {
+    background: linear-gradient(90deg, #CA8A04 0%, #FEF08A 50%, #CA8A04 100%);
+}
+
+.tag-gray::before {
+    background: linear-gradient(90deg, #6B7280 0%, #F3F4F6 50%, #6B7280 100%);
 }
 
 .shine-yellow-bg {

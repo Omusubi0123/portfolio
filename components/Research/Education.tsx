@@ -98,7 +98,7 @@ const Education: React.FC = () => {
                   <div className="shine-silver-text flex flex-wrap items-center gap-3 text-base font-semibold md:text-lg">
                     <span>{edu.period}</span>
                     {edu.current && (
-                      <span className="shine-lightblue-text rounded-full border border-blue-500/40 bg-gradient-to-r from-blue-600/20 to-blue-400/20 px-3 py-1 text-sm font-semibold">
+                      <span className="shine-blue-text rounded-full border border-blue-500/40 bg-black/30 px-3 py-1 text-sm font-semibold">
                         Current
                       </span>
                     )}
