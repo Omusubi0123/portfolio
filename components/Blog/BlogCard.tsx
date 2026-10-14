@@ -1,7 +1,11 @@
+"use client"
+
 import type React from 'react';
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
+import { useState } from 'react';
 import type { BlogPostMetadata } from '@/lib/blog';
+import ImageLightbox from './ImageLightbox';
 
 interface BlogCardProps {
   post: BlogPostMetadata;
@@ -9,28 +13,47 @@ interface BlogCardProps {
 
 const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
   const locale = useLocale();
-  return (
-    <Link
-      href={`/${locale}/blog/${post.id}`}
-      className="block group transform transition-all duration-300 hover:scale-105"
+  const [isImageOpen, setIsImageOpen] = useState(false);
 
-    >
-      <article className="bg-black/40 backdrop-blur-sm rounded-xl p-6 h-full border border-gray-700/50 hover:border-gray-500/70 transition-all duration-300 flex flex-col">
-        {post.thumbnail && (
-          <div className="mb-4 rounded-lg overflow-hidden">
-            <img
-              src={post.thumbnail}
-              alt={post.title}
-              loading="lazy"
-              className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
-            />
-          </div>
-        )}
+  return (
+    <>
+      <Link
+        href={`/${locale}/blog/${post.id}`}
+        className="block group transform transition-all duration-300 hover:scale-105"
+      >
+        <article className="bg-black/40 backdrop-blur-sm rounded-xl p-6 h-full border border-gray-700/50 hover:border-gray-500/70 transition-all duration-300 flex flex-col">
+          {post.thumbnail && (
+            <div
+              role="button"
+              tabIndex={0}
+              className="mb-4 block w-full cursor-zoom-in rounded-lg overflow-hidden text-left"
+              onClick={(event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                setIsImageOpen(true);
+              }}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  event.preventDefault();
+                  event.stopPropagation();
+                  setIsImageOpen(true);
+                }
+              }}
+              aria-label={`${post.title}の画像を拡大`}
+            >
+              <img
+                src={post.thumbnail}
+                alt={post.title}
+                loading="lazy"
+                className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+            </div>
+          )}
         
-        <div className="flex flex-col flex-grow">
-          <h3 className="text-xl md:text-2xl font-bold shine-gold-text mb-3 line-clamp-2">
-            {post.title}
-          </h3>
+          <div className="flex flex-col flex-grow">
+            <h3 className="text-xl md:text-2xl font-bold shine-gold-text mb-3 line-clamp-2">
+              {post.title}
+            </h3>
           
           <p className="text-gray-300 mb-4 line-clamp-3 flex-grow text-sm md:text-base">
             {post.summary}
@@ -61,9 +84,17 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
               })}
             </time>
           </div>
-        </div>
-      </article>
-    </Link>
+          </div>
+        </article>
+      </Link>
+      {isImageOpen && post.thumbnail && (
+        <ImageLightbox
+          src={post.thumbnail}
+          alt={post.title}
+          onClose={() => setIsImageOpen(false)}
+        />
+      )}
+    </>
   );
 };
 

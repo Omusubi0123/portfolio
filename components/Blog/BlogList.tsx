@@ -42,7 +42,7 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
               onClick={() => setSelectedTag(null)}
               className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${
                 selectedTag === null
-                  ? 'bg-yellow-600/60 text-yellow-100 font-semibold'
+                  ? 'gold-outline-button text-[#FFF9E6] font-semibold'
                   : 'tag-purple text-sm hover:bg-black/50'
               }`}
             >
@@ -54,7 +54,7 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
                 onClick={() => setSelectedTag(tag)}
                 className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${
                   selectedTag === tag
-                  ? 'bg-yellow-600/60 text-yellow-100 font-semibold'
+                  ? 'gold-outline-button text-[#FFF9E6] font-semibold'
                   : 'tag-purple hover:bg-black/50'
                 }`}
               >

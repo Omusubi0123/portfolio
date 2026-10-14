@@ -55,7 +55,6 @@
     "researchDev": { "name": "Research & Development", "description": "I like R&D. My research area is Mechanistic Interpretability. Still thinking about a PhD…" }
   },
   "certifications": {
-    "dlCourse": { "title": "UT Matsuo Lab Deep Learning Basics", "date": "Aug 2023" },
     "ap": { "title": "Applied Information Technology Engineer", "date": "Apr 2023" },
     "toeic": { "title": "TOEIC 835", "date": "Sep 2021" },
     "toefl": { "title": "TOEFL iBT 90", "date": "Aug 2026" }

@@ -55,7 +55,6 @@
     "researchDev": { "name": "Research & Development", "description": "研究分野はMechanistic Interpretability D進は悩み中…" }
   },
   "certifications": {
-    "dlCourse": { "title": "東大松尾研 DeepLearning基礎講座修了", "date": "2023年8月取得" },
     "ap": { "title": "応用情報技術者", "date": "2023年4月取得" },
     "toeic": { "title": "TOEIC 835点", "date": "2021年9月取得" },
     "toefl": { "title": "TOEFL iBT 90点", "date": "2026年8月取得" }

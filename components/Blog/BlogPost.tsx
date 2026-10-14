@@ -2,6 +2,7 @@
 
 import type React from 'react';
 import Link from 'next/link';
+import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
@@ -10,6 +11,7 @@ import rehypeHighlight from 'rehype-highlight';
 import rehypeRaw from 'rehype-raw';
 import type { BlogPost as BlogPostType } from '@/lib/blog';
 import './blog-styles.css';
+import ImageLightbox from './ImageLightbox';
 
 // 動画ファイルかどうかを判定する関数
 const isVideoFile = (url: string): boolean => {
@@ -22,8 +24,11 @@ interface BlogPostProps {
 }
 
 const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
+  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
+
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 min-h-screen py-20">
+    <>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 min-h-screen py-20">
       {/* 戻るリンク */}
       <Link 
         href="/blog" 
@@ -82,8 +87,9 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
               <img
                 src={post.thumbnail}
                 alt={post.title}
-                className="w-full h-full md:w-120 object-contain"
+                className="w-full h-full md:w-120 cursor-zoom-in object-contain"
                 style={{ maxHeight: '350px' }}
+                onClick={() => setSelectedImage({ src: post.thumbnail!, alt: post.title })}
               />
             )}
           </div>
@@ -172,7 +178,8 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
                   <img
                     src={src}
                     alt={alt}
-                    className="max-w-md w-full rounded-lg border border-gray-700 shadow-lg"
+                    className="max-w-md w-full cursor-zoom-in rounded-lg border border-gray-700 shadow-lg"
+                    onClick={() => src && setSelectedImage({ src, alt: alt || '' })}
                   />
                   {alt && (
                     <p className="text-center text-gray-500 text-sm mt-2">
@@ -235,7 +242,15 @@ const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
           </Link>
         </div>
       </div>
-    </div>
+      </div>
+      {selectedImage && (
+        <ImageLightbox
+          src={selectedImage.src}
+          alt={selectedImage.alt}
+          onClose={() => setSelectedImage(null)}
+        />
+      )}
+    </>
   );
 };
 
