@@ -42,11 +42,11 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
               onClick={() => setSelectedTag(null)}
               className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${
                 selectedTag === null
-                  ? 'shine-yellow-bg font-semibold'
+                  ? 'bg-yellow-600/60 text-yellow-100 font-semibold'
                   : 'tag-purple text-sm hover:bg-black/50'
               }`}
             >
-              <span className={selectedTag === null ? '' : 'shine-purple-text'}>{t('all')}</span>
+              <span>{t('all')}</span>
             </button>
             {allTags.map((tag) => (
               <button
@@ -54,11 +54,11 @@ const BlogList: React.FC<BlogListProps> = ({ posts }) => {
                 onClick={() => setSelectedTag(tag)}
                 className={`px-4 py-2 rounded-full text-sm transition-all duration-300 ${
                   selectedTag === tag
-                  ? 'shine-yellow-bg font-semibold'
+                  ? 'bg-yellow-600/60 text-yellow-100 font-semibold'
                   : 'tag-purple hover:bg-black/50'
                 }`}
               >
-                <span className={selectedTag === tag ? 'text-black' : 'shine-purple-text'}>{tag}</span>
+                <span>{tag}</span>
               </button>
             ))}
           </div>

@@ -65,17 +65,17 @@ const PresentationCard: React.FC<{ pres: Presentation; index: number }> = ({ pre
                   key={tag}
                   className="tag-blue rounded-full px-2.5 py-0.5 text-xs font-semibold"
                 >
-                  <span className="shine-blue-text">{tag}</span>
+                  <span>{tag}</span>
                 </span>
               ))}
             </div>
 
             <div className="mt-2 flex flex-wrap items-center gap-2">
               <span className="tag-purple rounded-full px-2.5 py-0.5 text-xs font-semibold">
-                <span className="shine-purple-text">{pres.event}</span>
+                <span>{pres.event}</span>
               </span>
               <span className="tag-gray rounded-full px-2.5 py-0.5 text-xs font-semibold">
-                <span className="shine-silver-text">{pres.date}</span>
+                <span>{pres.date}</span>
               </span>
             </div>
           </div>
@@ -84,7 +84,7 @@ const PresentationCard: React.FC<{ pres: Presentation; index: number }> = ({ pre
         {pres.description && (
           <div
             data-presentation-overlay
-            className="pointer-events-none absolute inset-0 flex max-h-full items-start overflow-y-auto overscroll-contain bg-black/85 p-5 opacity-0 transition-opacity duration-300 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-visible:pointer-events-auto group-focus-visible:opacity-100 md:p-8"
+            className="pointer-events-none absolute inset-0 flex max-h-full items-start overflow-y-auto overscroll-auto bg-black/85 p-5 opacity-0 transition-opacity duration-300 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-visible:pointer-events-auto group-focus-visible:opacity-100 md:p-8"
           >
             <div className="max-w-3xl">
               <p className="mb-2 text-base font-bold leading-snug shine-gold-text md:text-lg">

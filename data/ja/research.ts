@@ -94,7 +94,7 @@ export const presentationsJa: Presentation[] = [
     thumbnail: '/research/presentation/anosognosia-in-llms-slide.png',
     pdfUrl: '/research/presentation/anosognosia-in-llms-slide.pdf',
     tags: ['LLM', 'Mechanistic Interpretability', 'Quantization'],
-    description: 'LLMが自身の計算基盤の劣化（量子化）を認識することができるか、という論文。既存のLLMはSelf-Reportで量子化状態を認識できないが、内部状態では識別可能な差が存在しており、追加学習によりこの差分の読み出しが可能であることを示した。一方で、この読出しは内部状態の差を回答ラベルにマッピングしたものであり、他の量子化手法には汎化しない。',
+    description: '（修士時代に取り組んだ研究の解説スライドです）LLMが自身の計算基盤の劣化（量子化）を認識することができるか、という論文。既存のLLMはSelf-Reportで量子化状態を認識できないが、内部状態では識別可能な差が存在しており、追加学習によりこの差分の読み出しが可能であることを示した。一方で、この読出しは内部状態の差を回答ラベルにマッピングしたものであり、他の量子化手法には汎化しない。',
   },
   {
     id: 'style-modulation-head-presentation',
@@ -104,6 +104,26 @@ export const presentationsJa: Presentation[] = [
     thumbnail: '/research/presentation/style-modulation-head-slide.png',
     pdfUrl: '/research/presentation/style-modulation-head-slide.pdf',
     tags: ['LLM', 'Mechanistic Interpretability', 'Activation Steering', 'Persona Vector'],
-    description: 'LLMの内部状態に介入することで振る舞いを制御するActivation Steeringにおける性能低下の問題に取り組んだ論文。制御する特性としてLLMの人格（ペルソナ）に着目し、内部状態の解析を通じてペルソナは特定のAttention層の3つのヘッドで形成されていることを発見した（Style Modulation Headsと命名）。情報源の生成元にのみ介入することで性能低下を抑制しつつ振る舞いを制御可能にした。',
+    description: '（学部の卒論の解説スライドです）LLMの内部状態に介入することで振る舞いを制御するActivation Steeringにおける性能低下の問題に取り組んだ論文。制御する特性としてLLMの人格（ペルソナ）に着目し、内部状態の解析を通じてペルソナは特定のAttention層の3つのヘッドで形成されていることを発見した（Style Modulation Headsと命名）。情報源の生成元にのみ介入することで性能低下を抑制しつつ振る舞いを制御可能にした。',
+  },
+  {
+    id: 'introspective-awareness',
+    title: 'Emergent Introspective Awareness in Large Language Models',
+    event: '論文解説',
+    date: '2025',
+    thumbnail: '/research/presentation/introspective-awareness.png',
+    pdfUrl: '/research/presentation/introspective-awareness.pdf',
+    tags: ['LLM', 'Mechanistic Interpretability', 'Introspection'],
+    description: '田浦研究室での輪読会で発表した内容です。2025年度に読んだ論文の中でも3本の指に入る面白さだったこの論文を紹介しました。LLMが自身の内部状態への介入に気付くことができ（内省）、どのような概念が注入されたかもある程度特定できるという論文です。AnthropicのJack Lindseyによる単著論文で、非常に興味深い内容でした。',
+  },
+  {
+    id: 'spring-training-mpi',
+    title: 'MPI (Spring Training 2025)',
+    event: '技術解説',
+    date: '2025',
+    thumbnail: '/research/presentation/spring-training-mpi.png',
+    pdfUrl: '/research/presentation/spring-training-mpi.pdf',
+    tags: ['HPC', 'MPI', 'Parallel Computing'],
+    description: '田浦研究室のSpring Training（毎年5月に行われる、新人が研究室の研究分野に関する技術を解説する催し）で発表した内容です。HPCの基礎技術であるMPIについて、MPIの概要から、MPIを用いた並列計算の実装例までを解説しました。HPCの知識は浅かったですが、スライドにまとめる中で理解を深めることができました。',
   }
 ]

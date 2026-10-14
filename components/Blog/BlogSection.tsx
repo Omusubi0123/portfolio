@@ -101,7 +101,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
                               key={index}
                               className="tag-purple px-2 py-1 text-xs rounded-full"
                             >
-                              <span className="shine-purple-text">{tag}</span>
+                              <span>{tag}</span>
                             </span>
                           ))}
                           {post.tags.length > 2 && (
@@ -140,7 +140,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ posts }) => {
             href={`/${locale}/blog`}
             className="purple-outline-button inline-flex items-center px-4 py-2 text-base md:text-lg font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
           >
-            <span className="shine-purple-text">{tNav('viewAllPosts')}</span>
+            <span className="text-[#E1BEE7]">{tNav('viewAllPosts')}</span>
             <span aria-hidden="true" className="ml-3 text-2xl leading-none text-purple-200">→</span>
           </Link>
         </motion.div>

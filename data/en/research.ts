@@ -105,5 +105,25 @@ export const presentationsEn: Presentation[] = [
     pdfUrl: '/research/presentation/style-modulation-head-slide.pdf',
     tags: ['LLM', 'Mechanistic Interpretability', 'Activation Steering', 'Persona Vector'],
     description: 'This paper addresses the performance degradation issue in Activation Steering, a technique that controls LLM behavior by intervening in its internal states. Focusing on LLM personality (persona) as the target trait for control, the authors analyzed internal representations and discovered that personas are formed within three heads of specific attention layers, which they named "Style Modulation Heads." By intervening solely in the source layer generating the relevant information, the proposed approach successfully controls model behavior while mitigating performance degradation.',
+  },
+  {
+    id: 'introspective-awareness',
+    title: 'Emergent Introspective Awareness in Large Language Models',
+    event: 'Research Presentation',
+    date: '2025',
+    thumbnail: '/research/presentation/introspective-awareness.png',
+    pdfUrl: '/research/presentation/introspective-awareness.pdf',
+    tags: ['LLM', 'Mechanistic Interpretability', 'Introspection'],
+    description: 'This is the content presented at the Taura Laboratory seminar in 2025. Among the papers read that year, this one was particularly interesting. It introduces a paper on how LLMs can develop introspective awareness (self-awareness) and identify concepts that have been injected into their internal states. This single-authored paper by Jack Lindsey from Anthropic is very intriguing.',
+  },
+  {
+    id: 'spring-training-mpi',
+    title: 'MPI (Spring Training 2025)',
+    event: 'Technical Presentation',
+    date: '2025',
+    thumbnail: '/research/presentation/spring-training-mpi.png',
+    pdfUrl: '/research/presentation/spring-training-mpi.pdf',
+    tags: ['HPC', 'MPI', 'Parallel Computing'],
+    description: 'This is the content presented at the Taura Laboratory Spring Training in 2025. The Spring Training is an annual event where new members of the lab present technical knowledge related to their research fields. This presentation covered the fundamentals of MPI, a key technology in high-performance computing, including its overview and practical examples of parallel computing implementations.',
   }
 ]
