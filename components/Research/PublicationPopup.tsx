@@ -1,7 +1,7 @@
 "use client"
 
-import { useEffect, useRef, useState } from 'react'
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { useTranslations } from 'next-intl'
 import type { Publication } from '@/data'
 import { FaExternalLinkAlt } from 'react-icons/fa'
@@ -28,8 +28,10 @@ export default function PublicationPopup({ pub, onClose }: PublicationPopupProps
   const t = useTranslations('research')
   const popupRef = useRef<HTMLDivElement>(null)
   const [isImageOpen, setIsImageOpen] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
+    setIsMounted(true)
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose()
     }
@@ -39,9 +41,11 @@ export default function PublicationPopup({ pub, onClose }: PublicationPopupProps
     }
   }, [onClose])
 
-  return (
+  if (!isMounted) return null
+
+  return createPortal(
     <div
-      className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 p-4 overflow-y-auto"
+      className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-black/50 p-4"
       onClick={onClose}
     >
       <div
@@ -158,6 +162,7 @@ export default function PublicationPopup({ pub, onClose }: PublicationPopupProps
           />
         )}
       </div>
-    </div>
+    </div>,
+    document.body,
   )
 }
