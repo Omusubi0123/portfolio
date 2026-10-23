@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { generatePersonLD, generateWebsiteLD } from '@/lib/structured-data'
-import { getSiteConfig } from '@/lib/config'
+import { createLocalePageUrl, getSiteConfig } from '@/lib/config'
 import { isValidLocale, type Locale } from '@/lib/i18n'
 import { notFound } from 'next/navigation'
 import SetHtmlLang from '@/components/SetHtmlLang'
@@ -64,7 +64,8 @@ export default async function LocaleLayout({ children, params }: Props) {
   const messages = messagesMap[locale as Locale]
   const config = getSiteConfig(locale as Locale)
   const personLD = generatePersonLD(config)
-  const websiteLD = generateWebsiteLD(config)
+  const localeUrl = createLocalePageUrl(locale as Locale, '/')
+  const websiteLD = generateWebsiteLD(config, localeUrl)
 
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>

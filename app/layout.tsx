@@ -6,7 +6,7 @@ const defaultConfig = getSiteConfig('ja')
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: defaultConfig.title,
+  title: 'Yoshihiro Izawa',
   description: defaultConfig.description,
   keywords: defaultConfig.keywords,
   authors: [{ name: siteConfig.author.name }],
@@ -29,10 +29,10 @@ export const metadata: Metadata = {
     images: [siteConfig.ogImage],
   },
   robots: {
-    index: true,
+    index: false,
     follow: true,
     googleBot: {
-      index: true,
+      index: false,
       follow: true,
       'max-video-preview': -1,
       'max-image-preview': 'large',

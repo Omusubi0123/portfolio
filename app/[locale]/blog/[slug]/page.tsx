@@ -48,6 +48,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${post.title} | ${config.author.name}`,
     description: post.summary,
+    robots: {
+      index: false,
+      follow: true,
+    },
     keywords: [...post.tags, config.author.name, 'blog', 'tech'],
     authors: [{ name: config.author.name }],
     openGraph: {

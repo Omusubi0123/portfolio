@@ -1,5 +1,4 @@
 import { MetadataRoute } from 'next'
-import { getBlogPostMetadata } from '@/lib/blog'
 import { createLocalePageUrl } from '@/lib/config'
 import { locales } from '@/lib/i18n'
 
@@ -21,17 +20,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: new Date(),
         changeFrequency: 'weekly' as const,
         priority: 0.8,
+      },
+      {
+        url: createLocalePageUrl(locale, '/research'),
+        lastModified: new Date(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
       }
     )
-    const posts = getBlogPostMetadata(locale)
-    for (const post of posts) {
-      entries.push({
-        url: createLocalePageUrl(locale, `/blog/${post.id}`),
-        lastModified: new Date(post.date),
-        changeFrequency: 'monthly' as const,
-        priority: 0.6,
-      })
-    }
   }
 
   return entries

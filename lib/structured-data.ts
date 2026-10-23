@@ -52,13 +52,13 @@ export function generatePersonLD(config: SiteConfigLike = getSiteConfig('ja')) {
   }
 }
 
-export function generateWebsiteLD(config: SiteConfigLike = getSiteConfig('ja')) {
+export function generateWebsiteLD(config: SiteConfigLike = getSiteConfig('ja'), url = config.url) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Website',
     name: config.name,
     description: config.description,
-    url: config.url,
+    url,
     author: {
       '@type': 'Person',
       name: config.name,
