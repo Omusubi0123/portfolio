@@ -78,7 +78,7 @@ export const educationEn: Education[] = [
     institution: 'The University of Tokyo',
     lab: 'Taura Laboratory',
     institutionUrl: 'https://www.u-tokyo.ac.jp/en/',
-    departmentUrl: 'https://www.eeis.t.u-tokyo.ac.jp/en/',
+    departmentUrl: 'https://www.ee.t.u-tokyo.ac.jp/en/',
     labUrl: 'https://www.eidos.ic.i.u-tokyo.ac.jp/',
     period: '2022.4 - 2026.3',
     current: false,
@@ -86,6 +86,16 @@ export const educationEn: Education[] = [
 ]
 
 export const presentationsEn: Presentation[] = [
+  {
+    id: 'rinko-261023-survey-presentation',
+    title: 'LLM and Agent Safety: Challenges and Current Research Directions',
+    event: 'Seminar',
+    date: '2026',
+    thumbnail: '/research/presentation/rinko-261023-survey.png',
+    pdfUrl: '/research/presentation/rinko-261023-survey.pdf',
+    tags: ['AI Safety', 'LLM', 'Agent'],
+    description: 'This presentation was given during a seminar in my master\'s program. I surveyed the latest research trends on AI safety, particularly focusing on the surging concerns regarding cyberattacks and runaway of agents. The presentation, delivered on October 23, 2026, outlines the challenges associated with LLM and agent safety and introduces current research directions aimed at addressing these issues.',
+  },
   {
     id: 'anosognosia-in-llms-presentation',
     title: 'Anosognosia in LLMs: Probing Self-Awareness of Quantized Computational Substrate',

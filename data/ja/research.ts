@@ -78,7 +78,7 @@ export const educationJa: Education[] = [
     institution: '東京大学',
     lab: '田浦研究室',
     institutionUrl: 'https://www.u-tokyo.ac.jp/ja/',
-    departmentUrl: 'https://www.eeis.t.u-tokyo.ac.jp/',
+    departmentUrl: 'https://www.ee.t.u-tokyo.ac.jp/',
     labUrl: 'https://www.eidos.ic.i.u-tokyo.ac.jp/',
     period: '2023.4 - 2026.3',
     current: false,
@@ -86,6 +86,16 @@ export const educationJa: Education[] = [
 ]
 
 export const presentationsJa: Presentation[] = [
+  {
+    id: 'rinko-261023-survey-presentation',
+    title: 'LLM, Agentの安全性に関する課題と解決に向けた研究動向（サーベイ）',
+    event: '輪講',
+    date: '2026',
+    thumbnail: '/research/presentation/rinko-261023-survey.png',
+    pdfUrl: '/research/presentation/rinko-261023-survey.pdf',
+    tags: ['AI Safety', 'LLM', 'Agent'],
+    description: '（修士時代の大学院の輪講での発表スライドです）2026年下半期に入り深刻化するAIの安全性（サイバー攻撃、Agentの暴走）について、2026年10月23日当時の最前線の研究動向をサーベイした内容です。LLMやAgentの安全性に関する課題を整理し、解決に向けた研究動向を紹介しました。',
+  },
   {
     id: 'anosognosia-in-llms-presentation',
     title: 'Anosognosia in LLMs: Probing Self-Awareness of Quantized Computational Substrate',
