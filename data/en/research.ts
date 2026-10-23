@@ -93,8 +93,8 @@ export const presentationsEn: Presentation[] = [
     date: '2026',
     thumbnail: '/research/presentation/rinko-261023-survey.png',
     pdfUrl: '/research/presentation/rinko-261023-survey.pdf',
-    tags: ['AI Safety', 'LLM', 'Agent'],
-    description: 'This presentation was given during a seminar in my master\'s program. I surveyed the latest research trends on AI safety, particularly focusing on the surging concerns regarding cyberattacks and runaway of agents. The presentation, delivered on October 23, 2026, outlines the challenges associated with LLM and agent safety and introduces current research directions aimed at addressing these issues.',
+    tags: ['Survey', 'AI Safety', 'LLM', 'Agent'],
+    description: 'This is a survey presentation given during a seminar in my master\'s program. I surveyed the latest research trends on AI safety, particularly focusing on the surging concerns regarding cyberattacks and runaway of agents. The presentation, delivered on October 23, 2026, outlines the challenges associated with LLM and agent safety and introduces current research directions aimed at addressing these issues.',
   },
   {
     id: 'anosognosia-in-llms-presentation',
