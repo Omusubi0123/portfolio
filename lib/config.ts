@@ -26,7 +26,7 @@ const localeConfig: Record<Locale, { title: string; description: string; keyword
   ja: {
     name: '井澤慶広',
     title: '井澤慶広',
-    description: '東京大学でコンピュータサイエンスを学び、Mechanistic Interpretabilityを研究する井澤慶広のポートフォリオです。',
+    description: '東京大学 情報理工学系研究科 電子情報学専攻 修士1年、山肩研究室に所属。AIモデルの解釈性（Mechanistic Interpretability）の研究に取り組んでいます。',
     keywords: [
       'Yoshihiro Izawa',
       '井澤慶広',
@@ -42,7 +42,7 @@ const localeConfig: Record<Locale, { title: string; description: string; keyword
   en: {
     name: 'Yoshihiro Izawa',
     title: 'Yoshihiro Izawa',
-    description: 'Belonging to The University of Tokyo, computer science student. My research major is Mechanistic Interpretability.',
+    description: "I'm a first-year master's student at The University of Tokyo, supervised by Professor Yoko Yamakata. I'm interested in combining mechanistic interpretability with neuro/bio/cognitive science to develop more human-aligned AI models.",
     keywords: [
       'Yoshihiro Izawa',
       'portfolio',
