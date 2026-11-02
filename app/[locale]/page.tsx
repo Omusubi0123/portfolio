@@ -60,7 +60,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: pageUrl,
       title: config.title,
       description: config.description,
-      siteName: config.name,
+      siteName: config.siteName,
       locale: locale === 'ja' ? 'ja_JP' : 'en_US',
     },
   }

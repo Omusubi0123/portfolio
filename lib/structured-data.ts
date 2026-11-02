@@ -56,7 +56,7 @@ export function generateWebsiteLD(config: SiteConfigLike = getSiteConfig('ja'), 
   return {
     '@context': 'https://schema.org',
     '@type': 'Website',
-    name: config.name,
+    name: config.siteName,
     description: config.description,
     url,
     author: {

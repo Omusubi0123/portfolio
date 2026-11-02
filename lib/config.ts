@@ -7,6 +7,9 @@ const baseUrl = `https://${domain}`
 
 export const siteConfig = {
   domain,
+  // Google treats the site name as a domain-level property, so keep it
+  // identical on both language versions. Page titles remain localized below.
+  siteName: 'Yoshihiro Izawa | 井澤慶広',
   get url() {
     return baseUrl
   },

@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: config.url,
       title: config.title,
       description: config.description,
-      siteName: config.name,
+      siteName: config.siteName,
       images: [
         { url: config.ogImage, width: 1200, height: 630, alt: config.name },
       ],
