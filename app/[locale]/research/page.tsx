@@ -35,8 +35,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   if (!isValidLocale(locale)) return {}
   const config = getSiteConfig(locale as Locale)
-  const title = `Research | ${config.author.name}`
-  const description = 'Publications, awards, and presentations in AI research, focusing on Mechanistic Interpretability. By Yoshihiro Izawa, The University of Tokyo.'
+  const isJapanese = locale === 'ja'
+  const title = isJapanese ? `研究 | ${config.name}` : `Research | ${config.name}`
+  const description = isJapanese
+    ? '井澤慶広の研究成果、受賞歴、発表資料を掲載しています。Mechanistic Interpretabilityを中心としたAI研究を紹介します。'
+    : 'Research publications, awards, and presentations by Yoshihiro Izawa, focusing on Mechanistic Interpretability and AI safety.'
   return {
     title,
     description,
